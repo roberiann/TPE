@@ -1,0 +1,384 @@
+html {
+    font-size: 3vw;
+    font-family: 'Roboto', sans-serif;
+    color: #575756;
+    text-align: justify;
+    line-height: 150%;
+    margin: 0;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    margin: 0 auto 1% auto;
+    border-bottom: 0.0625rem solid #ddd;
+    padding-bottom: 2%;
+}
+
+.btn-nav {
+    background-image: url("../images/menu.png");
+    background-repeat: no-repeat;
+    padding: 10px 13px;
+    border-radius: 4px;
+    border: 2px solid #ddd;
+}
+
+ul.navigation>li:hover {
+    color: #88c1ba;
+}
+
+.nav-li {
+    list-style: none;
+    font-size: 0.9rem;
+    padding: 0.3125rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+ul.navigation {
+    display: none;
+}
+
+ul.navigation.show {
+    border: 0.0625rem solid #ddd;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+    box-shadow: inset 0 0 0.1875rem 0.0625rem rgb(209, 209, 209);
+}
+
+
+/**************** Footer *********/
+
+footer {
+    background-color: #88c1ba;
+    border-radius: 0.3125rem;
+    margin-top: 3%;
+    display: flex;
+    align-items: center;
+}
+
+.product {
+    grid-area: "product";
+}
+
+.category {
+    display: grid;
+    grid-template-areas: "product product" "product product" "product product" "product product";
+}
+
+.social-network {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 8%;
+}
+
+img {
+    width: 100%;
+}
+
+.img-footer {
+    width: 50%;
+}
+
+.img-leaf {
+    width: 1.25rem;
+    margin-right: 2%;
+}
+
+
+/********** Lista de categorias********/
+
+.category-product {
+    grid-area: "category";
+}
+
+.product-list {
+    display: grid;
+    grid-template-areas: "category category";
+    font-style: italic;
+    list-style: none;
+    line-height: 1.7;
+    padding: 0 0 0 3%;
+}
+
+
+/*************Texto**************/
+
+h1 {
+    background-color: #88c1ba;
+    text-align: center;
+    border: none;
+    border-radius: 0.625rem;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    text-align: center;
+}
+
+h5 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 3% 0 3% 0;
+}
+
+.footer-paragraph {
+    color: white;
+    font-size: 0.9rem;
+    margin-left: 1%;
+    text-align: left;
+}
+
+
+/**************** Tabla de información nutricional ***********/
+
+td {
+    border: 0.0625rem solid #a6dbd5;
+    text-align: center;
+    font-style: italic;
+}
+
+.nutricional-table {
+    text-align: center;
+    font-size: 0.9rem;
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 0.125rem #a6dbd5;
+    margin-top: 1.5%;
+}
+
+th {
+    background: linear-gradient(#55a59c, #f3f7f6);
+    color: #575756;
+    border: 0.125rem solid #a6dbd5;
+}
+
+.input-table {
+    width: 80%;
+    border: none;
+    text-align: center;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.input-table:focus {
+    outline: none;
+}
+
+.btn-mod {
+    font-family: 'Roboto', sans-serif;
+    background-color: #55a59c;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 0.4em;
+    color: #FFFFFF;
+    font-weight: 400;
+    box-shadow: inset 0 -1.6em 1em -0.35em rgba(0, 0, 0, 0.17), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+    text-align: center;
+}
+
+.btn {
+    margin: 0.3%;
+    width: 6.5rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: #55a59c;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 0.4em;
+    color: #FFFFFF;
+    padding: 0.7em 0.9em;
+    font-weight: 400;
+    box-shadow: inset 0 -1.6em 1em -0.35em rgba(0, 0, 0, 0.17), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+    text-align: center;
+}
+
+#btnReload {
+    margin-right: 1%;
+}
+
+.btn:hover {
+    background: #88c1ba;
+}
+
+input,
+textarea,
+button:focus {
+    outline: none;
+}
+
+.btn-reload {
+    margin-right: 1%;
+}
+
+.hide-tr {
+    display: none;
+}
+
+.green-tr {
+    font-weight: bold;
+    background-color: #def1ef;
+}
+
+
+/********************************/
+
+.message {
+    font-weight: bold;
+    margin: 0 0 3% 1%;
+}
+
+.ok-message {
+    color: green;
+}
+
+.img-visible {
+    visibility: hidden;
+}
+
+.error-message {
+    color: #e02b27;
+    background: #fae5e5;
+}
+
+.contact-paragraph {
+    margin: 5% 3% 0 3%;
+    text-align: left;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.contact {
+    grid-area: "contact";
+}
+
+.contact-options {
+    display: grid;
+    grid-template-areas: "contact contact contact contact" "contact contact contact contact";
+}
+
+
+/********** Formulario ************/
+
+.main-container {
+    display: flex;
+    justify-content: space-around;
+    border: 0.0625rem solid #ececec;
+    padding: 1% 0;
+}
+
+.secondary-container {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+label {
+    margin: 2% 0;
+}
+
+.textarea {
+    resize: none;
+    font-family: inherit;
+}
+
+.form-input,
+textarea {
+    background-color: #e5e9ec;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    padding: 1%;
+}
+
+.captcha-message {
+    align-items: center;
+    display: flex;
+    height: 100%;
+}
+
+.form-btn {
+    display: flex;
+}
+
+.btn-filter {
+    display: flex;
+}
+
+@media only screen and (min-width:768px) {
+    html {
+        font-size: 1.1vw;
+        margin: auto;
+        width: 80%;
+    }
+    /*   .middle-wrapper {
+        flex-direction: row;
+    }
+    .main {
+        flex-grow: 7;
+    }
+    .sidebar {
+        flex-grow: 3;
+    } */
+    header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    .nav-li {
+        font-size: 1.1em;
+    }
+    footer {
+        display: flex;
+        justify-content: space-between;
+    }
+    .btn-nav {
+        display: none;
+    }
+    ul.navigation {
+        display: flex;
+    }
+    .img-footer {
+        width: 40%;
+    }
+    .category {
+        display: grid;
+        grid-template-columns: repeat(4, 20.8%);
+        grid-template-rows: repeat(2, 48.5%);
+        grid-gap: 0.625rem;
+        justify-content: center;
+    }
+    .product-list {
+        display: flex;
+        flex-direction: column;
+    }
+    .main-category {
+        display: flex;
+        justify-content: space-between;
+    }
+    .table-admin {
+        margin-left: 5%;
+    }
+    .btn-table {
+        display: flex;
+        margin-top: 1%;
+    }
+}
