@@ -13,23 +13,6 @@ class AlmacenController {
 
     }
 
-    // function AutoCompletar(){
-    //     $tasks = $this->model->GetTasks();
-
-    //     foreach($tasks as $task){
-    //         $title = $task->title;
-    //         $word = "Completada";
-
-    //         if(strpos($title, $word) !== false){
-    //             $this->model->MarkAsCompletedTask($task->id);
-    //         }
-    //     }
-
-    //    $tasks = $this->model->GetTasks();
-       
-    //    $this->view->ShowHome($tasks);
-    // }
-
     function Home() {
          $this->view->ShowHome();
     }   
