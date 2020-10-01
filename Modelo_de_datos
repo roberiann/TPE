@@ -2,32 +2,32 @@
 
 db_almacen
 
-USUARIO
-id_usuario
+usuario
+id
 nombre
 apellido
 email
 pass
 estado
 
-productos (id_producto, nombre, descripcion, precio, stock, id_categoria) 
+producto (id, nombre, descripcion, precio, stock, id_categoria) 
 
-INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (1, 'Poroto', 'Origen : Argentina.', 300, 10,1);
-INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (2, 'Lentejas', 'Origen : Argentina.', 300, 10,1);
-INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (3, 'Girasol', 'Origen : Argentina.', 300, 10,2);
-INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (4, 'Chia', 'Origen : Argentina.', 500, 10,2);
-INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (5, 'Sesamo', 'Origen : Argentina.', 400, 10,2);
-INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (6, 'Avena', 'Origen : Argentina.', 150, 10,3);
-INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (7, 'Arroz', 'Origen : Argentina.', 100, 10,3);
-INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (8, 'Pimenton', 'Origen : Argentina.', 1000, 10,4);
-INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (9, 'Provenzal', 'Origen : Argentina.', 700, 10,4);
-INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (10, 'Nuez mariposa', 'Origen : Argentina.', 1100, 10,5);
-INSERT INTO `producto` (`id_producto`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (11, 'Mani', 'Origen : Argentina.', 400, 10,5);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (1, 'Poroto', 'Origen : Argentina.', 300, 10,1);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (2, 'Lentejas', 'Origen : Argentina.', 300, 10,1);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (3, 'Girasol', 'Origen : Argentina.', 300, 10,2);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (4, 'Chia', 'Origen : Argentina.', 500, 10,2);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (5, 'Sesamo', 'Origen : Argentina.', 400, 10,2);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (6, 'Avena', 'Origen : Argentina.', 150, 10,3);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (7, 'Arroz', 'Origen : Argentina.', 100, 10,3);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (8, 'Pimenton', 'Origen : Argentina.', 1000, 10,4);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (9, 'Provenzal', 'Origen : Argentina.', 700, 10,4);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (10, 'Nuez mariposa', 'Origen : Argentina.', 1100, 10,5);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (11, 'Mani', 'Origen : Argentina.', 400, 10,5);
 
-categorias (id_categoria, nombre, descripcion)
+categoria (id, nombre, descripcion)
 
-INSERT INTO `categorias` (`id_categoria`, `nombre`, `descripcion`) VALUES (1, 'Legumbres', 'Se denomina legumbre a la semilla contenida en las plantas de la familia de las Leguminosas.');
-INSERT INTO `categorias` (`id_categoria`, `nombre`, `descripcion`) VALUES (2, 'Semillas', 'Aportan sabor y color a preparaciones dulces y saladas.');
-INSERT INTO `categorias` (`id_categoria`, `nombre`, `descripcion`) VALUES (3, 'Cereales', 'Los cereales son plantas de la familia de las poáceas cultivadas por su grano.');
-INSERT INTO `categorias` (`id_categoria`, `nombre`, `descripcion`) VALUES (4, 'Especias', 'Especia, ​ también llamada condimento es el nombre dado a ciertos aromas de origen vegetal, que se usan para preservar o dar sabor a los alimentos.');
-INSERT INTO `categorias` (`id_categoria`, `nombre`, `descripcion`) VALUES (5, 'Frutas secas', 'Los frutos secos son llamados así porque todos tienen una característica en común: en su composición natural tienen menos de un 50 % de agua.');
+INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (1, 'Legumbres', 'Se denomina legumbre a la semilla contenida en las plantas de la familia de las Leguminosas.');
+INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (2, 'Semillas', 'Aportan sabor y color a preparaciones dulces y saladas.');
+INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (3, 'Cereales', 'Los cereales son plantas de la familia de las poáceas cultivadas por su grano.');
+INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (4, 'Especias', 'Especia, ​ también llamada condimento es el nombre dado a ciertos aromas de origen vegetal, que se usan para preservar o dar sabor a los alimentos.');
+INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (5, 'Frutas secas', 'Los frutos secos son llamados así porque todos tienen una característica en común: en su composición natural tienen menos de un 50 % de agua.');

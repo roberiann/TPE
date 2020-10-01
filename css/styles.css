@@ -27,7 +27,12 @@ header {
     border: 2px solid #ddd;
 }
 
-ul.navigation>li:hover {
+li>a {
+    text-decoration: none;
+    color: #575756;
+}
+
+a:hover {
     color: #88c1ba;
 }
 
@@ -175,34 +180,21 @@ th {
     border: none;
     text-align: center;
     font-style: italic;
-    font-size: 1rem;
 }
 
 .input-table:focus {
     outline: none;
 }
 
-.btn-mod {
-    font-family: 'Roboto', sans-serif;
-    background-color: #55a59c;
-    font-size: 0.9rem;
-    border: none;
-    border-radius: 0.4em;
-    color: #FFFFFF;
-    font-weight: 400;
-    box-shadow: inset 0 -1.6em 1em -0.35em rgba(0, 0, 0, 0.17), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
-    text-align: center;
-}
-
 .btn {
     margin: 0.3%;
     width: 6.5rem;
     font-family: 'Roboto', sans-serif;
-    background-color: #55a59c;
     font-size: 0.9rem;
     border: none;
     border-radius: 0.4em;
     color: #FFFFFF;
+    background-color: #55a59c;
     padding: 0.7em 0.9em;
     font-weight: 400;
     box-shadow: inset 0 -1.6em 1em -0.35em rgba(0, 0, 0, 0.17), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
@@ -316,7 +308,7 @@ textarea {
 }
 
 .form-btn {
-    display: flex;
+    display: flex; 
 }
 
 .btn-filter {
