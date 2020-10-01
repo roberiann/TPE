@@ -31,26 +31,6 @@ class AlmacenModel {
         $sentencia->execute(array($id_categoria));
         return $sentencia->fetch(PDO::FETCH_OBJ);
     }
-
-
-
-    // function InsertTask($title,$description,$completed,$priority){
-    //     $sentencia = $this->db->prepare("INSERT INTO task(title, description, completed, priority) VALUES(?,?,?,?)");
-    //     $sentencia->execute(array($title,$description,$completed,$priority));
-    // }
-    
-    // function DeleteTaskDelModelo($task_id){
-    //     $sentencia = $this->db->prepare("DELETE FROM task WHERE id=?");
-    //     $sentencia->execute(array($task_id));
-    // }
-    
-    // function MarkAsCompletedTask($task_id){
-    //     $sentencia = $this->db->prepare("UPDATE task SET completed=1 WHERE id=?");
-    //     $sentencia->execute(array($task_id));
-    
-    // }
-
-
 }
 
 ?>
