@@ -13,6 +13,22 @@ class AlmacenController {
 
     }
 
+    private function checkLoggedIn(){
+        session_start();
+        
+        if(!isset($_SESSION["EMAIL"])){
+            header("Location: ". LOGIN);
+            die();
+        }else{
+            if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1000000)) { 
+                header("Location: ". LOGOUT);
+                die();
+            } 
+        
+            $_SESSION['LAST_ACTIVITY'] = time();
+        }
+    }
+
     // function AutoCompletar(){
     //     $tasks = $this->model->GetTasks();
 
@@ -31,7 +47,7 @@ class AlmacenController {
     // }
 
     function Home() {
-         $this->view->ShowHome();
+        $this->checkLoggedIn();
     }   
 
     function Category() {
