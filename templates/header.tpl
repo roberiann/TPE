@@ -32,7 +32,7 @@
                 <li class="nav-li"><a href="home">Home</a></li>
                 <li class="nav-li"><a href="category">Categorias</a></li>
 				<li class="nav-li"><a href="product">Productos</a></li>
-                <li class="nav-li"><a href="login"></a></li>
+                <li class="nav-li"><a href="login">Login</a></li>
 
             </ul>
         </nav>

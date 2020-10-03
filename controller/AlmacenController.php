@@ -48,6 +48,8 @@ class AlmacenController {
 
     function Home() {
         $this->checkLoggedIn();
+        $this->view->ShowHome();
+
     }   
 
     function Category() {
