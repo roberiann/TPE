@@ -1,7 +1,7 @@
 <?php
 
-require_once './view/AlmacenView.php';
-require_once './model/AlmacenModel.php';
+require_once './views/AlmacenView.php';
+require_once './models/AlmacenModel.php';
 
 class AlmacenController {
     private $view;
@@ -40,7 +40,7 @@ class AlmacenController {
         $this->view->ShowCategories($categories);
     }   
 
-    function Product() {
+    function Products() {
         $products = $this->model->GetProducts();
         $this->view->ShowProducts($products);
     }   
@@ -48,8 +48,15 @@ class AlmacenController {
     function ProductsByCategory($params=null) {
         $id_categoria = $params[':ID'];
         $products = $this->model->GetProductsByCategory($id_categoria);
-        $this->view->ShowProducts($products);
+        $this->view->ShowProductsByCategory($products);
         
     }   
 
+    function ShowProductDetail($params=null) {
+        $id_producto = $params[':ID'];
+        $product = $this->model->GetProduct($id_producto);
+        $this->view->ShowProductDetail($product);
+    }   
+    
+  
 }   

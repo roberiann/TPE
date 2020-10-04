@@ -1,6 +1,6 @@
 <?php
-    require_once 'controller/AlmacenController.php';
-    require_once 'controller/UserController.php';
+    require_once './controllers/AlmacenController.php';
+    require_once './controllers/UserController.php';
     require_once 'RouterClass.php';
     
     // CONSTANTES PARA RUTEO
@@ -17,8 +17,9 @@
     $r->addRoute("logout", "GET", "UserController", "Logout");
     $r->addRoute("verifyUser", "POST", "UserController", "verifyUser");
     $r->addRoute("category", "GET", "AlmacenController", "Category");
-    $r->addRoute("product", "GET", "AlmacenController", "Product");
+    $r->addRoute("product", "GET", "AlmacenController", "Products");
     $r->addRoute("category/:ID", "GET", "AlmacenController", "ProductsByCategory");
+    $r->addRoute("product/:ID", "GET", "AlmacenController", "ShowProductDetail");
     
     
     //Esto lo veo en TasksView

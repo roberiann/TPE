@@ -2,7 +2,7 @@
          <ul>
 
               {foreach from=$categories item=category}
-				<li>{$category->nombre} | {$category->descripcion}</li>	  
+				<li>{$category->nombre} {$category->descripcion}</li>	  
               {/foreach}
           
           </ul>
