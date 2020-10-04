@@ -17,7 +17,7 @@ class AlmacenModel {
     function GetProduct($id_product){
         $sentencia = $this->db->prepare("SELECT * FROM producto WHERE id=?");
         $sentencia->execute(array($id_product));
-        return $sentencia->fetch(PDO::FETCH_OBJ);
+        return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
     function GetCategories(){

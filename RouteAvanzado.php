@@ -1,15 +1,21 @@
 <?php
     require_once 'controller/AlmacenController.php';
+    require_once 'controller/UserController.php';
     require_once 'RouterClass.php';
     
     // CONSTANTES PARA RUTEO
     //define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+    define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
+    define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
 
     $r = new Router();
 
     // rutas
     $r->addRoute("home", "GET", "AlmacenController", "Home");
+    $r->addRoute("login", "GET", "UserController", "Login");
+    $r->addRoute("logout", "GET", "UserController", "Logout");
+    $r->addRoute("verifyUser", "POST", "UserController", "verifyUser");
     $r->addRoute("category", "GET", "AlmacenController", "Category");
     $r->addRoute("product", "GET", "AlmacenController", "Product");
     $r->addRoute("category/:ID", "GET", "AlmacenController", "ProductsByCategory");
