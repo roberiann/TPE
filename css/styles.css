@@ -374,3 +374,36 @@ textarea {
         margin-top: 1%;
     }
 }
+
+/***********************************/
+
+.panel-color >.panel-heading{
+    background-color:#18bc9c ;
+    color:white;
+}
+.shadow{
+    -webkit-box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    border-left: 10px solid #18bc9c;
+    border-right: 10px solid #18bc9c;
+
+    overflow:hidden;
+}
+
+.btn-color1{
+    background-color:#18bc9c;
+    color:white;
+}
+
+.btn-color1:hover{
+    background-color:white;
+    color:#18bc9c;
+    border: 1px solid #18bc9c;
+}
+.input-group-addon {background:#18bc9c;
+    color: white;
+}
+.color{
+    color:#18bc9c;
+}

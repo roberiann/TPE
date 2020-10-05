@@ -4,9 +4,13 @@ class AlmacenModel {
 
     private $db;
     
-    //Preguntar si conviene que sea en constructor la conexión o función privada.
     function __construct(){
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_almacen;charset=utf8', 'root', '');
+        $this->db = $this->Connect();
+    }
+
+    private function Connect(){
+        $db = new PDO('mysql:host=localhost;'.'dbname=db_almacen;charset=utf8', 'root', '');
+        return $db;
     }
 
     //Preguntar si hay que dividir en 2 model aunque tenga joins.

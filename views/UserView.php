@@ -14,6 +14,7 @@ class UserView{
     function ShowLogin(){
 
         $smarty = new Smarty();
+        $smarty->assign('message', 'HOLA');
         $smarty->assign('titulo', $this->title);
         $smarty->display('templates/login.tpl'); // muestro el template 
     }

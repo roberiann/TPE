@@ -1,19 +1,29 @@
-{include file="header.tpl"}
-<div class="container">
+{include file="headerLogin.tpl"}
 
-       <form action="verifyUser" method="post">
-                    <div class="form-group">
-                        <label for="user">Ususario</label>
-                        <input class="form-control" id="user" name="input_user" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
-                        <label for="pass">Password</label>
-                        <input type="password" class="form-control" id="pass" name="input_pass">
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Ingresar</button>
-        </form>
-
+<div class="wrapper">
+	<div class="container">
+		<h1>Bienvenido</h1>
+		
+		<form class="form" action="verifyUser" method="post">
+			<input type="text"  id="user" name="input_user" aria-describedby="emailHelp" placeholder="Usuario">
+			<input type="password" id="pass" name="input_pass" placeholder="Password">
+			<button type="submit" id="login-button">Continuar</button>
+		</form>
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
 </div>
 
-{include file="footer.tpl"}
+
+{include file="footerLogin.tpl"}
