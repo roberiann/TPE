@@ -8,12 +8,12 @@ class UserView{
     
 
     function __construct(){
-        $this->title = "Login";
+        $this->title = "¡Hola! Para ingresar, ingresá tu e-mail y password.";
     }
 
     function ShowLogin(){
-
         $smarty = new Smarty();
+        $smarty->assign('logo', 'images/logo.png');
         $smarty->assign('message', 'HOLA');
         $smarty->assign('titulo', $this->title);
         $smarty->display('templates/login.tpl'); // muestro el template 

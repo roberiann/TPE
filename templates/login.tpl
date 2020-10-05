@@ -1,8 +1,7 @@
 {include file="headerLogin.tpl"}
-
 <div class="wrapper">
 	<div class="container">
-		<h1>Bienvenido</h1>
+		<h2>{$titulo}</h2>
 		
 		<form class="form" action="verifyUser" method="post">
 			<input type="text"  id="user" name="input_user" aria-describedby="emailHelp" placeholder="Usuario">

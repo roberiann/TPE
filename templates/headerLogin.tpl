@@ -11,3 +11,6 @@
             <title>{$titulo}</title>
             </head>
             <body>
+                <div>
+                    <img src="images/logo.png" alt="Logo">
+                </div>

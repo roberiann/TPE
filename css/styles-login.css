@@ -59,6 +59,11 @@ body :-ms-input-placeholder {
     transform: translateY(85px);
 }
 
+img {
+    z-index: 1;
+    position: absolute;
+}
+
 .container {
     max-width: 600px;
     margin: 0 auto;
