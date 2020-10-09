@@ -1,10 +1,20 @@
 {include file="header.tpl"}
-         <ul>
 
-              {foreach from=$categories item=category}
-				<li>{$category->nombre} {$category->descripcion}</li>	  
-              {/foreach}
-          
-          </ul>
+<div>
+    <img class="img-seed" src="images/semillas.jpg" alt="Semillas">
+</div>
+
+<h1>{$titulo}</h1>
+<main class="category">
+
+    {foreach from=$categories item=category}
+        <div>
+            <h3> {$category->nombre} </h3>
+            <a href="category/{$category->id}"><img src="images/{$category->nombre}.png" alt="{$category->nombre}"></a>
+        </div>    
+    
+    {/foreach}
+
+</main>
 
 {include file="footer.tpl"}

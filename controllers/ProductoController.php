@@ -1,16 +1,15 @@
 <?php
 
-require_once './views/AlmacenView.php';
-require_once './models/AlmacenModel.php';
+require_once './views/ProductoView.php';
+require_once './models/ProductoModel.php';
 
-class AlmacenController {
+class ProductoController {
     private $view;
     private $model;
 
     function __construct(){
-        $this->view = new AlmacenView();
-        $this->model = new AlmacenModel();
-
+        $this->view = new ProductoView();
+        $this->model = new ProductoModel();
     }
 
     private function checkLoggedIn(){
@@ -35,11 +34,6 @@ class AlmacenController {
 
     }   
 
-    function Category() {
-        $categories = $this->model->GetCategories();
-        $this->view->ShowCategories($categories);
-    }   
-
     function Products() {
         $products = $this->model->GetProducts();
         $this->view->ShowProducts($products);
@@ -49,7 +43,6 @@ class AlmacenController {
         $id_categoria = $params[':ID'];
         $products = $this->model->GetProductsByCategory($id_categoria);
         $this->view->ShowProductsByCategory($products);
-        
     }   
 
     function ShowProductDetail($params=null) {

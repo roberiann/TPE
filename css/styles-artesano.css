@@ -1,0 +1,149 @@
+body {
+    font-size: 1.1vw;
+    font-family: 'Roboto', sans-serif;
+    color: #575756;
+    text-align: justify;
+    line-height: 150%;
+    margin: auto;
+    width: 80%;
+}
+
+a {
+    color: #575756;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #88c1ba;
+}
+
+li>a {
+    text-decoration: none;
+    color: #575756;
+}
+
+.nav-item {
+    list-style: none;
+    font-size: 1.1em;
+    padding: 0.3125rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+header {
+    border-bottom: 0.0625rem solid #ddd;
+}
+
+img {
+    width: 100%;
+}
+
+.img-footer {
+    width: 40%;
+}
+
+.img-leaf {
+    width: 1.25rem;
+    margin-right: 2%;
+}
+
+.img-seed {
+    margin-top: 1%;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #88c1ba;
+    border-radius: 0.3125rem;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    align-items: center;
+    padding: 0.8%;
+}
+
+.social-network {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 8%;
+}
+
+.footer-paragraph {
+    color: white;
+    font-size: 0.9rem;
+    margin-left: 1%;
+    text-align: left;
+    font-weight: bold;
+}
+
+h1 {
+    background-color: #88c1ba;
+    text-align: center;
+    border: none;
+    border-radius: 0.625rem;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 150%;
+    margin-top: 1%;
+}
+
+.category {
+    display: grid;
+    grid-template-columns: repeat(4, 20.8%);
+    grid-template-rows: repeat(2, 48.5%);
+    grid-gap: 0.625rem;
+    justify-content: center;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    text-transform: uppercase;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    margin-left: 26%;
+}
+
+td {
+    border: 0.0625rem solid #a6dbd5;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
+    color: #575756;
+}
+
+.table-almacen {
+    text-align: center;
+    font-size: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 0.125rem #a6dbd5;
+    margin-top: 1.5%;
+}
+
+th {
+    background: linear-gradient(#55a59c, #f3f7f6);
+    color: #575756;
+    border: 0.125rem solid #a6dbd5;
+}
+
+.input-table {
+    width: 80%;
+    border: none;
+    text-align: center;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.input-table:focus {
+    outline: none;
+}

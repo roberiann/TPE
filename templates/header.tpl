@@ -4,38 +4,43 @@
 <head>
     <base href="{BASE_URL}">
     <meta charset="UTF-8">
-	<title>{$titulo}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="shortcut icon" href="images/artesano.ico" mce_href="artesano.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="css/styles.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{$titulo}</title>
+
     <!-- Bootstrap CSS -->
-  	
-      <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
-
-
-   <!--   <script src="js/btn-displayer.js"></script>-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="shortcut icon" href="images/artesano.ico" mce_href="artesano.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles-artesano.css">
 </head>
 
 <body>
-     
     <header>
-        <div class="logo">
-            <button class="btn-nav" id="btn_menu"></button>
-            <div>
-                <img class="img-logo" src="images/logo.png" alt="Logo">
-            </div>
-        </div>
-        <nav>
-            <ul class="navigation">
-                <li class="nav-li"><a href="home">Home</a></li>
-                <li class="nav-li"><a href="category">Categorias</a></li>
-				<li class="nav-li"><a href="product">Productos</a></li>
-                <li class="nav-li"><a href="login">Login</a></li>
 
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="home"><img src="images/logo.png" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="category">CATEGORIAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product">PRODUCTOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login">LOGIN</a>
+                    </li>
+                    {* <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li> *}
+                </ul>
+            </div>
         </nav>
     </header>
-	
-	<h1>{$titulo}</h1>
+
+    

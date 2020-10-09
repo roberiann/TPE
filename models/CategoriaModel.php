@@ -1,6 +1,6 @@
 <?php
 
-class AlmacenModel {
+class CategoriaModel {
 
     private $db;
     
@@ -13,10 +13,8 @@ class AlmacenModel {
         return $db;
     }
 
-    //Preguntar si hay que dividir en 2 model aunque tenga joins.
-
     function GetProducts(){
-        $query = $this->db->prepare("SELECT `p`.`id` as `id_producto`, `p`.`nombre` as `nombre_producto`, `p`.`descripcion` as `desc_producto`, `p`.`precio` as `precio`, `p`.`stock` as `stock`, `c`.`nombre` as `nombre_categoria` FROM producto p INNER JOIN categoria c ON `p`.`id_categoria`=`c`.`id`");
+        $query = $this->db->prepare("SELECT `p`.`id` as `id_producto`, `p`.`nombre` as `nombre_producto`, `p`.`descripcion` as `desc_producto`, `p`.`precio` as `precio`, `p`.`stock` as `stock`, `c`.`id` as `id_categoria`, `c`.`nombre` as `nombre_categoria` FROM producto p INNER JOIN categoria c ON `p`.`id_categoria`=`c`.`id`");
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
@@ -34,7 +32,7 @@ class AlmacenModel {
     }    
 
     function GetProductsByCategory($id_categoria){
-        $sentencia = $this->db->prepare("SELECT `p`.`nombre` as `nombre_producto`, `p`.`descripcion` as `desc_producto`, `c`.`nombre` as `nombre_categoria` FROM producto p INNER JOIN categoria c ON `p`.`id_categoria`=`c`.`id` AND `c`.`id_categoria=?`");
+        $sentencia = $this->db->prepare("SELECT `p`.`nombre` as `nombre_producto`, `p`.`descripcion` as `desc_producto`, `c`.`nombre` as `nombre_categoria` FROM producto p INNER JOIN categoria c ON `p`.`id_categoria`=`c`.`id` AND `c`.`id`=?`");
         $sentencia->execute(array($id_categoria));
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }

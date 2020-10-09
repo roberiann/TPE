@@ -2,7 +2,7 @@
 
 require_once "./libs/smarty/Smarty.class.php";
 
-class AlmacenView {
+class CategoriaView {
 
     function __construct(){
     }
@@ -39,7 +39,7 @@ class AlmacenView {
     function ShowCategories($categories){
 
         $smarty = new Smarty();
-        $smarty->assign('titulo', 'Categorias');
+        $smarty->assign('titulo', 'CATEGORIAS');
         $smarty->assign('categories', $categories);
       
         $smarty->display('templates/categories.tpl'); 
