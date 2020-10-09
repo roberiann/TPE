@@ -15,7 +15,6 @@
         <tbody>
             {foreach from=$products item=product}
                 <tr>
-                    {* <th scope="row">1</th> *}
                     <td><a href="product/{$product->id_producto}">{$product->nombre_producto}</a></td>
                     <td>{$product->desc_producto}</td>
                     <td>{$product->nombre_categoria}</td>
@@ -23,15 +22,7 @@
             {/foreach}
           <tbody>
     </tbody>
-    <tfoot>
-        {* <tr>
-            <td><input class="input-table" id="producto" type="text" placeholder=""></td>
-            <td><input class="input-table" id="carbo" type="text"></td>
-            <td><input class="input-table" id="grasas" type="text"></td>
-            <td><input class="input-table" id="proteinas" type="text"></td>
-            <td><input class="input-table" id="agua" type="text"></td>
-        </tr> *}
-    </tfoot>  
     </table> 
 </main>
 {include file="footer.tpl"}
+

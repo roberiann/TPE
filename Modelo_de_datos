@@ -24,6 +24,17 @@ INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_ca
 INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (10, 'Nuez mariposa', 'Origen : Argentina.', 1100, 10,5);
 INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (11, 'Mani', 'Origen : Argentina.', 400, 10,5);
 
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (12, 'Dulce de leche', 'Origen : Argentina.', 1000, 10,6);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (13, 'Baño de chocolate', 'Origen : Argentina.', 700, 10,6);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (14, 'Tostadas de arroz', 'Origen : Argentina.', 1100, 10,7);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (15, 'Barra energizante', 'Origen : Argentina.', 400, 10,7);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (16, 'Leche de almendras', 'Origen : Argentina.', 1100, 10,8);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (17, 'Pasta de aceituna', 'Origen : Argentina.', 400, 10,8);
+
+
+
+
+
 categoria (id, nombre, descripcion)
 
 INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (1, 'Legumbres', 'Se denomina legumbre a la semilla contenida en las plantas de la familia de las Leguminosas.');
@@ -31,3 +42,6 @@ INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (2, 'Semillas', '
 INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (3, 'Cereales', 'Los cereales son plantas de la familia de las poáceas cultivadas por su grano.');
 INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (4, 'Especias', 'Especia, ​ también llamada condimento es el nombre dado a ciertos aromas de origen vegetal, que se usan para preservar o dar sabor a los alimentos.');
 INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (5, 'Frutas secas', 'Los frutos secos son llamados así porque todos tienen una característica en común: en su composición natural tienen menos de un 50 % de agua.');
+INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (6, 'Repostería', 'Decoración de tartas, pasteles, galletas, budines');
+INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (7, 'Celíacos', 'Todo tipo de alimneto apto celíaco');
+INSERT INTO `categoria` (`id`, `nombre`, `descripcion`) VALUES (8, 'Gourmet', 'Alta cocina y a la cultura del buen comer');

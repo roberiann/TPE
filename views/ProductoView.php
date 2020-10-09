@@ -20,6 +20,13 @@ class ProductoView {
         $smarty->display('templates/products.tpl'); 
     }
 
+    function ShowProductsAdmin($products){
+        $smarty = new Smarty();
+        $smarty->assign('titulo', 'LISTADO DE PRODUCTOS');
+        $smarty->assign('products', $products);     
+        $smarty->display('templates/productsAdmin.tpl'); 
+    }
+
     function ShowProductDetail($product){
         $smarty = new Smarty();
         $smarty->assign('titulo', 'Detalle de producto');
