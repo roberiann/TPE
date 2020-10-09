@@ -1,6 +1,6 @@
 {include file="headerLogin.tpl"}
    <div class="container">
-        <form class="form-horizontal" role="form" method="POST" action="/login">
+        <form class="form-horizontal" role="form" method="POST" action="verifyUser">
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">

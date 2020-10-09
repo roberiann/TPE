@@ -13,28 +13,7 @@ class CategoriaView {
         $smarty->display('templates/home.tpl'); 
     }
 
-    function ShowProducts($products){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'Listado de productos');
-        $smarty->assign('url', 'product/');
-        $smarty->assign('products', $products);     
-        $smarty->display('templates/products.tpl'); 
-    }
-
-    function ShowProductDetail($product){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'Detalle de producto');
-        $smarty->assign('product', $product);     
-        $smarty->display('templates/productDetail.tpl'); 
-    }
-
-    function ShowProductsByCategory($products){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', $products->nombre_categoria);
-        $smarty->assign('products', $products);     
-        $smarty->display('templates/productsbycategory.tpl'); 
-    }
-
+   
 
     function ShowCategories($categories){
 

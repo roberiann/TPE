@@ -6,7 +6,7 @@
 <main class="container">
           <ul class="list-group list-group-flush">
               {foreach from=$products item=product}
-                <li class="list-group-item"><img class="img-leaf" src="images/hojita.png" alt="hojita"><a href="product/:ID"> {$product->nombre_producto} </a> </li>
+                <li class="list-group-item"><img class="img-leaf" src="images/hojita.png" alt="hojita"><a href="product/{$product->id_producto}"> {$product->nombre_producto} </a> </li>
               {/foreach}
           </ul>
 </main>          

@@ -40,7 +40,6 @@ class ProductoView {
         $smarty = new Smarty();
         $smarty->assign('titulo', 'CATEGORIAS');
         $smarty->assign('categories', $categories);
-      
         $smarty->display('templates/categories.tpl'); 
     }
 

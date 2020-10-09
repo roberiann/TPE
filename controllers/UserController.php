@@ -23,13 +23,13 @@ class UserController{
     function Logout(){
         session_start();
         session_destroy();
-        header("Location: ".LOGIN);
+        header("Location: ".BASE_URL."home");
 
     }
 
     function VerifyUser(){
-        $user = $_POST["input_user"];
-        $pass = $_POST["input_pass"];
+        $user = $_POST["email"];
+        $pass = $_POST["password"];
 
         if(isset($user)){
             $userFromDB = $this->model->GetUser($user);

@@ -32,7 +32,7 @@ class ProductoModel {
     }    
 
     function GetProductsByCategory($id_categoria){
-        $sentencia = $this->db->prepare("SELECT `p`.`nombre` as `nombre_producto`, `p`.`descripcion` as `desc_producto`, `c`.`nombre` as `nombre_categoria` FROM producto p INNER JOIN categoria c ON `p`.`id_categoria`=`c`.`id` AND `c`.`id`=?");
+        $sentencia = $this->db->prepare("SELECT `p`.`nombre` as `nombre_producto`,`p`.`id` as `id_producto`, `p`.`descripcion` as `desc_producto`, `c`.`nombre` as `nombre_categoria` FROM producto p INNER JOIN categoria c ON `p`.`id_categoria`=`c`.`id` AND `c`.`id`=?");
         $sentencia->execute(array($id_categoria));
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
