@@ -15,7 +15,7 @@
         <tbody>
             {foreach from=$products item=product}
                 <tr>
-                    <td><a href="product/{$product->id_producto}">{$product->nombre_producto}</a></td>
+                    <td><a href="product/{$product->id_producto}"><strong>{$product->nombre_producto}</strong></a></td>
                     <td>{$product->desc_producto}</td>
                     <td>{$product->nombre_categoria}</td>
                 </tr>

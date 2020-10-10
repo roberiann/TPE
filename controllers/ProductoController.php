@@ -2,16 +2,19 @@
 
 require_once './views/ProductoView.php';
 require_once './models/ProductoModel.php';
+require_once './models/CategoriaModel.php';
 
 class ProductoController
 {
     private $view;
     private $model;
+    private $modelCat;
 
     function __construct()
     {
         $this->view = new ProductoView();
         $this->model = new ProductoModel();
+        $this->modelCat = new CategoriaModel();
     }
 
     function Products()
@@ -63,8 +66,16 @@ class ProductoController
         $this->Products();
     }
     
+    function ShowProduct($params = null){
+        $id_producto = $params[':ID'];
+        $product = $this->model->GetProduct($id_producto); 
+        $categories = $this->modelCat->GetCategories();
+        $this->view->ShowProductEdit($product,$categories);
+        
+    }
+
     function EditProduct(){
-        $this->model->EditProduct($_POST['input_producto'],$_POST['input_description'], $_POST['input_precio'],$_POST['input_stock'],$_POST['input_viejo']) ;
+        $this->model->EditProduct($_POST['input_id-producto'],$_POST['input_producto'],$_POST['input_description'], $_POST['input_precio'],$_POST['input_stock'],$_POST['input_categoria']) ;
         $this->Products();
     }
 

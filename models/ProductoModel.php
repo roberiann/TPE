@@ -20,7 +20,7 @@ class ProductoModel {
     }
     
     function GetProduct($id_product){
-        $sentencia = $this->db->prepare("SELECT `p`.`id` as `id_producto`, `p`.`nombre` as `nombre_producto`, `p`.`descripcion` as `desc_producto`, `p`.`precio` as `precio`, `p`.`stock` as `stock`, `c`.`nombre` as `nombre_categoria` FROM producto p INNER JOIN categoria c ON `p`.`id_categoria`=`c`.`id` WHERE `p`.`id`=?");
+        $sentencia = $this->db->prepare("SELECT `p`.`id` as `id_producto`, `p`.`nombre` as `nombre_producto`, `p`.`descripcion` as `desc_producto`, `p`.`precio` as `precio`, `p`.`stock` as `stock`, `c`.`id` as `id_categoria`,`c`.`nombre` as `nombre_categoria` FROM producto p INNER JOIN categoria c ON `p`.`id_categoria`=`c`.`id` WHERE `p`.`id`=?");
         $sentencia->execute(array($id_product));
         return $sentencia->fetch(PDO::FETCH_OBJ);
     }
@@ -37,13 +37,13 @@ class ProductoModel {
     }
 
     function InsertProduct($producto,$description,$precio,$stock,$categoria){
-        $sentencia = $this->db->prepare("INSERT INTO producto(nombre, descripcion, precio, stock, id_categoria) VALUES(?,?,?,?,?)");
+        $sentencia = $this->db->prepare("INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`) VALUES (NULL, ?, ?, ?, ?, ?)");
         $sentencia->execute(array($producto,$description,$precio,$stock,$categoria));
     }
-
-    function EditProduct($producto,$description,$precio,$stock,$viejo){
-        $sentencia = $this->db->prepare("UPDATE `producto` SET `nombre` =?, `descripcion` =? , `precio` =?, `stock` =? WHERE `producto`.`nombre` =?");
-        $sentencia->execute(array($producto,$description,$precio,$stock,$viejo));    
+   
+    function EditProduct($id_producto,$producto,$description,$precio,$stock,$categoria){
+        $sentencia = $this->db->prepare("UPDATE `producto` SET `nombre`=?, `descripcion`=?, `precio`=?, `stock`=?, `id_categoria`=? WHERE `producto`.`id`=?");
+        $sentencia->execute(array($producto, $description, $precio, $stock, $categoria, $id_producto));    
     }
 }
 

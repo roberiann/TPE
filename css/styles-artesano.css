@@ -91,6 +91,7 @@ footer {
 }
 
 h1 {
+    text-transform: uppercase;
     background-color: #88c1ba;
     text-align: center;
     border: none;

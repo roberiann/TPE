@@ -51,10 +51,15 @@ class ProductoView {
     }
 
 
-    // function ShowEditTask($task){
-    //     //TODO hacer con Smarty
-      
-    // }
+    function ShowProductEdit($product,$categories){
+        $smarty = new Smarty();
+        $smarty->assign('titulo', 'Edición de Producto');
+        $smarty->assign('categories', $categories);     
+        $smarty->assign('product', $product);     
+        $smarty->display('templates/productDetailEdit.tpl'); 
+    }
+
+
 
     function ShowHomeLocation(){
         header("Location: ".BASE_URL."home");
