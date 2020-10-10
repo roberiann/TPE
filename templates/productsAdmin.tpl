@@ -43,5 +43,16 @@
             </tr>
         </tfoot>
     </table>
+
+    <form action="update" method="post">
+        <input  id="producto" name="input_producto" type="text" placeholder="NombreNuevo">
+        <input  id="precio" name="input_precio" type="text" placeholder="PrecioNuevo">
+        <input  id="stock" name="input_stock" type="text" placeholder="StockNuevo">
+        <input  id="descripcion" name="input_description" type="text" placeholder="DescrNueva"><br />
+        <input  id="producto" name="input_viejo" type="text" placeholder="NombreViejo">
+
+        <button type="submit" class="btn btn-table" id="btn-editar">editar</button>
+    </form>
+
 </main>
 {include file="footer.tpl"}

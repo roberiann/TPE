@@ -41,6 +41,10 @@ class ProductoModel {
         $sentencia->execute(array($producto,$description,$precio,$stock,$categoria));
     }
 
+    function EditProduct($producto,$description,$precio,$stock,$viejo){
+        $sentencia = $this->db->prepare("UPDATE `producto` SET `nombre` =?, `descripcion` =? , `precio` =?, `stock` =? WHERE `producto`.`nombre` =?");
+        $sentencia->execute(array($producto,$description,$precio,$stock,$viejo));    
+    }
 }
 
 ?>

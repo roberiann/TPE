@@ -79,5 +79,9 @@ class ProductoController
         $this->Products();
     }
     
+    function EditProduct(){
+        $this->model->EditProduct($_POST['input_producto'],$_POST['input_description'], $_POST['input_precio'],$_POST['input_stock'],$_POST['input_viejo']) ;
+        $this->Products();
+    }
 
 }
