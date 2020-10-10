@@ -9,7 +9,7 @@ class UserModel{
     }
      
     function GetUser($user){
-        $sentencia = $this->db->prepare("SELECT * FROM user WHERE email=?");
+        $sentencia = $this->db->prepare("SELECT * FROM usuario WHERE email=?");
         $sentencia->execute(array($user));
         return $sentencia->fetch(PDO::FETCH_OBJ);
     }

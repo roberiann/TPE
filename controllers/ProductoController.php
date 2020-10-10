@@ -39,18 +39,19 @@ class ProductoController
 
     function Products()
     {
-        session_start();
-        if (!isset($_SESSION["EMAIL"])) {
-            $products = $this->model->GetProducts();
-            $this->view->ShowProducts($products);
-            die();
-        } else  if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1000000)) {
+        // session_start();
+        // if (!isset($_SESSION["EMAIL"])) {
             $products = $this->model->GetProducts();
             $this->view->ShowProductsAdmin($products);
-            die();
-        }
-        $_SESSION['LAST_ACTIVITY'] = time();
+        //     die();
+        // } else  if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1000000)) {
+        //     $products = $this->model->GetProducts();
+        //     $this->view->ShowProducts($products);
+        //     die();
+        // }
+        // $_SESSION['LAST_ACTIVITY'] = time();
     }
+
 
     function ProductsByCategory($params = null)
     {
@@ -65,4 +66,18 @@ class ProductoController
         $product = $this->model->GetProduct($id_producto);
         $this->view->ShowProductDetail($product);
     }
+
+    function DeleteProduct($params = null)
+    {
+        $id_producto = $params[':ID'];
+        $this->model->Delete($id_producto);
+        $this->Products();
+    }
+
+    function InsertProduct(){
+        $this->model->InsertProduct($_POST['input_producto'],$_POST['input_description'], $_POST['input_precio'],$_POST['input_stock'],$_POST['input_categoria']) ;
+        $this->Products();
+    }
+    
+
 }

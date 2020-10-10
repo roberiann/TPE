@@ -25,17 +25,22 @@ class ProductoModel {
         return $sentencia->fetch(PDO::FETCH_OBJ);
     }
 
-    function GetCategories(){
-        $sentencia = $this->db->prepare("SELECT * FROM categoria");
-        $sentencia->execute();
-        return $sentencia->fetchAll(PDO::FETCH_OBJ);
-    }    
-
     function GetProductsByCategory($id_categoria){
         $sentencia = $this->db->prepare("SELECT `p`.`nombre` as `nombre_producto`,`p`.`id` as `id_producto`, `p`.`descripcion` as `desc_producto`, `c`.`nombre` as `nombre_categoria` FROM producto p INNER JOIN categoria c ON `p`.`id_categoria`=`c`.`id` AND `c`.`id`=?");
         $sentencia->execute(array($id_categoria));
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
+
+    function Delete($id_producto){
+        $sentencia = $this->db->prepare("DELETE FROM producto WHERE id=?");
+        $sentencia->execute(array($id_producto));
+    }
+
+    function InsertProduct($producto,$description,$precio,$stock,$categoria){
+        $sentencia = $this->db->prepare("INSERT INTO producto(nombre, descripcion, precio, stock, id_categoria) VALUES(?,?,?,?,?)");
+        $sentencia->execute(array($producto,$description,$precio,$stock,$categoria));
+    }
+
 }
 
 ?>

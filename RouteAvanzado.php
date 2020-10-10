@@ -20,7 +20,9 @@
     $r->addRoute("product", "GET", "ProductoController", "Products");
     $r->addRoute("category/:ID", "GET", "ProductoController", "ProductsByCategory");
     $r->addRoute("product/:ID", "GET", "ProductoController", "ShowProductDetail");
-    
+    $r->addRoute("delete/:ID", "GET", "ProductoController", "DeleteProduct");
+    $r->addRoute("insert", "POST", "ProductoController", "InsertProduct");
+
     //Ruta por defecto.
     $r->setDefaultRoute("CategoriaController", "Home");
 
