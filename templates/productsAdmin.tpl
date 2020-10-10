@@ -24,7 +24,7 @@
                     <td> {$product->stock}</td>
                     <td> {$product->desc_producto}</td>
                     <td> {$product->nombre_categoria}</td>
-                    <td><button class="btn-mod"><a href="delete/{$product->id_producto}">X</a></button></td>
+                    <td><button class="btn-mod"><a href="deleteprod/{$product->id_producto}">X</a></button></td>
                     {* <td><button class="btn-mod" id="btn-edit">Edit</button></td> *}
                 </tr>
             {/foreach}
@@ -32,7 +32,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <form action="insert" method="post">
+                <form action="insertprod" method="post">
                     <td><input class="input-table" id="producto" name="input_producto" type="text" placeholder=""></td>
                     <td><input class="input-table" id="precio" name="input_precio" type="text"></td>
                     <td><input class="input-table" id="stock" name="input_stock" type="text"></td>
@@ -44,7 +44,7 @@
         </tfoot>
     </table>
 
-    <form action="update" method="post">
+    <form action="updateprod" method="post">
         <input  id="producto" name="input_producto" type="text" placeholder="NombreNuevo">
         <input  id="precio" name="input_precio" type="text" placeholder="PrecioNuevo">
         <input  id="stock" name="input_stock" type="text" placeholder="StockNuevo">

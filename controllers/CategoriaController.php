@@ -30,7 +30,6 @@ class CategoriaController {
     }
 
     function Home() {
-        // $this->checkLoggedIn();
         $this->view->ShowHome();
 
     }   

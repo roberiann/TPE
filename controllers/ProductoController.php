@@ -14,42 +14,26 @@ class ProductoController
         $this->model = new ProductoModel();
     }
 
-    private function checkLoggedIn()
-    {
-        session_start();
-
-        if (!isset($_SESSION["EMAIL"])) {
-            header("Location: " . LOGIN);
-            die();
-        } else {
-            if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1000000)) {
-                header("Location: " . LOGOUT);
-                die();
-            }
-
-            $_SESSION['LAST_ACTIVITY'] = time();
-        }
-    }
-
-    function Home()
-    {
-        $this->checkLoggedIn();
-        $this->view->ShowHome();
-    }
-
     function Products()
     {
-        // session_start();
-        // if (!isset($_SESSION["EMAIL"])) {
+        session_start();
+        
+        if(!isset($_SESSION["EMAIL"])){
+            $products = $this->model->GetProducts();
+            $this->view->ShowProducts($products);
+            die();
+        }else{
             $products = $this->model->GetProducts();
             $this->view->ShowProductsAdmin($products);
-        //     die();
-        // } else  if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1000000)) {
-        //     $products = $this->model->GetProducts();
-        //     $this->view->ShowProducts($products);
-        //     die();
-        // }
-        // $_SESSION['LAST_ACTIVITY'] = time();
+            if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1000000)) { 
+                header("Location: ". LOGOUT);
+
+                die();
+            } 
+        
+            $_SESSION['LAST_ACTIVITY'] = time();
+        }
+        
     }
 
 
