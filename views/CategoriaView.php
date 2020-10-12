@@ -13,14 +13,10 @@ class CategoriaView {
         $smarty->display('templates/home.tpl'); 
     }
 
-   
-
     function ShowCategories($categories){
-
         $smarty = new Smarty();
         $smarty->assign('titulo', 'CATEGORIAS');
-        $smarty->assign('categories', $categories);
-      
+        $smarty->assign('categories', $categories);      
         $smarty->display('templates/categories.tpl'); 
     }
 
@@ -41,7 +37,6 @@ class CategoriaView {
     function ShowHomeLocation(){
         header("Location: ".BASE_URL."home");
     }
-
 
 }
 

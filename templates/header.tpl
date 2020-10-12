@@ -35,9 +35,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="login">LOGIN</a>
                     </li>
-                    {* <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li> *}
+                    <li class="nav-item">
+                        <a class="nav-link" href="login"><img src="images/login.png" alt="Login"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout">LOGOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout"><img src="images/logout.png" alt="Logout"></a>
+                    </li>
                 </ul>
             </div>
         </nav>

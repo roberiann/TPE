@@ -17,7 +17,7 @@
     $r->addRoute("home", "GET", "CategoriaController", "Home");    //A cual controller conviene?
     $r->addRoute("login", "GET", "UserController", "Login");
     $r->addRoute("logout", "GET", "UserController", "Logout");
-    $r->addRoute("verifyUser", "POST", "UserController", "verifyUser");
+    $r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
     $r->addRoute("category", "GET", "CategoriaController", "Category");
     $r->addRoute("insertCat", "POST", "CategoriaController", "InsertCategory");
     $r->addRoute("deletecat/:ID", "GET", "CategoriaController", "DeleteCategory");
