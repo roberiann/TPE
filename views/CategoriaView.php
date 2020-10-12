@@ -24,11 +24,19 @@ class CategoriaView {
         $smarty->display('templates/categories.tpl'); 
     }
 
+    function ShowCategoriesAdmin($categories){
+        $smarty = new Smarty();
+        $smarty->assign('titulo', 'LISTADO DE CATEGORIAS');
+        $smarty->assign('categories', $categories);     
+        $smarty->display('templates/categoriesAdmin.tpl'); 
+    }
 
-    // function ShowEditTask($task){
-    //     //TODO hacer con Smarty
-      
-    // }
+    function ShowCategoryEdit($category){ 
+        $smarty = new Smarty();
+        $smarty->assign('titulo', 'Edición de Categoria');
+        $smarty->assign('category', $category);     
+        $smarty->display('templates/categoryEdit.tpl'); 
+    }
 
     function ShowHomeLocation(){
         header("Location: ".BASE_URL."home");

@@ -37,8 +37,11 @@
                     <td><input class="input-table" id="precio" name="input_precio" type="text"></td>
                     <td><input class="input-table" id="stock" name="input_stock" type="text"></td>
                     <td><input class="input-table" id="descripcion" name="input_description" type="text"></td>
-                    <td><input class="input-table" id="categoria" name="input_categoria" type="text"></td>
-                    {* Agregar select *}
+                    <td><select name="input_categoria" class="form-control" value="">
+                        {foreach from=$categories item=category}
+                        <option value="{$category->id}">{$category->nombre}</option>
+                         {/foreach}
+                    </select></td>
                     <td><button type="submit" class="btn btn-table" id="btn-agregar">Agregar</button></td>
                 </form>
             </tr>

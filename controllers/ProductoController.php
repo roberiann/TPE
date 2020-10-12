@@ -27,7 +27,8 @@ class ProductoController
             die();
         }else{
             $products = $this->model->GetProducts();
-            $this->view->ShowProductsAdmin($products);
+            $categories = $this->modelCat->GetCategories();
+            $this->view->ShowProductsAdmin($products,$categories);
             if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1000000)) { 
                 header("Location: ". LOGOUT);
 
@@ -58,13 +59,14 @@ class ProductoController
     {
         $id_producto = $params[':ID'];
         $this->model->Delete($id_producto);
-        $this->Products();
+        header("Location: ". PRODUCT);
     }
 
     function InsertProduct(){
         $this->model->InsertProduct($_POST['input_producto'],$_POST['input_description'], $_POST['input_precio'],$_POST['input_stock'],$_POST['input_categoria']) ;
-        $this->Products();
+        header("Location: ". PRODUCT);   
     }
+    
     
     function ShowProduct($params = null){
         $id_producto = $params[':ID'];
@@ -76,7 +78,7 @@ class ProductoController
 
     function EditProduct(){
         $this->model->EditProduct($_POST['input_id-producto'],$_POST['input_producto'],$_POST['input_description'], $_POST['input_precio'],$_POST['input_stock'],$_POST['input_categoria']) ;
-        $this->Products();
+        header("Location: ". PRODUCT);    
     }
 
 }
