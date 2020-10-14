@@ -22,7 +22,7 @@ class AuthHelper
     {
         session_start();
         session_destroy();
-        header("Location: " . LOGIN);
+        header("Location: ".BASE_URL."home");
     }
 
     function login($user)
