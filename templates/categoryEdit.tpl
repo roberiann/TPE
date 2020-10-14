@@ -1,11 +1,11 @@
-{include file="header.tpl"}
+{include file="headerLoggedIn.tpl"}
 <div>
     <img class="img-seed" src="images/semillas.jpg" alt="Semillas">
 </div>
 <h1>{$titulo}</h1>
 <main class="container">
 
-    <form action="editctg" method="post">
+    <form action="edit-category" method="post">
         <input type="hidden" id="id_categoria" name="input_id-categoria" value="{$category->id_categoria}">
         <div class="form-group">
             <label for="title">Categoria</label>
@@ -20,5 +20,3 @@
 
 </main>
 {include file="footer.tpl"}
-
-

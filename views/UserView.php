@@ -2,23 +2,20 @@
 
 require_once "./libs/smarty/Smarty.class.php";
 
-class UserView{
+class UserView
+{
 
-    private $title;
-    
+    private $smarty;
 
-    function __construct(){
-        $this->title = "¡Hola! Para ingresar, ingresá tu e-mail y password.";
+    function __construct()
+    {
+        $this->smarty = new Smarty();
+        $this->smarty->assign('titulo', "¡Hola! Para ingresar, ingresá tu e-mail y password.");
     }
 
-    function ShowLogin(){
-        $smarty = new Smarty();
-        $smarty->assign('message', 'HOLA');
-        $smarty->assign('titulo', $this->title);
-        $smarty->display('templates/login.tpl'); // muestro el template 
+    function ShowLogin($error = null)
+    {
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/login.tpl');
     }
-
 }
-
-
-?>

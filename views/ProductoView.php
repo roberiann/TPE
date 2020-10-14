@@ -2,72 +2,34 @@
 
 require_once "./libs/smarty/Smarty.class.php";
 
-class ProductoView {
+class ProductoView
+{
 
-    function __construct(){
+    private $smarty;
+
+    function __construct()
+    {
+        $this->smarty = new Smarty();
     }
 
-    function ShowHome(){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'Arte Sano');   
-        $smarty->display('templates/home.tpl'); 
+    function ShowProducts($products)
+    {
+        $this->smarty->assign('titulo', 'LISTADO DE PRODUCTOS');
+        $this->smarty->assign('products', $products);
+        $this->smarty->display('templates/products.tpl');
     }
 
-    function ShowProducts($products){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'LISTADO DE PRODUCTOS');
-        $smarty->assign('products', $products);     
-        $smarty->display('templates/products.tpl'); 
+    function ShowProductDetail($product)
+    {
+        $this->smarty->assign('titulo', 'Detalle de producto');
+        $this->smarty->assign('product', $product);
+        $this->smarty->display('templates/productDetail.tpl');
     }
 
-    function ShowProductsAdmin($products,$categories){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'LISTADO DE PRODUCTOS');
-        $smarty->assign('categories', $categories);     
-        $smarty->assign('products', $products);     
-        $smarty->display('templates/productsAdmin.tpl'); 
+    function ShowProductsByCategory($products)
+    {
+        $this->smarty->assign('titulo', $products[0]->nombre_categoria);
+        $this->smarty->assign('products', $products);
+        $this->smarty->display('templates/productsbycategory.tpl');
     }
-
-    function ShowProductDetail($product){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'Detalle de producto');
-        $smarty->assign('product', $product);     
-        $smarty->display('templates/productDetail.tpl'); 
-    }
-
-    function ShowProductsByCategory($products){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', $products[0]->nombre_categoria);
-        $smarty->assign('products', $products);     
-        $smarty->display('templates/productsbycategory.tpl'); 
-    }
-
-
-    function ShowCategories($categories){
-
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'CATEGORIAS');
-        $smarty->assign('categories', $categories);
-        $smarty->display('templates/categories.tpl'); 
-    }
-
-
-    function ShowProductEdit($product,$categories){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'Edición de Producto');
-        $smarty->assign('categories', $categories);     
-        $smarty->assign('product', $product);     
-        $smarty->display('templates/productDetailEdit.tpl'); 
-    }
-
-
-
-    function ShowHomeLocation(){
-        header("Location: ".BASE_URL."home");
-    }
-
-
 }
-
-
-?>

@@ -6,7 +6,9 @@
 <main class="container">
 
     <div class="card card-almacen mb-3" style="max-width: 28rem;">
-        <div class="card-header bg-transparent card-almacen"><h2> {$product->nombre_producto} </h2></div>
+        <div class="card-header bg-transparent card-almacen">
+            <h2> {$product->nombre_producto} </h2>
+        </div>
         <div class="card-body card-almacen">
             <h5 class="card-title"></h5>
             <ul class="list-group list-group-flush">

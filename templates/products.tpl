@@ -20,9 +20,8 @@
                     <td>{$product->nombre_categoria}</td>
                 </tr>
             {/foreach}
-          <tbody>
-    </tbody>
-    </table> 
+        <tbody>
+        </tbody>
+    </table>
 </main>
 {include file="footer.tpl"}
-

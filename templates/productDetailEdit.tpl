@@ -1,11 +1,11 @@
-{include file="header.tpl"}
+{include file="headerLoggedIn.tpl"}
 <div>
     <img class="img-seed" src="images/semillas.jpg" alt="Semillas">
 </div>
 <h1>{$titulo}</h1>
 <main class="container">
 
-    <form action="edit" method="post">
+    <form action="edit-product" method="post">
         <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
         <div class="form-group">
             <label for="title">Producto</label>
@@ -29,9 +29,9 @@
                 {foreach from=$categories item=category}
                     {if $category->id eq $product->id_categoria}
                         <option selected value="{$category->id}">{$category->nombre}</option>
-                    {else}      
+                    {else}
                         <option value="{$category->id}">{$category->nombre}</option>
-                    {/if}                        
+                    {/if}
                 {/foreach}
             </select>
         </div>

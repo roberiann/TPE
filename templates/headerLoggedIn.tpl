@@ -24,19 +24,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="home">HOME<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="categories-admin">CATEGORIAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="categories">CATEGORIAS</a>
+                        <a class="nav-link" href="products-admin">PRODUCTOS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="products">PRODUCTOS</a>
+                        <a class="nav-link" href="logout">LOGOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login">LOGIN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login"><img src="images/login.png" alt="Login"></a>
+                        <a class="nav-link" href="logout"><img src="images/logout.png" alt="Logout"> </a>
                     </li>
                 </ul>
             </div>

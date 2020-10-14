@@ -1,20 +1,23 @@
 <?php
 
-class UserModel{
+require_once './helpers/db.helper.php';
+
+class UserModel
+{
 
     private $db;
+    private $dbHelper;
 
-    function __construct(){
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_almacen;charset=utf8', 'root', '');
+    function __construct()
+    {
+        $this->dbHelper = new DBHelper();
+        $this->db = $this->dbHelper->connect();
     }
-     
-    function GetUser($user){
+
+    function GetUser($user)
+    {
         $sentencia = $this->db->prepare("SELECT * FROM usuario WHERE email=?");
         $sentencia->execute(array($user));
         return $sentencia->fetch(PDO::FETCH_OBJ);
     }
-      
 }
-
-?>
-

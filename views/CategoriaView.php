@@ -2,43 +2,26 @@
 
 require_once "./libs/smarty/Smarty.class.php";
 
-class CategoriaView {
+class CategoriaView
+{
 
-    function __construct(){
+    private $smarty;
+
+    function __construct()
+    {
+        $this->smarty = new Smarty();
     }
 
-    function ShowHome(){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'Arte Sano');   
-        $smarty->display('templates/home.tpl'); 
+    function ShowHome()
+    {
+        $this->smarty->assign('titulo', 'ARTE SANO');
+        $this->smarty->display('templates/home.tpl');
     }
 
-    function ShowCategories($categories){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'CATEGORIAS');
-        $smarty->assign('categories', $categories);      
-        $smarty->display('templates/categories.tpl'); 
+    function ShowCategories($categories)
+    {
+        $this->smarty->assign('titulo', 'CATEGORIAS');
+        $this->smarty->assign('categories', $categories);
+        $this->smarty->display('templates/categories.tpl');
     }
-
-    function ShowCategoriesAdmin($categories){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'LISTADO DE CATEGORIAS');
-        $smarty->assign('categories', $categories);     
-        $smarty->display('templates/categoriesAdmin.tpl'); 
-    }
-
-    function ShowCategoryEdit($category){ 
-        $smarty = new Smarty();
-        $smarty->assign('titulo', 'Edición de Categoria');
-        $smarty->assign('category', $category);     
-        $smarty->display('templates/categoryEdit.tpl'); 
-    }
-
-    function ShowHomeLocation(){
-        header("Location: ".BASE_URL."home");
-    }
-
 }
-
-
-?>

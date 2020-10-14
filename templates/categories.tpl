@@ -11,7 +11,7 @@
         <div>
             <h3> {$category->nombre} </h3>
             <a href="category/{$category->id}"><img src="images/{$category->nombre}.png" alt="{$category->nombre}"></a>
-        </div>    
+        </div>
     
     {/foreach}
 
