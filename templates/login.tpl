@@ -3,18 +3,21 @@
 
     <div class="container">
         <h2>{$titulo}</h2>
-
-        <form class="form" action="verifyUser" method="post">
-            <input type="text" id="email" name="email" aria-describedby="emailHelp" placeholder="Usuario">
-            <input type="password" id="password" name="password" placeholder="Password">
-            <button type="submit" id="login-button">Continuar</button>
-        </form>
+   
         {if $error}
             <div class="alert alert-danger" role="alert">
                 {$error}
             </div>
         {/if}
+        <form class="form" action="verifyUser" method="post">
+            <input type="text" id="email" name="email" aria-describedby="emailHelp" placeholder="Usuario">
+            <input type="password" id="password" name="password" placeholder="Password">
+            <button type="submit" id="login-button">Continuar</button>
 
+            
+        </form>
+    
+        
     </div>
 
     <ul class="bg-bubbles">

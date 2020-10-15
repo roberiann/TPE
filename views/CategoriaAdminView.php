@@ -14,15 +14,20 @@ class CategoriaAdminView
 
     function ShowCategories($categories)
     {
-        $this->smarty->assign('titulo', 'LISTADO DE CATEGORIAS');
+        $this->smarty->assign('titulo', 'Listado de Categorias');
         $this->smarty->assign('categories', $categories);
         $this->smarty->display('templates/categoriesAdmin.tpl');
     }
 
     function ShowCategoryEdit($category)
     {
-        $this->smarty->assign('titulo', 'EDICION DE CATEGORIA');
+        $this->smarty->assign('titulo', 'Edición de Categoría');
         $this->smarty->assign('category', $category);
         $this->smarty->display('templates/categoryEdit.tpl');
+    }
+
+    function showError($msg) {
+        $this->smarty->assign('msg', $msg);
+        $this->smarty->display('templates/error.tpl');
     }
 }

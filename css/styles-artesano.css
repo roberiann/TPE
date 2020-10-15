@@ -10,7 +10,7 @@ body {
 
 a {
     color: #575756;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 a:hover {
@@ -19,6 +19,10 @@ a:hover {
 
 .card-almacen {
     border-color: #88c1ba;
+}
+
+.card-body {
+    padding: 0;
 }
 
 li>a {
@@ -31,10 +35,13 @@ li {
     color: #575756;
 }
 
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-left: 0;
+}
+
 .nav-item {
     list-style: none;
     font-size: 1.1em;
-    padding: 0.3125rem;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 0.05em;
@@ -134,7 +141,7 @@ td {
 .table-almacen {
     text-align: center;
     font-size: 1rem;
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     border: solid 0.125rem #a6dbd5;
     margin-top: 1.5%;

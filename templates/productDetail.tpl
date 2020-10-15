@@ -9,8 +9,7 @@
         <div class="card-header bg-transparent card-almacen">
             <h2> {$product->nombre_producto} </h2>
         </div>
-        <div class="card-body card-almacen">
-            <h5 class="card-title"></h5>
+        <div class="card-body card-almacen">           
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><span class="badge badge-info">Categoria:</span> {$product->nombre_categoria} </li>
                 <li class="list-group-item"><span class="badge badge-info">Descripción:</span> {$product->desc_producto} </li>

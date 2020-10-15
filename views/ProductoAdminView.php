@@ -27,4 +27,9 @@ class ProductoAdminView
         $this->smarty->assign('product', $product);
         $this->smarty->display('templates/productDetailEdit.tpl');
     }
+
+    function showError($msg) {
+        $this->smarty->assign('msg', $msg);
+        $this->smarty->display('templates/error.tpl');
+    }
 }

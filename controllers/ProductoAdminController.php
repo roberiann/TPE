@@ -39,6 +39,12 @@ class ProductoAdminController
 
     function InsertProduct()
     {
+        $producto  = $_POST['input_producto'];
+             
+        if (empty($producto)) {
+            $this->view->showError('Por favor complete el nombre del producto.');
+            die();
+        }
         $this->model->InsertProduct($_POST['input_producto'], $_POST['input_description'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria']);
         header("Location: " . PRODUCT);
     }
@@ -54,6 +60,13 @@ class ProductoAdminController
 
     function EditProduct()
     {
+        $producto  = $_POST['input_producto'];
+             
+        if (empty($producto)) {
+            $this->view->showError('Por favor complete el nombre del producto.');
+            die();
+        }
+        
         $this->model->EditProduct($_POST['input_id-producto'], $_POST['input_producto'], $_POST['input_description'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria']);
         header("Location: " . PRODUCT);
     }

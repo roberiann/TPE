@@ -36,7 +36,7 @@
                         <a class="nav-link" href="login">LOGIN</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login"><img src="images/login.png" alt="Login"></a>
+                        <a href="login"><img src="images/login.png" alt="Login"></a>
                     </li>
                 </ul>
             </div>

@@ -33,7 +33,7 @@
                         <a class="nav-link" href="logout">LOGOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout"><img src="images/logout.png" alt="Logout"> </a>
+                        <a href="logout"><img src="images/logout.png" alt="Logout"> </a>
                     </li>
                 </ul>
             </div>

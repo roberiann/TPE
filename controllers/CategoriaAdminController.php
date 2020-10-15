@@ -27,16 +27,25 @@ class CategoriaAdminController
 
     function InsertCategory()
     {
+        $categoria = $_POST['input_categoria'];
+     
+        if (empty($categoria)) {
+            $this->view->showError('Por favor, complete el nombre de la categoría');
+            die();
+        }
         $this->model->InsertCategory($_POST['input_categoria'], $_POST['input_description']);
         header("Location: " . CATEGORY);
     }
 
     function DeleteCategory($params = null)
     {
-        //Necesitaríamos controlar que si borras una categoria no tenga productos.      
         $id_categoria = $params[':ID'];
-        $sentencia    = $this->model->DeleteCategory($id_categoria);
-        header("Location: " . CATEGORY);
+        $success    = $this->model->DeleteCategory($id_categoria);
+        if ($success) {
+            header("Location: " . CATEGORY);
+        }else {
+            $this->view->showError("No se puede borrar la categoria.");
+        }    
     }
 
     function Category($params = null)
@@ -47,7 +56,13 @@ class CategoriaAdminController
     }
 
     function EditCategory()
-    {
+    {   
+        $categoria = $_POST['input_categoria'];
+     
+        if (empty($categoria)) {
+            $this->view->showError('Por favor, complete el nombre de la categoría');
+            die();
+        }
         $this->model->EditCategory($_POST['input_id-categoria'], $_POST['input_categoria'], $_POST['input_description']);
         header("Location: " . CATEGORY);
     }
