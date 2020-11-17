@@ -51,4 +51,30 @@ class UserController
             $this->view->ShowLogin("Por favor complete usuario y password");
         }
     }
+
+    function Register()
+    {
+        $this->view->ShowRegisterForm();
+    }
+
+
+    function RegisterUser()
+    {   $name = $_POST["name"];
+        $user = $_POST["email"];
+        $pass = $_POST["password"];
+
+        if ($pass && $user && $name) {
+            $userFromDB = $this->model->GetUser($user);
+            if (!$userFromDB) {
+                $hash = password_hash($pass, PASSWORD_DEFAULT);
+                $this->model->InsertUser($name, $user, $hash);   
+                header("Location: " . LOGIN); 
+            } else {
+                $this->view->ShowRegisterForm("El usuario ya existe");
+            }   
+            
+        } else {
+            $this->view->ShowRegisterForm("Por favor complete los datos");
+        }        
+    }
 }

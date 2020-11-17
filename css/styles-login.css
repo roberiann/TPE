@@ -6,6 +6,10 @@
         font-weight: 300;
     }
     
+    .alert .alert-link {
+        color: #22423f;
+    }
+    
     body {
         font-family: 'Source Sans Pro', sans-serif;
         color: white;

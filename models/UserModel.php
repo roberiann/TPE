@@ -20,4 +20,11 @@ class UserModel
         $sentencia->execute(array($user));
         return $sentencia->fetch(PDO::FETCH_OBJ);
     }
+
+    function InsertUser($name, $user, $hash)
+    {
+        $sentencia = $this->db->prepare("INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)");
+        $sentencia->execute(array($name, $user, $hash));
+    }
+
 }

@@ -19,10 +19,11 @@ $r = new Router();
 $r->addRoute("login", "GET", "UserController", "Login");
 $r->addRoute("logout", "GET", "UserController", "Logout");
 $r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
+$r->addRoute("register", "GET", "UserController", "Register");
+$r->addRoute("registerUser", "POST", "UserController", "RegisterUser");
 
 $r->addRoute("home", "GET", "CategoriaController", "Home");
 $r->addRoute("categories", "GET", "CategoriaController", "Categories");
-
 
 $r->addRoute("categories-admin", "GET", "CategoriaAdminController", "Categories");
 $r->addRoute("insert-category", "POST", "CategoriaAdminController", "InsertCategory");

@@ -19,8 +19,8 @@ class ProductoAdminController
         $this->modelCat = new CategoriaModel();
 
         $this->authHelper = new AuthHelper();
-        // verifico que el usuario esté logueado siempre
-        $this->authHelper->checkLogged();
+        // verifico que el usuario esté logueado siempre y sea admin
+        $this->authHelper->checkAdminLogged();
     }
 
     function Products()

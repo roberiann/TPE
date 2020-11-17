@@ -9,11 +9,15 @@ class AuthHelper
     /**
      * Barrera de seguridad para usuario logueado
      */
-    function checkLogged()
-    {
+    function checkAdminLogged()
+    {   
         session_start();
         if (!isset($_SESSION['EMAIL'])) {
             header("Location: " . LOGIN);
+            die();
+        }
+        if (!isset($_SESSION['ADMIN']) || (isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] == 'N'))) {
+            header("Location: ".BASE_URL."home");
             die();
         }
     }
@@ -29,5 +33,6 @@ class AuthHelper
     {
         session_start();
         $_SESSION["EMAIL"] = $user->email;
+        $_SESSION["ADMIN"] = $user->admin;
     }
 }

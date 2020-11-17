@@ -13,10 +13,12 @@
             <input type="text" id="email" name="email" aria-describedby="emailHelp" placeholder="Usuario">
             <input type="password" id="password" name="password" placeholder="Password">
             <button type="submit" id="login-button">Continuar</button>
-
-            
+           
+            <div class="alert">
+              ¿No estás registrado? <a class="alert-link" href="register">Registrarse</a>
+            </div>
         </form>
-    
+
         
     </div>
 
