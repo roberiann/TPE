@@ -24,10 +24,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="categories-admin">CATEGORIAS</a>
+                        <a class="nav-link" href="homeLogged">HOME<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="products-admin">PRODUCTOS</a>
+                        <a class="nav-link" href="categoriesLogged">CATEGORIAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products-logged">PRODUCTOS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout">LOGOUT</a>

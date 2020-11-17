@@ -8,18 +8,21 @@ class ProductoUserController
 {
     private $view;
     private $model;
+    private $authHelper;
+
 
     function __construct()
     {
         $this->view = new ProductoView();
         $this->model = new ProductoModel();
-        $this->authHelper->checkAdminLogged();
+        $this->authHelper = new AuthHelper();
+        $this->authHelper->checkLogged();
     }
 
     function Products()
     {
         $products = $this->model->GetProducts();
-        $this->view->ShowProducts($products);
+        $this->view->LoggedProducts($products);
     }
 
 
@@ -27,13 +30,13 @@ class ProductoUserController
     {
         $id_categoria = $params[':ID'];
         $products = $this->model->GetProductsByCategory($id_categoria);
-        $this->view->ShowProductsByCategory($products);
+        $this->view->LoggedProductsByCategory($products);
     }
 
     function ProductDetail($params = null)
     {
         $id_producto = $params[':ID'];
         $product = $this->model->GetProduct($id_producto);
-        $this->view->ShowProductDetail($product);
+        $this->view->LoggedProductDetail($product);
     }
 }

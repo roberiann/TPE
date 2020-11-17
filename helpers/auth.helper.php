@@ -17,11 +17,19 @@ class AuthHelper
             die();
         }
         if (!isset($_SESSION['ADMIN']) || (isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] == 'N'))) {
-            header("Location: ".BASE_URL."home");
+            header("Location: ".LOGGED);
             die();
         }
     }
 
+    function checkLogged()
+    {   
+        session_start();
+        if (isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] !== 'N')){
+            header("Location: ".BASE_URL."home");
+            die();
+        }
+    }
     function logout()
     {
         session_start();

@@ -40,7 +40,13 @@ class UserController
                 if (password_verify($pass, $userFromDB->password)) {
 
                     $this->authHelper->login($userFromDB);
+                    if ($userFromDB->admin == "Y"){
                     header("Location: " . CATEGORY);
+                    }
+                    else{
+                        header("Location: " . LOGGED);
+
+                    }
                 } else {
                     $this->view->ShowLogin("Contraseña incorrecta");
                 }

@@ -6,12 +6,16 @@ require_once './controllers/ProductoController.php';
 require_once './controllers/UserController.php';
 require_once 'RouterClass.php';
 
+require_once './controllers/CategoriaUserController.php';
+require_once './controllers/ProductoUserController.php';
+
 // CONSTANTES PARA RUTEO
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 define("LOGIN", '//' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/login');
 define("LOGOUT", '//' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/logout');
 define("CATEGORY", '//' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/categories-admin');
 define("PRODUCT", '//' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/products-admin');
+define("LOGGED", '//' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/homeLogged');
 
 $r = new Router();
 
@@ -40,6 +44,14 @@ $r->addRoute("edit-product", "POST", "ProductoAdminController", "EditProduct");
 $r->addRoute("products", "GET", "ProductoController", "Products");
 $r->addRoute("category/:ID", "GET", "ProductoController", "ProductsByCategory");
 $r->addRoute("product/:ID", "GET", "ProductoController", "ProductDetail");
+
+$r->addRoute("products-logged", "GET", "ProductoUserController", "Products");
+$r->addRoute("categoryLogged/:ID", "GET", "ProductoUserController", "ProductsByCategory");
+$r->addRoute("productLogged/:ID", "GET", "ProductoUserController", "ProductDetail");
+
+$r->addRoute("homeLogged", "GET", "CategoriaUserController", "Home");
+$r->addRoute("categoriesLogged", "GET", "CategoriaUserController", "Categories");
+$r->addRoute("home-admin", "GET", "CategoriaAdminController", "Home");
 
 //Ruta por defecto.
 $r->setDefaultRoute("CategoriaController", "Home");

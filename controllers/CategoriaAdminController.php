@@ -2,7 +2,7 @@
 
 require_once './views/CategoriaAdminView.php';
 require_once './models/CategoriaModel.php';
-include_once './helpers/auth.helper.php';
+require_once './helpers/auth.helper.php';
 
 class CategoriaAdminController
 {
@@ -19,6 +19,13 @@ class CategoriaAdminController
         // verifico que el usuario esté logueado siempre y sea admin
         $this->authHelper->checkAdminLogged();
     }
+
+
+    function Home()
+    {
+        $this->view->AdmHome();
+    }
+
 
     function Categories()
     {
