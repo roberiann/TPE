@@ -25,7 +25,7 @@ class AuthHelper
     function checkLogged()
     {   
         session_start();
-        if (isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] !== 'N')){
+        if (!isset($_SESSION['EMAIL'])||(isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] !== 'N'))){
             header("Location: ".BASE_URL."home");
             die();
         }
