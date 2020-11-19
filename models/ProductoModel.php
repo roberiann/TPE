@@ -52,4 +52,37 @@ class ProductoModel
         $sentencia = $this->db->prepare("UPDATE `producto` SET `nombre`=?, `descripcion`=?, `precio`=?, `stock`=?, `id_categoria`=? WHERE `producto`.`id`=?");
         $sentencia->execute(array($producto, $description, $precio, $stock, $categoria, $id_producto));
     }
+
+    function GetUsers()
+    {
+        $query = $this->db->prepare("SELECT `u`.`id` as `id_usuario`, `u`.`nombre` as `nombre_usuario`, `u`.`email` as `email`, `u`.`admin` as `admin` FROM usuario u");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    function GetUser($id_usuario)
+    {
+        $sentencia = $this->db->prepare("SELECT `u`.`id` as `id_usuario`, `u`.`nombre` as `nombre_usuario`, `u`.`email` as `email`, `u`.`admin` as `admin` FROM usuario u WHERE `u`.`id`=?");
+        $sentencia->execute(array($id_usuario));
+        return $sentencia->fetch(PDO::FETCH_OBJ);
+    }
+
+
+    function QuitAdmin($id_usuario)
+    {
+        $sentencia = $this->db->prepare("UPDATE `usuario` SET  `admin`= 'N' WHERE `id`=?");
+        $sentencia->execute(array($id_usuario));
+    }
+
+    function GiveAdmin($id_usuario)
+    {
+        $sentencia = $this->db->prepare("UPDATE `usuario` SET  `admin`= 'Y' WHERE `id`=?");
+        $sentencia->execute(array($id_usuario));       
+    }
+
+    function DeleteUser($id_usuario)
+    {
+        $sentencia = $this->db->prepare("DELETE FROM usuario WHERE id=?");
+        $sentencia->execute(array($id_usuario));
+    }
 }

@@ -70,4 +70,31 @@ class ProductoAdminController
         $this->model->EditProduct($_POST['input_id-producto'], $_POST['input_producto'], $_POST['input_description'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria']);
         header("Location: " . PRODUCT);
     }
+
+    function GetUsers(){
+        $users = $this->model->GetUsers();
+        $this->view->ShowUsers($users);
+    }
+
+    function EditUser($params = null){
+
+        $id_usuario = $params[':ID'];
+        $user = $this->model->GetUser($id_usuario);
+
+        if ($user->admin == "Y"){
+        $this->model->QuitAdmin($id_usuario);
+        header("Location: " . USERS);
+        }
+        else{
+            $this->model->GiveAdmin($id_usuario);
+            header("Location: " . USERS);
+        }
+    }
+
+    function DeleteUser($params = null)
+    {
+        $id_usuario = $params[':ID'];
+        $this->model->DeleteUser($id_usuario);
+        header("Location: " . USERS);
+    }
 }

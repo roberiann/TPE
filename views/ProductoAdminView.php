@@ -32,4 +32,11 @@ class ProductoAdminView
         $this->smarty->assign('msg', $msg);
         $this->smarty->display('templates/error.tpl');
     }
+
+    function ShowUsers($users)
+    {
+        $this->smarty->assign('titulo', 'LISTADO DE USUARIOS');
+        $this->smarty->assign('users', $users);
+        $this->smarty->display('templates/userslist.tpl');
+    }
 }

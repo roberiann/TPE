@@ -16,6 +16,7 @@ define("LOGOUT", '//' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] 
 define("CATEGORY", '//' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/categories-admin');
 define("PRODUCT", '//' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/products-admin');
 define("LOGGED", '//' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/homeLogged');
+define("USERS", '//' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] . dirname($_SERVER["PHP_SELF"]) . '/users');
 
 $r = new Router();
 
@@ -40,6 +41,10 @@ $r->addRoute("delete-product/:ID", "GET", "ProductoAdminController", "DeleteProd
 $r->addRoute("insert-product", "POST", "ProductoAdminController", "InsertProduct");
 $r->addRoute("edit-product/:ID", "GET", "ProductoAdminController", "Product");
 $r->addRoute("edit-product", "POST", "ProductoAdminController", "EditProduct");
+$r->addRoute("users", "GET", "ProductoAdminController", "GetUsers");
+$r->addRoute("edit-user/:ID", "GET", "ProductoAdminController", "EditUser");
+$r->addRoute("delete-user/:ID", "GET", "ProductoAdminController", "DeleteUser");
+
 
 $r->addRoute("products", "GET", "ProductoController", "Products");
 $r->addRoute("category/:ID", "GET", "ProductoController", "ProductsByCategory");
