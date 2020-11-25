@@ -1,13 +1,13 @@
 <?php
-require_once './controllers/CategoriaAdminController.php';
-require_once './controllers/ProductoAdminController.php';
-require_once './controllers/CategoriaController.php';
-require_once './controllers/ProductoController.php';
-require_once './controllers/UserController.php';
+require_once 'app/controllers/CategoriaAdminController.php';
+require_once 'app/controllers/ProductoAdminController.php';
+require_once 'app/controllers/CategoriaController.php';
+require_once 'app/controllers/ProductoController.php';
+require_once 'app/controllers/UserController.php';
 require_once 'RouterClass.php';
 
-require_once './controllers/CategoriaUserController.php';
-require_once './controllers/ProductoUserController.php';
+require_once 'app/controllers/CategoriaUserController.php';
+require_once 'app/controllers/ProductoUserController.php';
 
 // CONSTANTES PARA RUTEO
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -38,7 +38,7 @@ $r->addRoute("edit-category", "POST", "CategoriaAdminController", "EditCategory"
 
 $r->addRoute("products-admin", "GET", "ProductoAdminController", "Products");
 $r->addRoute("delete-product/:ID", "GET", "ProductoAdminController", "DeleteProduct");
-$r->addRoute("insert-product", "POST", "ProductoAdminController", "InsertProduct");
+$r->addRoute("insert-product", "POST", "ProductoAdminController", "addProduct");
 $r->addRoute("edit-product/:ID", "GET", "ProductoAdminController", "Product");
 $r->addRoute("edit-product", "POST", "ProductoAdminController", "EditProduct");
 $r->addRoute("users", "GET", "ProductoAdminController", "GetUsers");

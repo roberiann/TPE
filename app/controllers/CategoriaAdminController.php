@@ -1,8 +1,8 @@
 <?php
 
-require_once './views/CategoriaAdminView.php';
-require_once './models/CategoriaModel.php';
-require_once './helpers/auth.helper.php';
+require_once 'app/views/CategoriaAdminView.php';
+require_once 'app/models/CategoriaModel.php';
+require_once 'app/helpers/auth.helper.php';
 
 class CategoriaAdminController
 {

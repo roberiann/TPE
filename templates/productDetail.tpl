@@ -9,6 +9,7 @@
         <div class="card-header bg-transparent card-almacen">
             <h2> {$product->nombre_producto} </h2>
         </div>
+        <img class="card-img-top" src={$product->imagen} alt="Card image">
         <div class="card-body card-almacen">           
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><span class="badge badge-info">Categoria:</span> {$product->nombre_categoria} </li>

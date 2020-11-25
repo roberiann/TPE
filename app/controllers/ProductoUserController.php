@@ -1,8 +1,8 @@
 <?php
 
-require_once './views/ProductoView.php';
-require_once './models/ProductoModel.php';
-require_once './helpers/auth.helper.php';
+require_once 'app/views/ProductoView.php';
+require_once 'app/models/ProductoModel.php';
+require_once 'app/helpers/auth.helper.php';
 
 class ProductoUserController
 {

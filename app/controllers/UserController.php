@@ -1,8 +1,8 @@
 <?php
 
-require_once "./views/UserView.php";
-require_once "./models/UserModel.php";
-include_once "./helpers/auth.helper.php";
+require_once "app/views/UserView.php";
+require_once "app/models/UserModel.php";
+require_once "app/helpers/auth.helper.php";
 
 class UserController
 {

@@ -1,6 +1,6 @@
 <?php
 
-require_once './helpers/db.helper.php';
+require_once 'app/helpers/db.helper.php';
 
 class CategoriaModel
 {

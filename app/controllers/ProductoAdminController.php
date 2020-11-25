@@ -1,9 +1,9 @@
 <?php
 
-require_once './views/ProductoAdminView.php';
-require_once './models/ProductoModel.php';
-require_once './models/CategoriaModel.php';
-include_once './helpers/auth.helper.php';
+require_once 'app/views/ProductoAdminView.php';
+require_once 'app/models/ProductoModel.php';
+require_once 'app/models/CategoriaModel.php';
+require_once 'app/helpers/auth.helper.php';
 
 class ProductoAdminController
 {
@@ -37,18 +37,36 @@ class ProductoAdminController
         header("Location: " . PRODUCT);
     }
 
-    function InsertProduct()
+    function uniqueSaveName($realName, $tempName) {
+        $filePath = "images/" . uniqid("", true) . "." . strtolower(pathinfo($realName, PATHINFO_EXTENSION));
+        move_uploaded_file($tempName, $filePath);
+        return $filePath;
+    }
+
+    function addProduct()
     {
-        $producto  = $_POST['input_producto'];
-             
+        $producto    = $_POST['input_producto'];
+        $descripcion = $_POST['input_description'];
+        $precio   = $_POST['input_precio'];
+        $stock       = $_POST['input_stock'];
+        $categoria   = $_POST['input_categoria'];
+
+        //Validar que un producto exista
         if (empty($producto)) {
             $this->view->showError('Por favor complete el nombre del producto.');
             die();
         }
-        $this->model->InsertProduct($_POST['input_producto'], $_POST['input_description'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria']);
+
+        if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png" ) 
+        {
+            $realName = $this->uniqueSaveName($_FILES['input_name']['name'], $_FILES['input_name']['tmp_name']);
+            $id = $this->model->insert($producto, $descripcion,  $precio, $stock, $categoria, $realName);
+        }
+        else {
+            $id = $this->model->insert($producto, $descripcion,  $precio, $stock, $categoria);
+        }
         header("Location: " . PRODUCT);
     }
-
 
     function Product($params = null)
     {

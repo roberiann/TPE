@@ -1,7 +1,7 @@
 <?php
 
-require_once './views/CategoriaView.php';
-require_once './models/CategoriaModel.php';
+require_once 'app/views/CategoriaView.php';
+require_once 'app/models/CategoriaModel.php';
 
 class CategoriaUserController
 {
