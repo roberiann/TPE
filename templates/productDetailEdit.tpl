@@ -41,6 +41,8 @@
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
+
+
         <div class="col-md-8">
             {include file="vue/commentList.vue"}
 
@@ -51,7 +53,7 @@
                     <textarea name="comentario" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                    <select name="input_rate" class="form-control">
+                    <select id="calificacion" name="input_rate" class="form-control">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

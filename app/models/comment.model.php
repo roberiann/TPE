@@ -18,7 +18,7 @@ class CommentModel
     {
         $sentencia = $this->db->prepare("SELECT c.descripcion as desc_comentario, c.calificacion as calificacion FROM producto p INNER JOIN comentario c ON c.id_producto = p.id WHERE p.id=?");
         $sentencia->execute(array($id_product));
-        return $sentencia->fetch(PDO::FETCH_OBJ);
+        return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
     function remove($id) {  

@@ -8,7 +8,7 @@ const app = new Vue({
 });
 
 document.addEventListener('DOMContentLoaded', e => {
-    getTasks();
+    getMsjs();
 
     document.querySelector('#comment-form').addEventListener('submit', e => {
         e.preventDefault();
@@ -17,14 +17,16 @@ document.addEventListener('DOMContentLoaded', e => {
 
 });
 
-async function getTasks() {
+
+
+
+async function getMsjs() {
+    let prod_id = document.querySelector('#id_producto').value;
     try {
-        const response = await fetch('api/tareas');
-        const tasks = await response.json();
-
+        const response = await fetch('api/products/'+ prod_id +'/comments');
+        const msjs = await response.json();
         // imprimo las tareas
-        app.tareas = tasks;
-
+        app.comments = msjs;
     } catch (e) {
         console.log(e);
     }
@@ -34,20 +36,21 @@ async function getTasks() {
 async function addComment() {
 
     const comment = {
-        idUsuario: document.querySelector('input[name=titulo]').value,
+        //idUsuario: document.querySelector('input[name=titulo]').value,
         comentario: document.querySelector('textarea[name=comentario]').value,
-        calificacion: document.querySelector('select[name=calificacion]').value
+        calificacion: document.querySelector('#calificacion').value,
+        id_producto : document.querySelector('#id_producto').value,
     }
 
     try {
         const response = await fetch('api/comments', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(task)
+            body: JSON.stringify(comment)
         });
 
         const t = await response.json();
-        app.tareas.push(t);
+        app.comments.push(t);
 
     } catch (e) {
         console.log(e);

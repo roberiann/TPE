@@ -52,7 +52,7 @@ class ApiCommentController {
         }
     }
 
-    public function add($params = null) {
+    public function add() {
 
         $body = $this->getData();
 
