@@ -9,6 +9,9 @@
         <div class="card-header bg-transparent card-almacen">
             <h2> {$product->nombre_producto} </h2>
         </div>
+        <form >
+            <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
+        </form>
         <img class="card-img-top" src={$product->imagen} alt="Card image">
         <div class="card-body card-almacen">           
             <ul class="list-group list-group-flush">
@@ -19,5 +22,12 @@
             </ul>
         </div>
     </div>
+
+    <div class="col-md-8">
+            {include file="vue/commentList.vue"}
+    </div>
+
 </main>
+<!-- incluyo JS para CSR -->
+<script src="js/comments.js"></script>
 {include file="footer.tpl"}

@@ -22,12 +22,21 @@ async function getMsjs() {
     try {
         const response = await fetch('api/product/' + prod_id + '/comment');
         const msjs = await response.json();
+        console.log(msjs.length);
         // imprimo las tareas
-        app.comments = msjs;
-    } catch (e) {
+        if (msjs.length > 0){
+            app.comments = msjs;
+        }
+        else{
+            console.log(e);;
+        }
+    }
+    catch (e) {
         console.log(e);
     }
 }
+
+/*         */
 
 async function addComment() {
 

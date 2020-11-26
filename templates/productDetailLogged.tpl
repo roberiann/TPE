@@ -5,10 +5,16 @@
 <h1>{$titulo}</h1>
 <main class="container">
 
-    <div class="card card-almacen mb-3" style="max-width: 28rem;">
+<form >
+    <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
+    <input type="hidden" id="id_usuario" name="input_id-usuario" value="{$smarty.session.USERID}">
+</form>
+<div class="row">
+    <div class="card card-almacen mb-3 col-md-4" style="max-width: 28rem;">
         <div class="card-header bg-transparent card-almacen">
             <h2> {$product->nombre_producto} </h2>
         </div>
+            <img class="card-img-top" src={$product->imagen} alt="Card image">
         <div class="card-body card-almacen">           
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><span class="badge badge-info">Categoria:</span> {$product->nombre_categoria} </li>
@@ -18,8 +24,36 @@
             </ul>
         </div>
     </div>
-    
+    <div class="col-md-8">
+            {include file="vue/commentList.vue"}
+
+
+            <form id="comment-form" action="insert-comment" method="POST">
+                <div class="form-group">
+                    <label>Comentario</label>
+                    <textarea name="comentario" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <select name="calificacion" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Publicar</button>
+            </form>
+        </div>
+
+
+
+    </div>
+</div>
+</main>
+<!-- incluyo JS para CSR -->
+<script src="js/comments.js"></script>
     
 
-</main>
 {include file="footer.tpl"}
