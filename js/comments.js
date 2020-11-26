@@ -17,13 +17,10 @@ document.addEventListener('DOMContentLoaded', e => {
 
 });
 
-
-
-
 async function getMsjs() {
     let prod_id = document.querySelector('#id_producto').value;
     try {
-        const response = await fetch('api/products/'+ prod_id +'/comments');
+        const response = await fetch('api/product/' + prod_id + '/comment');
         const msjs = await response.json();
         // imprimo las tareas
         app.comments = msjs;
@@ -32,29 +29,33 @@ async function getMsjs() {
     }
 }
 
-
 async function addComment() {
 
     const comment = {
-        //idUsuario: document.querySelector('input[name=titulo]').value,
-        comentario: document.querySelector('textarea[name=comentario]').value,
-        calificacion: document.querySelector('#calificacion').value,
-        id_producto : document.querySelector('#id_producto').value,
+        descripcion: document.querySelector('textarea[name=comentario]').value,
+        calificacion: document.querySelector('select[name=calificacion]').value,
+        id_producto: document.querySelector('#id_producto').value,
+        id_usuario: document.querySelector('#id_usuario').value,
     }
-
+    let url = "api/product/" + comment.id_producto + "/comment";
     try {
-        const response = await fetch('api/comments', {
+        const response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(comment)
         });
 
         const t = await response.json();
+        console.log(t);
+        console.log(app.comments);
         app.comments.push(t);
+
+
+
+
 
     } catch (e) {
         console.log(e);
     }
-
 
 }

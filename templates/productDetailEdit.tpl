@@ -9,6 +9,7 @@
         <div class="col-md-4">
             <form action="edit-product" method="post">
                 <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
+                <input type="hidden" id="id_usuario" name="input_id-usuario" value="{$smarty.session.USERID}">
                 <div class="form-group">
                     <label for="title">Producto</label>
                     <input class="form-control" id="producto" name="input_producto" value="{$product->nombre_producto}" type="text">
@@ -41,8 +42,6 @@
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
-
-
         <div class="col-md-8">
             {include file="vue/commentList.vue"}
 
@@ -53,7 +52,7 @@
                     <textarea name="comentario" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                    <select id="calificacion" name="input_rate" class="form-control">
+                    <select name="calificacion" class="form-control">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

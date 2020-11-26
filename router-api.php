@@ -6,19 +6,9 @@ require_once 'app/api/api-comments.controller.php';
 $router = new Router();
 
 // armo la tabla de ruteo
-$router->addRoute('products/:ID/comments', 'GET', 'ApiCommentController', 'getAll');
-$router->addRoute('comments/:ID', 'DELETE', 'ApiCommentController', 'delete');
-$router->addRoute('comments', 'POST', 'ApiCommentController', 'add');            //VER PORQUE PODRIA SER products/:ID/comments
-
-
-//$r->addRoute("products-admin", "GET", "ProductoAdminController", "Products");
-
-// $router->addRoute('tareas/:ID', 'GET', 'ApiTaskController', 'get');
-
-
-
-// $router->addRoute('tareas/:ID', 'PUT', 'ApiTaskController', 'update');
-
+$router->addRoute('product/:ID/comment', 'GET', 'ApiCommentController', 'getAll');
+$router->addRoute('comment/:ID', 'DELETE', 'ApiCommentController', 'delete');
+$router->addRoute('product/:ID/comment', 'POST', 'ApiCommentController', 'add');           
 
 //Ruta por defecto.
 $router->setDefaultRoute('ApiCommentController','show404');

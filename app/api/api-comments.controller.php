@@ -17,24 +17,9 @@ class ApiCommentController {
         return json_decode($this->data); 
     } 
 
-    // public function getAll($params = null) {
-    //     $parametros = [];
-
-    //     if (isset($_GET['sort'])) {
-    //         $parametros['sort'] = $_GET['sort'];
-    //     }
-
-    //     if (isset($_GET['order'])) {
-    //         $parametros['order'] = $_GET['order'];
-    //     }
-
-    //     $tasks = $this->model->getAll($parametros);
-    //     $this->view->response($tasks, 200);
-    // }
-
     public function getAll($params = null) {
         $idProduct = $params[':ID'];
-        $comments = $this->model->get($idProduct);
+        $comments = $this->model->getAll($idProduct);
         if ($comments)
             $this->view->response($comments, 200);
         else
@@ -52,44 +37,26 @@ class ApiCommentController {
         }
     }
 
-    public function add() {
-
+    public function add($params = null) {
         $body = $this->getData();
 
         $descripcion  = $body->descripcion;
         $calificacion = $body->calificacion;
-        $id_Producto    = $body->id_producto;
+        $id_Producto  = $body->id_producto;
+        $id_usuario   = $body->id_usuario;
 
-        $id = $this->model->insert($descripcion, $calificacion, $id_Producto);
+        $id = $this->model->insert($descripcion, $calificacion, $id_Producto, $id_usuario);
 
         if ($id > 0) {
-            $this->view->response("Se agrego el comentario $id exitosamente", 200);
+            $msj = $this->model->get($id);
+            $this->view->response($msj, 200);
         }
         else { 
             $this->view->response("No se pudo insertar", 500);
         }
      }
 
-    // public function update($params = null) {
-    //     $idTask = $params[':ID'];
-    //     $body = $this->getData();
-
-    //     $titulo       = $body->titulo;
-    //     $descripcion  = $body->descripcion;
-    //     $prioridad    = $body->prioridad;
-
-    //     $success = $this->model->update($titulo, $descripcion, $prioridad, $idTask);
-
-    //     if ($success) {
-    //         $this->view->response("Se actualizó la tarea $idTask exitosamente", 200);
-    //     }
-    //     else { 
-    //         $this->view->response("No se pudo actualizar", 500);
-    //     }
-    // }
-
-
-    public function show404($params = null) {
+     public function show404($params = null) {
         $this->view->response("El recurso solicitado no existe", 404);
     }
 

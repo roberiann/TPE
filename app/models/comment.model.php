@@ -14,11 +14,19 @@ class CommentModel
         $this->db = $this->dbHelper->connect();
     }
 
-    function get($id_product)
+    function get($id) {
+        $query = $this->db->prepare('SELECT descripcion, calificacion, id_producto, nombre FROM comentario c INNER JOIN usuario u ON c.id_usuario = u.id WHERE c.id = ?');
+        $query->execute([$id]);
+        $msj = $query->fetch(PDO::FETCH_OBJ);
+        return $msj;
+    }
+
+    function getAll($id_product)
     {
-        $sentencia = $this->db->prepare("SELECT c.descripcion as desc_comentario, c.calificacion as calificacion FROM producto p INNER JOIN comentario c ON c.id_producto = p.id WHERE p.id=?");
+        $sentencia = $this->db->prepare("SELECT c.descripcion as descripcion, c.calificacion as calificacion, u.nombre as nombre FROM producto p INNER JOIN comentario c ON c.id_producto = p.id INNER JOIN usuario u ON c.id_usuario = u.id WHERE p.id=?");
         $sentencia->execute(array($id_product));
-        return $sentencia->fetchAll(PDO::FETCH_OBJ);
+        $msjs = $sentencia->fetchAll(PDO::FETCH_OBJ); 
+        return $msjs;
     }
 
     function remove($id) {  
@@ -27,9 +35,9 @@ class CommentModel
         return $query->rowCount();
     }
 
-    function insert($descripcion, $calificacion, $id_producto) {
-        $sentencia = $this->db->prepare("INSERT INTO comentario (descripcion, calificacion, id_producto) VALUES (?,?,?)");
-        $sentencia->execute(array($descripcion, $calificacion, $id_producto));
+    function insert($descripcion, $calificacion, $id_producto, $id_usuario) {
+        $sentencia = $this->db->prepare("INSERT INTO comentario (descripcion, calificacion, id_producto, id_usuario) VALUES (?,?,?,?)");
+        $sentencia->execute(array($descripcion, $calificacion, $id_producto, $id_usuario));
         return $this->db->lastInsertId();
     }
 

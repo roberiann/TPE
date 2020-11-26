@@ -42,5 +42,6 @@ class AuthHelper
         session_start();
         $_SESSION["EMAIL"] = $user->email;
         $_SESSION["ADMIN"] = $user->admin;
+        $_SESSION["USERID"] = $user->id;
     }
 }
