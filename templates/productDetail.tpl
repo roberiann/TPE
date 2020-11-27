@@ -4,8 +4,8 @@
 </div>
 <h1>{$titulo}</h1>
 <main class="container">
-
-    <div class="card card-almacen mb-3" style="max-width: 28rem;">
+<div class="row">
+    <div class="card card-almacen mb-3 col-md-4" style="max-width: 28rem;">
         <div class="card-header bg-transparent card-almacen">
             <h2> {$product->nombre_producto} </h2>
         </div>
@@ -24,7 +24,8 @@
     </div>
 
     <div class="col-md-8">
-            {include file="vue/commentList.vue"}
+            {include file="vue/commentList2.vue"}
+    </div>
     </div>
 
 </main>

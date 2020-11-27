@@ -6,6 +6,12 @@ const app = new Vue({
         comments: [],
     },
 
+    
+    el: "#app2",
+    data: {
+        comments2: [],
+    },
+
     methods: {
         greet: function(key) {
             deleteMsj(key);
@@ -53,6 +59,8 @@ async function getMsjs() {
         // imprimo las tareas
         if (msjs.length > 0) {
             app.comments = msjs;
+            app.comments2 = msjs;
+
         } else {
             console.log(e);;
         }
