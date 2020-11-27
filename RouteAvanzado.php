@@ -38,6 +38,8 @@ $r->addRoute("edit-category", "POST", "CategoriaAdminController", "EditCategory"
 
 $r->addRoute("products-admin", "GET", "ProductoAdminController", "Products");
 $r->addRoute("delete-product/:ID", "GET", "ProductoAdminController", "DeleteProduct");
+$r->addRoute("delete-image/:ID", "GET", "ProductoAdminController", "DeleteImage");
+
 $r->addRoute("insert-product", "POST", "ProductoAdminController", "addProduct");
 $r->addRoute("edit-product/:ID", "GET", "ProductoAdminController", "Product");
 $r->addRoute("edit-product", "POST", "ProductoAdminController", "EditProduct");

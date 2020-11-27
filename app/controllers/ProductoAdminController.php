@@ -37,6 +37,14 @@ class ProductoAdminController
         header("Location: " . PRODUCT);
     }
 
+    
+    function DeleteImage($params = null)
+    {
+        $id_producto = $params[':ID'];
+        $this->model->DeleteImage($id_producto);
+        header("Location: " . PRODUCT);
+    }
+
     function uniqueSaveName($realName, $tempName) {
         $filePath = "images/" . uniqid("", true) . "." . strtolower(pathinfo($realName, PATHINFO_EXTENSION));
         move_uploaded_file($tempName, $filePath);
