@@ -5,6 +5,12 @@ const app = new Vue({
     data: {
         comments: [],
     },
+
+    methods: {
+        greet: function(key) {
+            deleteMsj(key);
+        }
+    }
 });
 
 document.addEventListener('DOMContentLoaded', e => {
@@ -14,25 +20,43 @@ document.addEventListener('DOMContentLoaded', e => {
         e.preventDefault();
         addComment();
     });
-
-
 });
+
+async function deleteMsj(key) {
+    try {
+        let url = 'api/comment/' + key;
+        const response = await fetch(url, {
+            method: 'DELETE',
+        });
+
+        if (response.ok) {
+            console.log("Borrado con éxito");
+
+            const id = (elem) => elem.id == key;
+            let index = app.comments.findIndex(id);
+            app.comments.splice(index, 1);
+
+
+        } else
+            console.log(response);
+    } catch (e) {
+        console.log(e);
+    }
+}
 
 async function getMsjs() {
     let prod_id = document.querySelector('#id_producto').value;
     try {
         const response = await fetch('api/product/' + prod_id + '/comment');
         const msjs = await response.json();
-        console.log(msjs.length);
+
         // imprimo las tareas
-        if (msjs.length > 0){
+        if (msjs.length > 0) {
             app.comments = msjs;
-        }
-        else{
+        } else {
             console.log(e);;
         }
-    }
-    catch (e) {
+    } catch (e) {
         console.log(e);
     }
 }
@@ -56,13 +80,7 @@ async function addComment() {
         });
 
         const t = await response.json();
-        console.log(t);
-        console.log(app.comments);
         app.comments.push(t);
-
-
-
-
 
     } catch (e) {
         console.log(e);
