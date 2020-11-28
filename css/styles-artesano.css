@@ -72,6 +72,15 @@ img {
     margin-top: 1%;
 }
 
+.img-product {
+    height: 170px;
+    width: 140px
+}
+
+.text-gray {
+    color: #aaa
+}
+
 footer {
     display: flex;
     justify-content: space-between;
