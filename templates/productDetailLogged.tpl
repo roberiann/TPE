@@ -7,7 +7,8 @@
 
 <form >
     <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
-    <input type="hidden" id="id_usuario" name="input_id-usuario" value="{$smarty.session.USERID}">
+    <input type="hidden" id="id_user" name="input_id-usuario" value="{$smarty.session.USERID}">
+    <input type="hidden" id="admin" name="admin" value="{$smarty.session.ADMIN}">
 </form>
 <div class="row">
     <div class="card card-almacen mb-3 col-md-4" style="max-width: 28rem;">

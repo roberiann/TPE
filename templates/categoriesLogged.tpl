@@ -5,16 +5,27 @@
 </div>
 
 <h1>{$titulo}</h1>
-<main class="category">
 
-    {foreach from=$categories item=category}
-        <div>
-            <h3> {$category->nombre} </h3>
-            <a href="categoryLogged/{$category->id}"><img src="images/{$category->nombre}.png" alt="{$category->nombre}"></a>
-        </div>
-    
-    {/foreach}
-
+<main class="container">
+    <table class="table-almacen">
+        <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {foreach from=$categories item=category}
+                <tr>
+                    <td> <strong> <a href="category/{$category->id}">{$category->nombre}</a></strong></td>
+                    <td> {$category->descripcion}</td>
+                </tr>
+            {/foreach}
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
 </main>
+
 
 {include file="footer.tpl"}

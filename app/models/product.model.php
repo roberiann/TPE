@@ -40,11 +40,6 @@ class ProductModel
         $query = $this->db->prepare("DELETE FROM producto WHERE id=?");
         $query->execute(array($id_producto));
     }
-    function DeleteImage($id_producto)
-    {
-        $query = $this->db->prepare("UPDATE producto SET IMAGEN = NULL WHERE `producto`.`id` = ?");
-        $query->execute(array($id_producto));
-    }
 
     function insert($producto, $description, $precio, $stock, $categoria, $imagen = null)
     {

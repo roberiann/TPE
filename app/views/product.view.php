@@ -33,7 +33,6 @@ class ProductView
         $this->smarty->display('templates/productsbycategory.tpl');
     }
 
-
     function LoggedProducts($products)
     {
         $this->smarty->assign('titulo', 'LISTADO DE PRODUCTOS');

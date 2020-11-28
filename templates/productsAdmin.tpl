@@ -25,13 +25,7 @@
                     <td> {$product->stock}</td>
                     <td> {$product->desc_producto}</td>
                     <td> {$product->nombre_categoria}</td>
-                    <td> 
-                    {if {$product->imagen} eq NULL}
-                        No hay imagen </td>                       
-                        {else}
-	                     {$product->imagen} <button ><a href="delete-image/{$product->id_producto}">X</a></button></td>
-                    {/if}
-                   
+                    <td> {$product->imagen} </td>
                     <td><button class="btn-mod"><a href="delete-product/{$product->id_producto}">X</a></button></td>
                     <td><button class="btn-mod" id="btn-edit"><a href="edit-product/{$product->id_producto}">Edit</a></button></td>
                 </tr>

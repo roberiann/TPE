@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <strong>{{ comment.nombre}}</strong>
                     <span v-if="admin == 'Y'"> 
-                       <button v-on:click="greet(comment.id)">Eliminar</button>
+                       <button class="btn btn-primary" v-on:click="remove(comment.id)">Eliminar</button>
                     </span>
                 </div>
                 <div class="card-body shadow p-3 mb-5 bg-white rounded">

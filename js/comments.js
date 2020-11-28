@@ -5,33 +5,30 @@ const app = new Vue({
     data: {
         comments: [],
         admin: '',
+        id_user: '',
     },
 
-    // el: "#app2",
-    // data: {
-    //     comments2: [],
-    // },
-
     methods: {
-        greet: function(key) {
-            deleteMsj(key);
+        remove: function(key) {
+            deleteCommnent(key);
         }
     }
 });
 
-
-
 document.addEventListener('DOMContentLoaded', e => {
     app.admin = document.querySelector('#admin').value;
-    getMsjs();
+    app.id_user = document.querySelector('#id_user').value;
+    getComments();
 
-    document.querySelector('#comment-form').addEventListener('submit', e => {
-        e.preventDefault();
-        addComment();
-    });
+    if (app.id_user != 'N') {
+        document.querySelector('#comment-form').addEventListener('submit', e => {
+            e.preventDefault();
+            addComment();
+        });
+    }
 });
 
-async function deleteMsj(key) {
+async function deleteCommnent(key) {
     try {
         let url = 'api/comment/' + key;
         const response = await fetch(url, {
@@ -53,25 +50,22 @@ async function deleteMsj(key) {
     }
 }
 
-async function getMsjs() {
+async function getComments() {
     let prod_id = document.querySelector('#id_producto').value;
     try {
         const response = await fetch('api/product/' + prod_id + '/comment');
-        const msjs = await response.json();
 
-        console.log(response);
-
-        if (msjs.ok) {
-            app.comments = msjs;
+        if (response.ok) {
+            const comment = await response.json();
+            app.comments = comment;
         } else {
-            console.log(msjs);
+            console.log(response);
         }
+
     } catch (e) {
         console.log(e);
     }
 }
-
-/*         */
 
 async function addComment() {
 
@@ -79,7 +73,7 @@ async function addComment() {
         descripcion: document.querySelector('textarea[name=comentario]').value,
         calificacion: document.querySelector('select[name=calificacion]').value,
         id_producto: document.querySelector('#id_producto').value,
-        id_usuario: document.querySelector('#id_usuario').value,
+        id_usuario: document.querySelector('#id_user').value,
     }
     let url = "api/product/" + comment.id_producto + "/comment";
     try {

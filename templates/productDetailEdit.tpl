@@ -9,7 +9,7 @@
         <div class="col-md-4">
             <form action="edit-product" method="post">
                 <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
-                <input type="hidden" id="id_usuario" name="input_id-usuario" value="{$smarty.session.USERID}">
+                <input type="hidden" id="id_user" name="input_id-usuario" value="{$smarty.session.USERID}">
                 <input type="hidden" id="admin" name="admin" value="{$smarty.session.ADMIN}">
 
                 <div class="form-group">
