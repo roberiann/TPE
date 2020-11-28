@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="col-md-8">
-            {include file="vue/commentList2.vue"}
+            {include file="vue/commentList.vue"}
 
 
             <form id="comment-form" action="insert-comment" method="POST">

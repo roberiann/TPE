@@ -10,13 +10,15 @@
             <form action="edit-product" method="post">
                 <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
                 <input type="hidden" id="id_usuario" name="input_id-usuario" value="{$smarty.session.USERID}">
+                <input type="hidden" id="admin" name="admin" value="{$smarty.session.ADMIN}">
+
                 <div class="form-group">
                     <label for="title">Producto</label>
                     <input class="form-control" id="producto" name="input_producto" value="{$product->nombre_producto}" type="text">
                 </div>
                 <div class="form-group">
                     <label for="description">Descripcion</label>
-                    <input class="form-control" id="description" name="input_description" value="{$product->desc_producto}" type="text">
+                    <input class="form-control" id="descripcion" name="input_descripcion" value="{$product->desc_producto}" type="text">
                 </div>
                 <div class="form-group">
                     <label for="precio">Precio</label>
@@ -43,8 +45,7 @@
             </form>
         </div>
         <div class="col-md-8">
-            {include file="vue/commentList.vue"}
-
+            {include file="vue/commentList.vue"} 
 
             <form id="comment-form" action="insert-comment" method="POST">
                 <div class="form-group">

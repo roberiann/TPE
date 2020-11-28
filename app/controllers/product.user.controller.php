@@ -1,10 +1,10 @@
 <?php
 
-require_once 'app/views/ProductoView.php';
-require_once 'app/models/ProductoModel.php';
+require_once 'app/views/product.view.php';
+require_once 'app/models/product.model.php';
 require_once 'app/helpers/auth.helper.php';
 
-class ProductoUserController
+class ProductUserController
 {
     private $view;
     private $model;
@@ -13,8 +13,8 @@ class ProductoUserController
 
     function __construct()
     {
-        $this->view = new ProductoView();
-        $this->model = new ProductoModel();
+        $this->view = new ProductView();
+        $this->model = new ProductModel();
         $this->authHelper = new AuthHelper();
         $this->authHelper->checkLogged();
     }
@@ -28,15 +28,15 @@ class ProductoUserController
 
     function ProductsByCategory($params = null)
     {
-        $id_categoria = $params[':ID'];
-        $products = $this->model->GetProductsByCategory($id_categoria);
+        $id_category = $params[':ID'];
+        $products = $this->model->GetProductsByCategory($id_category);
         $this->view->LoggedProductsByCategory($products);
     }
 
     function ProductDetail($params = null)
     {
-        $id_producto = $params[':ID'];
-        $product = $this->model->GetProduct($id_producto);
+        $id_product = $params[':ID'];
+        $product = $this->model->GetProduct($id_product);
         $this->view->LoggedProductDetail($product);
     }
 }

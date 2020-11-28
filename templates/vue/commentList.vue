@@ -5,7 +5,9 @@
             <div class="col-md-8" shadow p-3 mb-5 bg-white rounded>
                 <div class="card-header">
                     <strong>{{ comment.nombre}}</strong>
-                    <button v-on:click="greet(comment.id)">Greet</button>
+                    <span v-if="admin == 'Y'"> 
+                       <button v-on:click="greet(comment.id)">Eliminar</button>
+                    </span>
                 </div>
                 <div class="card-body shadow p-3 mb-5 bg-white rounded">
                     <p class="card-text">{{ comment.descripcion }} - {{ comment.calificacion }} ☆</p>

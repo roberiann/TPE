@@ -1,10 +1,10 @@
 <?php
 
-require_once 'app/views/CategoriaAdminView.php';
-require_once 'app/models/CategoriaModel.php';
+require_once 'app/views/category.admin.view.php';
+require_once 'app/models/category.model.php';
 require_once 'app/helpers/auth.helper.php';
 
-class CategoriaAdminController
+class CategoryAdminController
 {
     private $view;
     private $model;
@@ -12,20 +12,18 @@ class CategoriaAdminController
 
     function __construct()
     {
-        $this->view = new CategoriaAdminView();
-        $this->model = new CategoriaModel();
+        $this->view = new CategoryAdminView();
+        $this->model = new CategoryModel();
         $this->authHelper = new AuthHelper();
         
-        // verifico que el usuario esté logueado siempre y sea admin
+        // verifico que el usuario esté logueado y sea admin
         $this->authHelper->checkAdminLogged();
     }
-
 
     function Home()
     {
         $this->view->AdmHome();
     }
-
 
     function Categories()
     {
@@ -35,20 +33,20 @@ class CategoriaAdminController
 
     function InsertCategory()
     {
-        $categoria = $_POST['input_categoria'];
+        $category = $_POST['categoria'];
      
-        if (empty($categoria)) {
+        if (empty($category)) {
             $this->view->showError('Por favor, complete el nombre de la categoría');
             die();
         }
-        $this->model->InsertCategory($_POST['input_categoria'], $_POST['input_description']);
+        $this->model->InsertCategory($_POST['input_categoria'], $_POST['input_descripcion']);
         header("Location: " . CATEGORY);
     }
 
     function DeleteCategory($params = null)
     {
-        $id_categoria = $params[':ID'];
-        $success    = $this->model->DeleteCategory($id_categoria);
+        $id_category = $params[':ID'];
+        $success    = $this->model->DeleteCategory($id_category);
         if ($success) {
             header("Location: " . CATEGORY);
         }else {
@@ -58,20 +56,20 @@ class CategoriaAdminController
 
     function Category($params = null)
     {
-        $id_categoria = $params[':ID'];
-        $category = $this->model->GetCategory($id_categoria);
+        $id_category = $params[':ID'];
+        $category = $this->model->GetCategory($id_category);
         $this->view->ShowCategoryEdit($category);
     }
 
     function EditCategory()
     {   
-        $categoria = $_POST['input_categoria'];
+        $category = $_POST['input_categoria'];
      
-        if (empty($categoria)) {
+        if (empty($category)) {
             $this->view->showError('Por favor, complete el nombre de la categoría');
             die();
         }
-        $this->model->EditCategory($_POST['input_id-categoria'], $_POST['input_categoria'], $_POST['input_description']);
+        $this->model->EditCategory($_POST['input_id-categoria'], $_POST['input_categoria'], $_POST['input_descripcion']);
         header("Location: " . CATEGORY);
     }
 }

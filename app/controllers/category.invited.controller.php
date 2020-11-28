@@ -1,17 +1,17 @@
 <?php
 
-require_once 'app/views/CategoriaView.php';
-require_once 'app/models/CategoriaModel.php';
+require_once 'app/views/category.view.php';
+require_once 'app/models/category.model.php';
 
-class CategoriaController
+class CategoryInvitedController
 {
     private $view;
     private $model;
 
     function __construct()
     {
-        $this->view = new CategoriaView();
-        $this->model = new CategoriaModel();
+        $this->view = new CategoryView();
+        $this->model = new CategoryModel();
     }
 
     function Home()

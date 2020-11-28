@@ -20,9 +20,10 @@ class ApiCommentController {
     public function getAll($params = null) {
         $idProduct = $params[':ID'];
         $comments = $this->model->getAll($idProduct);
-        if ($comments)
+
+        if ($comments) 
             $this->view->response($comments, 200);
-        else
+        else 
             $this->view->response("El producto con el id=$idProduct no existe o no registra comentarios", 404);
     }
 

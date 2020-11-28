@@ -4,13 +4,13 @@ const app = new Vue({
     el: "#app",
     data: {
         comments: [],
+        admin: '',
     },
 
-    
-    el: "#app2",
-    data: {
-        comments2: [],
-    },
+    // el: "#app2",
+    // data: {
+    //     comments2: [],
+    // },
 
     methods: {
         greet: function(key) {
@@ -19,7 +19,10 @@ const app = new Vue({
     }
 });
 
+
+
 document.addEventListener('DOMContentLoaded', e => {
+    app.admin = document.querySelector('#admin').value;
     getMsjs();
 
     document.querySelector('#comment-form').addEventListener('submit', e => {
@@ -56,13 +59,12 @@ async function getMsjs() {
         const response = await fetch('api/product/' + prod_id + '/comment');
         const msjs = await response.json();
 
-        // imprimo las tareas
-        if (msjs.length > 0) {
-            app.comments = msjs;
-            app.comments2 = msjs;
+        console.log(response);
 
+        if (msjs.ok) {
+            app.comments = msjs;
         } else {
-            console.log(e);;
+            console.log(msjs);
         }
     } catch (e) {
         console.log(e);

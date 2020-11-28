@@ -1,9 +1,9 @@
 <?php
 
-require_once 'app/views/CategoriaView.php';
-require_once 'app/models/CategoriaModel.php';
+require_once 'app/views/category.view.php';
+require_once 'app/models/category.model.php';
 
-class CategoriaUserController
+class CategoryUserController
 {
     private $view;
     private $model;
@@ -12,11 +12,10 @@ class CategoriaUserController
 
     function __construct()
     {
-        $this->view = new CategoriaView();
-        $this->model = new CategoriaModel();
+        $this->view = new CategoryView();
+        $this->model = new CategoryModel();
         $this->authHelper = new AuthHelper();
         $this->authHelper->checkLogged();
-
     }
 
     function Home()

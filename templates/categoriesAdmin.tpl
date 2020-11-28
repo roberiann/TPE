@@ -27,7 +27,7 @@
             <tr>
                 <form action="insert-category" method="post">
                     <td><input class="input-table" id="categoria" name="input_categoria" tpe="text" placeholder=""></td>
-                    <td><input class="input-table" id="descripcion" name="input_description" type="text"></td>
+                    <td><input class="input-table" id="descripcion" name="input_descripcion" type="text"></td>
                     <td><button type="submit" class="btn btn-table" id="btn-agregar">Agregar</button></td>
                 </form>
             </tr>

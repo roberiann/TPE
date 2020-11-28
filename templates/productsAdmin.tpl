@@ -44,7 +44,7 @@
                     <td><input class="input-table" id="producto" name="input_producto" type="text" placeholder=""></td>
                     <td><input class="input-table" id="precio" name="input_precio" type="text"></td>
                     <td><input class="input-table" id="stock" name="input_stock" type="text"></td>
-                    <td><input class="input-table" id="descripcion" name="input_description" type="text"></td>
+                    <td><input class="input-table" id="descripcion" name="input_descripcion" type="text"></td>
                     <td><select name="input_categoria" class="form-control" value="">
                             {foreach from=$categories item=category}
                                 <option value="{$category->id}">{$category->nombre}</option>

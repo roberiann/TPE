@@ -1,11 +1,11 @@
 <?php
 
-require_once 'app/views/ProductoAdminView.php';
-require_once 'app/models/ProductoModel.php';
-require_once 'app/models/CategoriaModel.php';
+require_once 'app/views/product.admin.view.php';
+require_once 'app/models/product.model.php';
+require_once 'app/models/category.model.php';
 require_once 'app/helpers/auth.helper.php';
 
-class ProductoAdminController
+class ProductAdminController
 {
     private $view;
     private $model;
@@ -14,9 +14,9 @@ class ProductoAdminController
 
     function __construct()
     {
-        $this->view = new ProductoAdminView();
-        $this->model = new ProductoModel();
-        $this->modelCat = new CategoriaModel();
+        $this->view = new ProductAdminView();
+        $this->model = new ProductModel();
+        $this->modelCat = new CategoryModel();
 
         $this->authHelper = new AuthHelper();
         // verifico que el usuario esté logueado siempre y sea admin
@@ -32,16 +32,16 @@ class ProductoAdminController
 
     function DeleteProduct($params = null)
     {
-        $id_producto = $params[':ID'];
-        $this->model->Delete($id_producto);
+        $id_product = $params[':ID'];
+        $this->model->Delete($id_product);
         header("Location: " . PRODUCT);
     }
 
     
     function DeleteImage($params = null)
     {
-        $id_producto = $params[':ID'];
-        $this->model->DeleteImage($id_producto);
+        $id_product = $params[':ID'];
+        $this->model->DeleteImage($id_product);
         header("Location: " . PRODUCT);
     }
 
@@ -54,7 +54,7 @@ class ProductoAdminController
     function addProduct()
     {
         $producto    = $_POST['input_producto'];
-        $descripcion = $_POST['input_description'];
+        $descripcion = $_POST['input_descripcion'];
         $precio   = $_POST['input_precio'];
         $stock       = $_POST['input_stock'];
         $categoria   = $_POST['input_categoria'];
@@ -78,22 +78,22 @@ class ProductoAdminController
 
     function Product($params = null)
     {
-        $id_producto = $params[':ID'];
-        $product = $this->model->GetProduct($id_producto);
+        $id_product = $params[':ID'];
+        $product = $this->model->GetProduct($id_product);
         $categories = $this->modelCat->GetCategories();
         $this->view->ShowProductEdit($product, $categories);
     }
 
     function EditProduct()
     {
-        $producto  = $_POST['input_producto'];
+        $product  = $_POST['input_producto'];
              
-        if (empty($producto)) {
+        if (empty($product)) {
             $this->view->showError('Por favor complete el nombre del producto.');
             die();
         }
         
-        $this->model->EditProduct($_POST['input_id-producto'], $_POST['input_producto'], $_POST['input_description'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria']);
+        $this->model->EditProduct($_POST['input_id-producto'], $_POST['input_producto'], $_POST['input_descripcion'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria']);
         header("Location: " . PRODUCT);
     }
 
@@ -104,23 +104,23 @@ class ProductoAdminController
 
     function EditUser($params = null){
 
-        $id_usuario = $params[':ID'];
-        $user = $this->model->GetUser($id_usuario);
+        $id_user = $params[':ID'];
+        $user = $this->model->GetUser($id_user);
 
         if ($user->admin == "Y"){
-        $this->model->QuitAdmin($id_usuario);
+        $this->model->QuitAdmin($id_user);
         header("Location: " . USERS);
         }
         else{
-            $this->model->GiveAdmin($id_usuario);
+            $this->model->GiveAdmin($id_user);
             header("Location: " . USERS);
         }
     }
 
     function DeleteUser($params = null)
     {
-        $id_usuario = $params[':ID'];
-        $this->model->DeleteUser($id_usuario);
+        $id_user = $params[':ID'];
+        $this->model->DeleteUser($id_user);
         header("Location: " . USERS);
     }
 }

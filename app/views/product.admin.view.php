@@ -2,7 +2,7 @@
 
 require_once "libs/smarty/Smarty.class.php";
 
-class ProductoAdminView
+class ProductAdminView
 {
 
     private $smarty;

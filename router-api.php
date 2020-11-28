@@ -1,5 +1,5 @@
 <?php
-require_once 'RouterClass.php';
+require_once 'router-class.php';
 require_once 'app/api/api-comments.controller.php';
 
 // creo el router

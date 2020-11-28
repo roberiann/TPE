@@ -12,8 +12,8 @@
             <input class="form-control" id="categoria" name="input_categoria" value="{$category->nombre_categoria}" type="text">
         </div>
         <div class="form-group">
-            <label for="description">Descripción</label>
-            <input class="form-control" id="description" name="input_description" value="{$category->desc_categoria}" type="text">
+            <label for="descripcion">Descripción</label>
+            <input class="form-control" id="descripcion" name="input_descripcion" value="{$category->desc_categoria}" type="text">
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>

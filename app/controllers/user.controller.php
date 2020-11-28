@@ -1,7 +1,7 @@
 <?php
 
-require_once "app/views/UserView.php";
-require_once "app/models/UserModel.php";
+require_once "app/views/user.view.php";
+require_once "app/models/user.model.php";
 require_once "app/helpers/auth.helper.php";
 
 class UserController
@@ -41,7 +41,7 @@ class UserController
 
                     $this->authHelper->login($userFromDB);
                     if ($userFromDB->admin == "Y"){
-                    header("Location: " . CATEGORY);
+                        header("Location: " . CATEGORY);
                     }
                     else{
                         header("Location: " . LOGGED);
@@ -74,7 +74,8 @@ class UserController
             if (!$userFromDB) {
                 $hash = password_hash($pass, PASSWORD_DEFAULT);
                 $this->model->InsertUser($name, $user, $hash);   
-                header("Location: " . LOGIN); 
+                $this->authHelper->login($user);
+                header("Location: " . LOGGED);
             } else {
                 $this->view->ShowRegisterForm("El usuario ya existe");
             }   

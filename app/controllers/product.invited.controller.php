@@ -1,17 +1,17 @@
 <?php
 
-require_once 'app/views/ProductoView.php';
-require_once 'app/models/ProductoModel.php';
+require_once 'app/views/product.view.php';
+require_once 'app/models/product.model.php';
 
-class ProductoController
+class ProductInvitedController
 {
     private $view;
     private $model;
 
     function __construct()
     {
-        $this->view = new ProductoView();
-        $this->model = new ProductoModel();
+        $this->view = new ProductView();
+        $this->model = new ProductModel();
     }
 
     function Products()
@@ -23,15 +23,15 @@ class ProductoController
 
     function ProductsByCategory($params = null)
     {
-        $id_categoria = $params[':ID'];
-        $products = $this->model->GetProductsByCategory($id_categoria);
+        $id_category = $params[':ID'];
+        $products = $this->model->GetProductsByCategory($id_category);
         $this->view->ShowProductsByCategory($products);
     }
 
     function ProductDetail($params = null)
     {
-        $id_producto = $params[':ID'];
-        $product = $this->model->GetProduct($id_producto);
+        $id_product = $params[':ID'];
+        $product = $this->model->GetProduct($id_product);
         $this->view->ShowProductDetail($product);
     }
 }

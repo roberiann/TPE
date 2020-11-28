@@ -2,7 +2,7 @@
 
 require_once "libs/smarty/Smarty.class.php";
 
-class CategoriaView
+class CategoryView
 {
 
     private $smarty;
