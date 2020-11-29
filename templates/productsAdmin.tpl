@@ -44,9 +44,19 @@
                                 <option value="{$category->id}">{$category->nombre}</option>
                             {/foreach}
                     <td>
-                        <div class="input-table">
-                            <input type="file" name="input_name" id="imageToUpload"> 
+                        <label class="btn btn-primary">
+                            <i class="fa fa-image"></i>Adjuntar<input class="input-table" id="imageToUpload" type="file" style="display: none;" name="input_name" accept="image/png,  image/jpg, image/jpeg">
+                        </label>
+                        <div class="custom-file" id="customFile">
+                            <input type="file" class="file-input" id="imageToUpload" aria-describedby="fileHelp">
+                            <label class="file-label" for="imageToUpload">
+                                Elegir imagen
+                            </label>
                         </div>
+
+
+
+
                     </td>
                     <td><button type="submit" class="btn btn-table" id="btn-agregar">Agregar</button></td>
                 </form>

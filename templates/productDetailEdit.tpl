@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-md-4">
-            <form action="edit-product" method="post">
+            <form action="edit-product" method="post" enctype="multipart/form-data">
                 <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
                 <input type="hidden" id="id_user" name="input_id-usuario" value="{$smarty.session.USERID}">
                 <input type="hidden" id="admin" name="admin" value="{$smarty.session.ADMIN}">
@@ -27,6 +27,10 @@
                 <div class="form-group">
                     <label for="stock">Stock</label>
                     <input class="form-control" id="stock" name="input_stock" value="{$product->stock}" type="number">
+                </div>
+                <div class="form-group">
+                    <label for="image">Imagen</label>
+                    <input class="form-control" accept="image/png,  image/jpg, image/jpeg" id="imageToUpload" name="input_imagen" value="{$product->imagen}" type="file">
                 </div>
                 <div class="form-group">
                     <label for="category">Categoria</label>

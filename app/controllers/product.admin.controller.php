@@ -85,7 +85,7 @@ class ProductAdminController
             die();
         }
         
-        $this->model->EditProduct($_POST['input_id-producto'], $_POST['input_producto'], $_POST['input_descripcion'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria']);
+        $this->model->EditProduct($_POST['input_id-producto'], $_POST['input_producto'], $_POST['input_descripcion'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria'], $_POST['input_imagen']);
         header("Location: " . PRODUCT);
     }
 

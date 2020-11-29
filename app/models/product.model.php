@@ -48,10 +48,10 @@ class ProductModel
         return $this->db->lastInsertId();
     }
 
-    function EditProduct($id_producto, $producto, $description, $precio, $stock, $categoria)
+    function EditProduct($id_producto, $producto, $description, $precio, $stock, $categoria, $imagen = null)
     {
-        $query = $this->db->prepare("UPDATE `producto` SET `nombre`=?, `descripcion`=?, `precio`=?, `stock`=?, `id_categoria`=? WHERE `producto`.`id`=?");
-        $query->execute(array($producto, $description, $precio, $stock, $categoria, $id_producto));
+        $query = $this->db->prepare("UPDATE producto SET nombre=?, descripcion=?, precio=?, stock=?, id_categoria=? imagen=? WHERE producto.id=?");
+        $query->execute(array($producto, $description, $precio, $stock, $categoria, $id_producto, $imagen));
     }
 
     function GetUsers()

@@ -218,3 +218,7 @@ th {
     display: grid;
     grid-template-areas: "contact contact contact contact" "contact contact contact contact";
 }
+
+.file-input~.file-label::after {
+    content: "Elegir";
+}
