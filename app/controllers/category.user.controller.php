@@ -20,12 +20,12 @@ class CategoryUserController
 
     function Home()
     {
-        $this->view->LoggedHome();
+        $this->view->ShowHome();
     }
 
     function Categories()
     {
         $categories = $this->model->GetCategories();
-        $this->view->LoggedCategories($categories);
+        $this->view->ShowCategories($categories);
     }
 }

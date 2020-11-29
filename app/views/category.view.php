@@ -25,11 +25,7 @@ class CategoryView
         $this->smarty->display('templates/categories.tpl');
     }
 
-    function LoggedHome()
-    {
-        $this->smarty->assign('titulo', 'ARTE SANO');
-        $this->smarty->display('templates/homeLogged.tpl');
-    }
+
 
     function LoggedCategories($categories)
     {
@@ -37,6 +33,4 @@ class CategoryView
         $this->smarty->assign('categories', $categories);
         $this->smarty->display('templates/categoriesLogged.tpl');
     }
-
-
 }

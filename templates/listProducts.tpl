@@ -1,4 +1,8 @@
+{if isset($smarty.session)}
+{include file="headerLogged.tpl"}
+{else}
 {include file="header.tpl"}
+{/if}
 <div>
     <img class="img-seed" src="images/semillas.jpg" alt="Semillas">
 </div>
@@ -16,8 +20,11 @@
                             <!-- Custom content-->
                             <div class="media align-items-lg-center flex-column flex-lg-row p-3">
                                 <div class="media-body order-2 order-lg-1">
-                                    <h5 class="mt-0 font-weight-bold mb-2"><a href="product/{$product->id_producto}">{$product->nombre_producto}</h5>
-                                    <p class="font-italic text-muted mb-0 small">{$product->desc_producto} | {$product->nombre_categoria}</p>
+                {if isset($smarty.session)}
+                     <h5 class="mt-0 font-weight-bold mb-2"><a href="productLogged/{$product->id_producto}">{$product->nombre_producto}</h5>
+                {else}
+                     <h5 class="mt-0 font-weight-bold mb-2"><a href="product/{$product->id_producto}">{$product->nombre_producto}</h5>
+                {/if}                                    <p class="font-italic text-muted mb-0 small">{$product->desc_producto} | {$product->nombre_categoria}</p>
                                     <div class="d-flex align-items-center justify-content-between mt-1">
                                         <h6 class="font-weight-bold my-2">${$product->precio}</h6>
                                         {* <ul class="list-inline small">

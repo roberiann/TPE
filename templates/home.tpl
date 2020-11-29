@@ -1,4 +1,9 @@
+
+{if isset($smarty.session)}
+{include file="headerLogged.tpl"}
+{else}
 {include file="header.tpl"}
+{/if}
 <main>
     <img src="images/portada.jpg" alt="Principal">
     <h1>Acerca de Arte Sano...</h1>

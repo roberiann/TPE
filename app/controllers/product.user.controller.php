@@ -22,7 +22,7 @@ class ProductUserController
     function Products()
     {
         $products = $this->model->GetProducts();
-        $this->view->LoggedProducts($products);
+        $this->view->ShowProducts($products);
     }
 
 
@@ -30,13 +30,13 @@ class ProductUserController
     {
         $id_category = $params[':ID'];
         $products = $this->model->GetProductsByCategory($id_category);
-        $this->view->LoggedProductsByCategory($products);
+        $this->view->ShowProductsByCategory($products);
     }
 
     function ProductDetail($params = null)
     {
         $id_product = $params[':ID'];
         $product = $this->model->GetProduct($id_product);
-        $this->view->LoggedProductDetail($product);
+        $this->view->ShowProductDetail($product);
     }
 }

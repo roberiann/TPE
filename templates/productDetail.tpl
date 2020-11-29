@@ -1,4 +1,8 @@
+{if isset($smarty.session)}
+{include file="headerLogged.tpl"}
+{else}
 {include file="header.tpl"}
+{/if}
 <div>
     <img class="img-seed" src="images/semillas.jpg" alt="Semillas">
 </div>
@@ -11,8 +15,15 @@
             </div>
             <form>
                 <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
+
+            {if isset($smarty.session)}
+                <input type="hidden" id="id_user" name="input_id-usuario" value="{$smarty.session.USERID}">
+                <input type="hidden" id="admin" name="admin" value="{$smarty.session.ADMIN}">
+            {else}
                 <input type="hidden" id="id_user" name="input_id-usuario" value="N">
                 <input type="hidden" id="admin" name="admin" value="N" >
+            {/if}
+
             </form>
             <img class="card-img-top" src={$product->imagen} alt="Card image">
             <div class="card-body card-almacen">
@@ -27,6 +38,24 @@
 
         <div class="col-md-8">
             {include file="vue/commentList.vue"}
+            {if isset($smarty.session)}
+            <form id="comment-form" action="insert-comment" method="POST">
+                <div class="form-group">
+                    <label>Comentario</label>
+                    <textarea name="comentario" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <select name="calificacion" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Publicar</button>
+            </form>            {/if}
         </div>
     </div>
 

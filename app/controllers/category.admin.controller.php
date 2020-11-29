@@ -15,7 +15,7 @@ class CategoryAdminController
         $this->view = new CategoryAdminView();
         $this->model = new CategoryModel();
         $this->authHelper = new AuthHelper();
-        
+
         // verifico que el usuario esté logueado y sea admin
         $this->authHelper->checkAdminLogged();
     }
@@ -34,7 +34,7 @@ class CategoryAdminController
     function InsertCategory()
     {
         $category = $_POST['categoria'];
-     
+
         if (empty($category)) {
             $this->view->showError('Por favor, complete el nombre de la categoría');
             die();
@@ -49,9 +49,9 @@ class CategoryAdminController
         $success    = $this->model->DeleteCategory($id_category);
         if ($success) {
             header("Location: " . CATEGORY);
-        }else {
+        } else {
             $this->view->showError("No se puede borrar la categoria.");
-        }    
+        }
     }
 
     function Category($params = null)
@@ -62,9 +62,9 @@ class CategoryAdminController
     }
 
     function EditCategory()
-    {   
+    {
         $category = $_POST['input_categoria'];
-     
+
         if (empty($category)) {
             $this->view->showError('Por favor, complete el nombre de la categoría');
             die();
