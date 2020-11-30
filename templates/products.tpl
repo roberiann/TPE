@@ -30,7 +30,7 @@
                                             <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
                                         </ul> *}
                                     </div>
-                                </div><img src="{$product->imagen}" alt="Product" width="200" class="ml-lg-5 order-1 order-lg-2 img-product">
+                                </div><img src="{$product->imagen}" alt="Product" class="img-product" class="ml-lg-5 order-1 order-lg-2 img-product">
                             </div> <!-- End -->
                         </li> <!-- End -->
                     {/foreach}

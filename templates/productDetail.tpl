@@ -10,11 +10,10 @@
             <div class="card-header bg-transparent card-almacen">
                 <h2> {$product->nombre_producto} </h2>
             </div>
-            <form>
-                <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
-                <input type="hidden" id="id_user" name="input_id-usuario" value="N">
-                <input type="hidden" id="admin" name="admin" value="N">
-            </form>
+
+            <article id="data" data-id_producto="{$product->id_producto}" data-id_usuario="{$smarty.session.USERID}" data-admin="N">
+            </article>
+
             <img class="card-img-top" src={$product->imagen} alt="Card image">
             <div class="card-body card-almacen">
                 <ul class="list-group list-group-flush">
