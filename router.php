@@ -40,6 +40,8 @@ $r->addRoute("edit-category", "POST", "CategoryAdminController", "EditCategory")
 $r->addRoute("products", "GET", "ProductUserController", "Products");
 $r->addRoute("category/:ID", "GET", "ProductUserController", "ProductsByCategory");
 $r->addRoute("product/:ID", "GET", "ProductUserController", "ProductDetail");
+$r->addRoute("products/page/:no", "GET", "ProductUserController", "productPagination");
+
 
 $r->addRoute("products-admin", "GET", "ProductAdminController", "Products");
 $r->addRoute("delete-product/:ID", "GET", "ProductAdminController", "DeleteProduct");

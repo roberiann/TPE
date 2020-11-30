@@ -39,4 +39,23 @@ class ProductUserController
         $product = $this->model->GetProduct($id_product);
         $this->view->ShowProductDetail($product);
     }
+
+    function productPagination($params = null)
+    {
+        $pageno = $params[':no'];
+
+        if (!isset($pageno))
+           $pageno = 1;
+     
+        $no_of_records_per_page = 3;
+        $offset = ($pageno-1) * $no_of_records_per_page;   
+
+        // $total_rows =  $this->model->countProducts();
+        // $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+        $products =  $this->model->pageProducts($no_of_records_per_page, $offset);
+        $this->view->ShowProducts($products);
+
+    }
+    
 }
