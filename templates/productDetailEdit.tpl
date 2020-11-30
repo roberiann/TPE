@@ -1,4 +1,5 @@
-{include file="headerAdmLogged.tpl"}
+{include file="header.tpl"}
+
 <div>
     <img class="img-seed" src="images/semillas.jpg" alt="Semillas">
 </div>
@@ -69,9 +70,6 @@
                 <button type="submit" class="btn btn-primary">Publicar</button>
             </form>
         </div>
-
-
-
     </div>
 </main>
 <!-- incluyo JS para CSR -->

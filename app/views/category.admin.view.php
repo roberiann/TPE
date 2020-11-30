@@ -12,12 +12,6 @@ class CategoryAdminView
         $this->smarty = new Smarty();
     }
 
-
-    function AdmHome()
-    {
-        $this->smarty->assign('titulo', 'ARTE SANO');
-        $this->smarty->display('templates/homeAdmLogged.tpl');
-    }
     function ShowCategories($categories)
     {
         $this->smarty->assign('titulo', 'Listado de Categorias');

@@ -6,9 +6,6 @@ class AuthHelper
     {
     }
 
-    /**
-     * Barrera de seguridad para usuario logueado
-     */
     function checkAdminLogged()
     {   
         session_start();
@@ -16,8 +13,9 @@ class AuthHelper
             header("Location: " . LOGIN);
             die();
         }
+
         if (!isset($_SESSION['ADMIN']) || (isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] == 'N'))) {
-            header("Location: ".LOGGED);
+            header("Location: " . BASE_URL . "home");
             die();
         }
     }
@@ -25,16 +23,17 @@ class AuthHelper
     function checkLogged()
     {   
         session_start();
-        if (!isset($_SESSION['EMAIL'])||(isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] !== 'N'))){
-            header("Location: ".BASE_URL."home");
-            die();
-        }
+        // if (!isset($_SESSION['EMAIL'])||(isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] !== 'N'))){
+        //     header("Location: " . BASE_URL . "home");
+        //     die();
+        // }
     }
+
     function logout()
     {
         session_start();
         session_destroy();
-        header("Location: ".BASE_URL."home");
+        header("Location: " . BASE_URL . "home");
     }
 
     function login($user)

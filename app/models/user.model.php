@@ -27,4 +27,36 @@ class UserModel
         $sentencia->execute(array($name, $user, $hash));
     }
 
+    function GetUsers()
+    {
+        $query = $this->db->prepare("SELECT `u`.`id` as `id_usuario`, `u`.`nombre` as `nombre_usuario`, `u`.`email` as `email`, `u`.`admin` as `admin` FROM usuario u");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    function GetUserById($id_usuario)
+    {
+        $query = $this->db->prepare("SELECT `u`.`id` as `id_usuario`, `u`.`nombre` as `nombre_usuario`, `u`.`email` as `email`, `u`.`admin` as `admin` FROM usuario u WHERE `u`.`id`=?");
+        $query->execute(array($id_usuario));
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
+    function QuitAdmin($id_user)
+    {
+        $query = $this->db->prepare("UPDATE usuario SET admin= 'N' WHERE id=?");
+        $query->execute(array($id_user));
+    }
+
+    function GiveAdmin($id_user)
+    {
+        $query = $this->db->prepare("UPDATE usuario SET admin= 'Y' WHERE id=?");
+        $query->execute(array($id_user));       
+    }
+
+    function DeleteUser($id_user)
+    {
+        $query = $this->db->prepare("DELETE FROM usuario WHERE id=?");
+        $query->execute(array($id_user));
+    }
+
 }

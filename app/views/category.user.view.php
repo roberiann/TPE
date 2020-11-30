@@ -25,12 +25,4 @@ class CategoryView
         $this->smarty->display('templates/categories.tpl');
     }
 
-
-
-    function LoggedCategories($categories)
-    {
-        $this->smarty->assign('titulo', 'CATEGORIAS');
-        $this->smarty->assign('categories', $categories);
-        $this->smarty->display('templates/categoriesLogged.tpl');
-    }
 }

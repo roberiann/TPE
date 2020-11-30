@@ -20,11 +20,6 @@ class CategoryAdminController
         $this->authHelper->checkAdminLogged();
     }
 
-    function Home()
-    {
-        $this->view->AdmHome();
-    }
-
     function Categories()
     {
         $categories = $this->model->GetCategories();

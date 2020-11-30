@@ -88,31 +88,4 @@ class ProductAdminController
         $this->model->EditProduct($_POST['input_id-producto'], $_POST['input_producto'], $_POST['input_descripcion'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria'], $_POST['input_imagen']);
         header("Location: " . PRODUCT);
     }
-
-    function GetUsers(){
-        $users = $this->model->GetUsers();
-        $this->view->ShowUsers($users);
-    }
-
-    function EditUser($params = null){
-
-        $id_user = $params[':ID'];
-        $user = $this->model->GetUser($id_user);
-
-        if ($user->admin == "Y"){
-        $this->model->QuitAdmin($id_user);
-        header("Location: " . USERS);
-        }
-        else{
-            $this->model->GiveAdmin($id_user);
-            header("Location: " . USERS);
-        }
-    }
-
-    function DeleteUser($params = null)
-    {
-        $id_user = $params[':ID'];
-        $this->model->DeleteUser($id_user);
-        header("Location: " . USERS);
-    }
 }

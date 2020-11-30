@@ -1,8 +1,5 @@
-{if isset($smarty.session)}
-{include file="headerLogged.tpl"}
-{else}
 {include file="header.tpl"}
-{/if}
+
 <div>
     <img class="img-seed" src="images/semillas.jpg" alt="Semillas">
 </div>
@@ -16,7 +13,7 @@
             <form>
                 <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
 
-            {if isset($smarty.session)}
+            {if isset($smarty.session.EMAIL)}
                 <input type="hidden" id="id_user" name="input_id-usuario" value="{$smarty.session.USERID}">
                 <input type="hidden" id="admin" name="admin" value="{$smarty.session.ADMIN}">
             {else}

@@ -1,4 +1,5 @@
-{include file="headerAdmLogged.tpl"}
+{include file="header.tpl"}
+
 <div>
     <img class="img-seed" src="images/semillas.jpg" alt="Semillas">
 </div>

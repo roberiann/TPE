@@ -1,4 +1,4 @@
-{include 'headerLoggedIn.tpl'}
+{include file="header.tpl"}
 
 <main class="container mt-1 col-5">
 

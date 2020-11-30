@@ -44,8 +44,7 @@ class UserController
                         header("Location: " . CATEGORY);
                     }
                     else{
-                        header("Location: " . LOGGED);
-
+                        header("Location: " . BASE_URL . "home");
                     }
                 } else {
                     $this->view->ShowLogin("Contraseña incorrecta");
@@ -75,7 +74,7 @@ class UserController
                 $hash = password_hash($pass, PASSWORD_DEFAULT);
                 $this->model->InsertUser($name, $user, $hash);   
                 $this->authHelper->login($user);
-                header("Location: " . LOGGED);
+                header("Location: " . BASE_URL . "home");
             } else {
                 $this->view->ShowRegisterForm("El usuario ya existe");
             }   
@@ -83,5 +82,32 @@ class UserController
         } else {
             $this->view->ShowRegisterForm("Por favor complete los datos");
         }        
+    }
+    
+    function GetUsers(){
+        $users = $this->model->GetUsers();
+        $this->view->ShowUsers($users);
+    }
+
+    function EditUser($params = null){
+
+        $id_user = $params[':ID'];
+        $user = $this->model->GetUserById($id_user);
+
+        if ($user->admin == "Y"){
+        $this->model->QuitAdmin($id_user);
+        header("Location: " . USERS);
+        }
+        else{
+            $this->model->GiveAdmin($id_user);
+            header("Location: " . USERS);
+        }
+    }
+
+    function DeleteUser($params = null)
+    {
+        $id_user = $params[':ID'];
+        $this->model->DeleteUser($id_user);
+        header("Location: " . USERS);
     }
 }

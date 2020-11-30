@@ -1,7 +1,8 @@
 <?php
 
-require_once 'app/views/product.view.php';
+require_once 'app/views/product.user.view.php';
 require_once 'app/models/product.model.php';
+require_once 'app/helpers/auth.helper.php';
 require_once 'app/helpers/auth.helper.php';
 
 class ProductUserController
@@ -9,13 +10,13 @@ class ProductUserController
     private $view;
     private $model;
     private $authHelper;
-
-
+    
     function __construct()
     {
         $this->view = new ProductView();
         $this->model = new ProductModel();
         $this->authHelper = new AuthHelper();
+
         $this->authHelper->checkLogged();
     }
 
@@ -24,7 +25,6 @@ class ProductUserController
         $products = $this->model->GetProducts();
         $this->view->ShowProducts($products);
     }
-
 
     function ProductsByCategory($params = null)
     {
