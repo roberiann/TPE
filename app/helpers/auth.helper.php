@@ -4,37 +4,28 @@ class AuthHelper
 {
     public function __construct()
     {
+        // abre la sessión siempre para usar el helper
+        if (session_status() != PHP_SESSION_ACTIVE) {
+            session_start();
+        }
     }
 
     function checkAdminLogged()
     {   
-        session_start();
-        if (!isset($_SESSION['EMAIL'])) {
+        if (!isset($_SESSION['USERID']) || ($_SESSION['ADMIN'] == 0)) {
             header("Location: " . LOGIN);
             die();
         }
-
-        if (!isset($_SESSION['ADMIN']) || (isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] == 0))) {
-            header("Location: " . BASE_URL . "home");
-            die();
-        }
-    }
-
-    function checkSession()
-    {   
-        session_start();
     }
 
     function logout()
     {
-        session_start();
         session_destroy();
         header("Location: " . BASE_URL . "home");
     }
 
     function login($user)
     {
-        session_start();
         $_SESSION["EMAIL"] = $user->email;
         $_SESSION["ADMIN"] = $user->admin;
         $_SESSION["USERID"] = $user->id;

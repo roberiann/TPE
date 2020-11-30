@@ -17,7 +17,6 @@ class ProductUserController
         $this->model = new ProductModel();
         $this->authHelper = new AuthHelper();
 
-        $this->authHelper->checkSession();
     }
 
     function Products()
