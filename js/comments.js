@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', e => {
     const data = document.querySelector('#data');
     getComments();
 
-    if (data.dataset.id_usuario  != 'N') {
+    if (data.dataset.usuario  != 'N') {
         document.querySelector('#comment-form').addEventListener('submit', e => {
             e.preventDefault();
             addComment();

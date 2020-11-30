@@ -26,7 +26,7 @@ class ApiCommentController
         $check = $this->model->ExistProduct($idProduct);
         if ($check) {
             $comments = $this->model->getAll($idProduct);
-            $this->view->response($comments, 200);}
+            $this->view->response($comments, 200);
             }
         else {
             $this->view->response("El producto con el id=$idProduct no existe", 404);
