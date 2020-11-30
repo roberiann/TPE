@@ -3,9 +3,7 @@
 <div>
     <img class="img-seed" src="images/semillas.jpg" alt="Semillas">
 </div>
-
 <h1>{$titulo}</h1>
-
 <main class="container">
     <table class="table-almacen">
         <thead>

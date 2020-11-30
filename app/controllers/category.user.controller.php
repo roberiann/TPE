@@ -16,7 +16,7 @@ class CategoryUserController
         $this->model = new CategoryModel();
         $this->authHelper = new AuthHelper();
 
-        $this->authHelper->checkLogged();
+        $this->authHelper->checkSession();
     }
 
     function Home()

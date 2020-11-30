@@ -16,21 +16,22 @@ class UserModel
 
     function GetUser($user)
     {
-        $sentencia = $this->db->prepare("SELECT * FROM usuario WHERE email=?");
-        $sentencia->execute(array($user));
-        return $sentencia->fetch(PDO::FETCH_OBJ);
+        $query = $this->db->prepare("SELECT * FROM usuario WHERE email=?");
+        $query->execute(array($user));
+        return $query->fetch(PDO::FETCH_OBJ);
     }
 
     function InsertUser($name, $user, $hash)
     {
-        $sentencia = $this->db->prepare("INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)");
-        $sentencia->execute(array($name, $user, $hash));
+        $query = $this->db->prepare("INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)");
+        $query->execute(array($name, $user, $hash));
+        return $this->db->lastInsertId();
     }
 
-    function GetUsers()
+    function GetUsers($id_user)
     {
-        $query = $this->db->prepare("SELECT `u`.`id` as `id_usuario`, `u`.`nombre` as `nombre_usuario`, `u`.`email` as `email`, `u`.`admin` as `admin` FROM usuario u");
-        $query->execute();
+        $query = $this->db->prepare("SELECT u.id as id_usuario, u.nombre as nombre_usuario, u.email as email, u.admin as admin FROM usuario u WHERE ? <> u.id");
+        $query->execute(array($id_user));
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
@@ -41,16 +42,10 @@ class UserModel
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    function QuitAdmin($id_user)
+    function setAdmin($id_user, $admin)
     {
-        $query = $this->db->prepare("UPDATE usuario SET admin= 'N' WHERE id=?");
-        $query->execute(array($id_user));
-    }
-
-    function GiveAdmin($id_user)
-    {
-        $query = $this->db->prepare("UPDATE usuario SET admin= 'Y' WHERE id=?");
-        $query->execute(array($id_user));       
+        $query = $this->db->prepare("UPDATE usuario SET admin=? WHERE id=?");
+        $query->execute(array($admin, $id_user));
     }
 
     function DeleteUser($id_user)

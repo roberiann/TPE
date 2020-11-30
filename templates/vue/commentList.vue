@@ -5,7 +5,7 @@
             <div class="col-md-8" shadow p-3 mb-5 bg-white rounded>
                 <div class="card-header">
                     <strong>{{ comment.nombre}}</strong>
-                    <span v-if="admin == 'Y'"> 
+                    <span v-if="admin == 1"> 
                        <button class="btn btn-primary" v-on:click="remove(comment.id)">Eliminar</button>
                     </span>
                 </div>

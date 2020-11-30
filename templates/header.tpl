@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                      {if isset($smarty.session.USERID)}
-                        {if $smarty.session.ADMIN eq 'Y'}
+                        {if $smarty.session.ADMIN eq 1}
                             {include file="navAdmin.tpl"}
                         {else}
                             {include file="navUser.tpl"}

@@ -28,7 +28,7 @@ class CategoryAdminController
 
     function InsertCategory()
     {
-        $category = $_POST['categoria'];
+        $category = $_POST['input_categoria'];
 
         if (empty($category)) {
             $this->view->showError('Por favor, complete el nombre de la categoría');

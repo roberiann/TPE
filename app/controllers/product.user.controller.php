@@ -17,7 +17,7 @@ class ProductUserController
         $this->model = new ProductModel();
         $this->authHelper = new AuthHelper();
 
-        $this->authHelper->checkLogged();
+        $this->authHelper->checkSession();
     }
 
     function Products()
@@ -30,7 +30,7 @@ class ProductUserController
     {
         $id_category = $params[':ID'];
         $products = $this->model->GetProductsByCategory($id_category);
-        $this->view->ShowProductsByCategory($products);
+        $this->view->ShowProductsByCategory($products);                 
     }
 
     function ProductDetail($params = null)

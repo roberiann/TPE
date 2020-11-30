@@ -54,10 +54,6 @@
                                 Elegir imagen
                             </label>
                         </div>
-
-
-
-
                     </td>
                     <td><button type="submit" class="btn btn-table" id="btn-agregar">Agregar</button></td>
                 </form>

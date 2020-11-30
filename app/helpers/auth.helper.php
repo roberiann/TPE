@@ -14,19 +14,15 @@ class AuthHelper
             die();
         }
 
-        if (!isset($_SESSION['ADMIN']) || (isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] == 'N'))) {
+        if (!isset($_SESSION['ADMIN']) || (isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] == 0))) {
             header("Location: " . BASE_URL . "home");
             die();
         }
     }
 
-    function checkLogged()
+    function checkSession()
     {   
         session_start();
-        // if (!isset($_SESSION['EMAIL'])||(isset($_SESSION['ADMIN']) && ($_SESSION['ADMIN'] !== 'N'))){
-        //     header("Location: " . BASE_URL . "home");
-        //     die();
-        // }
     }
 
     function logout()
@@ -42,5 +38,10 @@ class AuthHelper
         $_SESSION["EMAIL"] = $user->email;
         $_SESSION["ADMIN"] = $user->admin;
         $_SESSION["USERID"] = $user->id;
+    }
+
+    function getUserId()
+    {
+        return $_SESSION["USERID"];
     }
 }

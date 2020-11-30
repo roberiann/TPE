@@ -16,7 +16,7 @@ class ProductView
     {
         $this->smarty->assign('titulo', 'LISTADO DE PRODUCTOS');
         $this->smarty->assign('products', $products);
-        $this->smarty->display('templates/listProducts.tpl');
+        $this->smarty->display('templates/products.tpl');
     }
 
     function ShowProductDetail($product)
@@ -28,9 +28,9 @@ class ProductView
 
     function ShowProductsByCategory($products)
     {
-        $this->smarty->assign('titulo', $products[0]->nombre_categoria);
+        $this->smarty->assign('titulo', 'Detalle de producto');
         $this->smarty->assign('products', $products);
         $this->smarty->display('templates/productsbycategory.tpl');
     }
-
+    
 }
