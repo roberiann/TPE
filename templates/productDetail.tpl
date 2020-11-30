@@ -11,8 +11,8 @@
                 <h2> {$product->nombre_producto} </h2>
             </div>
 
-            <article id="data" data-id_producto="{$product->id_producto}" data-id_usuario="{$smarty.session.USERID}" data-admin="N">
-            </article>
+            {* <article id="data" data-id_producto="{$product->id_producto}" data-id_usuario="{$smarty.session.USERID}" data-admin="N">
+            </article> *}
 
             <img class="card-img-top" src={$product->imagen} alt="Card image">
             <div class="card-body card-almacen">
