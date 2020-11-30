@@ -8,7 +8,7 @@ $router = new Router();
 // armo la tabla de ruteo
 $router->addRoute('product/:ID/comment', 'GET', 'ApiCommentController', 'getAll');
 $router->addRoute('comment/:ID', 'DELETE', 'ApiCommentController', 'delete');
-$router->addRoute('product/:ID/comment', 'POST', 'ApiCommentController', 'add');           
+$router->addRoute('product/:ID/comment', 'POST', 'ApiCommentController', 'insert');           
 
 //Ruta por defecto.
 $router->setDefaultRoute('ApiCommentController','show404');

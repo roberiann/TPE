@@ -41,4 +41,10 @@ class CommentModel
         return $this->db->lastInsertId();
     }
 
+        function ExistProduct($idproducto)
+    {
+        $sentencia = $this->db->prepare("SELECT * FROM `producto` WHERE `id`=?");
+        $sentencia->execute(array($idproducto));
+        return $sentencia->fetch(PDO::FETCH_OBJ);
+    }
 }

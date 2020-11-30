@@ -10,8 +10,8 @@
         <div class="col-md-4">
             <form action="edit-product" method="post" enctype="multipart/form-data">
                 <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
-                <input type="hidden" id="id_user" name="input_id-usuario" value="{$smarty.session.USERID}">
-                <input type="hidden" id="admin" name="admin" value="{$smarty.session.ADMIN}">
+                <article id="data" data-id_producto="{$product->id_producto}" data-id_usuario="N" data-admin="N">
+                </article>
 
                 <div class="form-group">
                     <label for="title">Producto</label>
@@ -50,7 +50,7 @@
             </form>
         </div>
         <div class="col-md-8">
-            {include file="vue/commentList.vue"} 
+            {include file="vue/commentList.vue"}
 
             <form id="comment-form" action="insert-comment" method="POST">
                 <div class="form-group">
