@@ -29,6 +29,13 @@ class ProductModel
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    function getProductsAdm()
+    {
+        $query = $this->db->prepare("SELECT p.id as id_producto, p.nombre as nombre_producto, p.descripcion as desc_producto, p.precio as precio, p.stock as stock, p.imagen as imagen, c.id as id_categoria, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria=c.id ORDER BY p.nombre");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
     function existProduct($id_product)
     {
         $query = $this->db->prepare("SELECT * FROM producto WHERE id=?");
@@ -72,8 +79,9 @@ class ProductModel
 
     function EditProduct($id_producto, $producto, $description, $precio, $stock, $categoria, $imagen = null)
     {
-        $query = $this->db->prepare("UPDATE producto SET nombre=?, descripcion=?, precio=?, stock=?, id_categoria=? imagen=? WHERE producto.id=?");
-        $query->execute(array($producto, $description, $precio, $stock, $categoria, $id_producto, $imagen));
+        $query = $this->db->prepare("UPDATE `producto` SET `nombre` = ?, `descripcion` = ?, `precio` = ?, `stock` = ?, `imagen` = ?, `id_categoria` = ? WHERE `producto`.`id` = ?;
+");
+        $query->execute(array($producto, $description, $precio, $stock, $imagen,$categoria, $id_producto));
     }
 
 }

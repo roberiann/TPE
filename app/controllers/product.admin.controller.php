@@ -25,7 +25,7 @@ class ProductAdminController
 
     function Products()
     {
-        $products = $this->model->GetProducts();
+        $products = $this->model->getProductsAdm();
         $categories = $this->modelCat->GetCategories();
         $this->view->ShowProducts($products, $categories);
     }
@@ -78,14 +78,16 @@ class ProductAdminController
 
     function EditProduct()
     {
-        $product  = $_POST['input_producto'];
-             
+        $product  = $_POST['input_producto'];             
         if (empty($product)) {
             $this->view->showError('Por favor complete el nombre del producto.');
             die();
         }
         
-        $this->model->EditProduct($_POST['input_id-producto'], $_POST['input_producto'], $_POST['input_descripcion'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria'], $_POST['input_imagen']);
+        if ($_FILES['input_imagen']['type'] == "image/jpg" || $_FILES['input_imagen']['type'] == "image/jpeg" || $_FILES['input_imagen']['type'] == "image/png") {
+            $realName = $this->uniqueSaveName($_FILES['input_imagen']['name'], $_FILES['input_imagen']['tmp_name']);
+            $this->model->EditProduct($_POST['input_id-producto'], $_POST['input_producto'], $_POST['input_descripcion'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria'], $realName);
+        }
         header("Location: " . PRODUCT);
     }
 }
