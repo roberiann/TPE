@@ -1,16 +1,19 @@
 <?php
 require_once 'app/models/comment.model.php';
+require_once 'app/models/product.model.php';
 require_once 'app/api/api.view.php';
 
 class ApiCommentController
 {
 
+    private $modelProduct;
     private $model;
     private $view;
 
     function __construct()
     {
         $this->model = new CommentModel();
+        $this->modelProduct = new ProductModel();
         $this->view = new APIView();
         $this->data = file_get_contents("php://input");
     }
@@ -23,12 +26,11 @@ class ApiCommentController
     public function getAll($params = null)
     {
         $idProduct = $params[':ID'];
-        $check = $this->model->ExistProduct($idProduct);
+        $check = $this->modelProduct->existProduct($idProduct);
         if ($check) {
             $comments = $this->model->getAll($idProduct);
             $this->view->response($comments, 200);
-            }
-        else {
+        } else {
             $this->view->response("El producto con el id=$idProduct no existe", 404);
         }
     }

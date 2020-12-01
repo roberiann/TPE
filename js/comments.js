@@ -5,7 +5,6 @@ const app = new Vue({
     data: {
         comments: [],
         admin: '',
-        id_user: '',
     },
 
     methods: {
@@ -16,10 +15,12 @@ const app = new Vue({
 });
 
 document.addEventListener('DOMContentLoaded', e => {
-    const data = document.querySelector('#data');
+    app.admin = document.querySelector('#data').getAttribute('admin');
+    let user = document.querySelector('#data').getAttribute('id_usuario');
+
     getComments();
 
-    if (data.dataset.usuario  != 'N') {
+    if (user != "") {
         document.querySelector('#comment-form').addEventListener('submit', e => {
             e.preventDefault();
             addComment();
@@ -50,8 +51,7 @@ async function deleteCommnent(key) {
 }
 
 async function getComments() {
-
-    let prod_id = data.dataset.id_producto;
+    let prod_id = document.querySelector('#data').getAttribute('id_producto');
     try {
         const response = await fetch('api/product/' + prod_id + '/comment');
 
@@ -68,13 +68,11 @@ async function getComments() {
 }
 
 async function addComment() {
-
-    const data = document.querySelector('#data');
     const comment = {
         descripcion: document.querySelector('textarea[name=comentario]').value,
         calificacion: document.querySelector('select[name=calificacion]').value,
-        id_producto: data.dataset.id_producto,
-        id_usuario: data.dataset.id_usuario,
+        id_producto: document.querySelector('#data').getAttribute('id_producto'),
+        id_usuario: document.querySelector('#data').getAttribute('id_usuario')
     }
     let url = "api/product/" + comment.id_producto + "/comment";
     try {

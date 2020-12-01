@@ -10,7 +10,8 @@
         <div class="col-md-4">
             <form action="edit-product" method="post" enctype="multipart/form-data">
                 <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
-                <article id="data" data-id_producto="{$product->id_producto}" data-id_usuario="N" data-admin="N">
+                
+                <article id="data" id_producto="{$product->id_producto}" id_usuario="{$smarty.session.USERID}" admin="{$smarty.session.ADMIN}">
                 </article>
 
                 <div class="form-group">

@@ -40,11 +40,4 @@ class CommentModel
         $query->execute(array($description, $calification, $id_product, $id_user));
         return $this->db->lastInsertId();
     }
-
-        function ExistProduct($idproducto)
-    {
-        $sentencia = $this->db->prepare("SELECT * FROM `producto` WHERE `id`=?");
-        $sentencia->execute(array($idproducto));
-        return $sentencia->fetch(PDO::FETCH_OBJ);
-    }
 }

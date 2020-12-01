@@ -46,13 +46,10 @@ class ProductUserController
         if (!isset($pageno))
            $pageno = 1;
      
-        $no_of_records_per_page = 3;
-        $offset = ($pageno-1) * $no_of_records_per_page;   
-
-        // $total_rows =  $this->model->countProducts();
-        // $total_pages = ceil($total_rows / $no_of_records_per_page);
-
-        $products =  $this->model->pageProducts($no_of_records_per_page, $offset);
+        $no_of_products = 3;
+        $offset = ($pageno-1) * $no_of_products;   
+ 
+        $products =  $this->model->pageProducts($no_of_products, $offset);
         $this->view->ShowProducts($products);
 
     }

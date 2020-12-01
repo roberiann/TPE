@@ -11,13 +11,13 @@
                 <h2> {$product->nombre_producto} </h2>
             </div>
 
-            <article id="data" data-id_producto="{$product->id_producto}" 
-            data-id_usuario="{if isset($smarty.session.EMAIL)}
-                            {$smarty.session.USERID}
-                            {else}
-                                N" 
-                            {/if}
-                            data-admin="N">
+            <article id="data" id_producto="{$product->id_producto}" 
+            admin="{if isset($smarty.session.EMAIL)}
+                      {$smarty.session.ADMIN}
+                    {/if}"
+            id_usuario = "{if isset($smarty.session.EMAIL)}
+                                {$smarty.session.USERID}
+                          {/if}">                            
             </article>
 
             <img class="card-img-top" src={$product->imagen} alt="Card image">
