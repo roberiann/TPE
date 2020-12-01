@@ -19,12 +19,6 @@ class ProductUserController
 
     }
 
-    function Products()
-    {
-        $products = $this->model->GetProducts();
-        $this->view->ShowProducts($products);
-    }
-
     function ProductsByCategory($params = null)
     {
         $id_category = $params[':ID'];
@@ -39,18 +33,21 @@ class ProductUserController
         $this->view->ShowProductDetail($product);
     }
 
-    function productPagination($params = null)
+    function products($params = null)
     {
-        $pageno = $params[':no'];
+        if (isset($_GET['page']))
+           $pageno = $_GET['page'];
+        else 
+           $pageno = 1;    
 
-        if (!isset($pageno))
-           $pageno = 1;
-     
         $no_of_products = 3;
         $offset = ($pageno-1) * $no_of_products;   
- 
-        $products =  $this->model->pageProducts($no_of_products, $offset);
-        $this->view->ShowProducts($products);
+
+        $total_rows = $this->model->countProducts();
+        $no_of_pages = ceil($total_rows->no/$no_of_products);
+
+        $products =  $this->model->getProducts($no_of_products, $offset);
+        $this->view->ShowProducts($products, $pageno, $no_of_pages);
 
     }
     

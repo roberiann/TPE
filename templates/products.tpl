@@ -23,13 +23,16 @@
                     </li>
                 {/foreach}
             </ul>
+
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center ">
-                    {* <li class="page-item"><a class="page-link text-info" href="#">Anterior</a></li> *}
-                    <li class="page-item"><a class="page-link text-info" href="products/page/1">1</a></li>
-                    <li class="page-item"><a class="page-link text-info" href="products/page/2">2</a></li>
-                    <li class="page-item"><a class="page-link text-info" href="products/page/3">3</a></li>
-                    {* <li class="page-item"><a class="page-link text-info" href="#">Siguiente</a></li> *}
+                    <li class="page-item {if $pageno <= 1}disabled{/if}">
+                        <a class="page-link" href="{if $pageno <= 1}#{else}products?page={$pageno-1}{/if}">Anterior</a></li>
+                    {for $i=1 to $total_pages}
+                        <li class="page-item"><a class="page-link" href="products?page={$i}">{$i}</a></li>         
+                    {/for}
+                    <li class="page-item {if $pageno >= $total_pages}disabled{/if}">
+                        <a class="page-link" href="{if $pageno >= $total_pages}#{else}products?page={$pageno+1}{/if}">Siguiente</a></li>
                 </ul>
             </nav>
         </div>

@@ -16,12 +16,12 @@ class ProductModel
 
     function countProducts()
     {
-        $query = $this->db->prepare("SELECT COUNT(*) FROM producto");
+        $query = $this->db->prepare("SELECT COUNT(*) as no FROM producto");
         $query->execute();
         return $query->fetch(PDO::FETCH_OBJ);
     }
       
-    function pageProducts($limit, $offset)
+    function getProducts($limit, $offset)
     {   
         $sql = "SELECT p.id as id_producto, p.nombre as nombre_producto, p.descripcion as desc_producto, p.precio as precio, p.stock as stock, p.imagen as imagen, c.id as id_categoria, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria=c.id LIMIT " . $limit . " OFFSET " . $offset;
         $query = $this->db->prepare($sql);
@@ -36,12 +36,12 @@ class ProductModel
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    function GetProducts()
-    {
-        $query = $this->db->prepare("SELECT p.id as id_producto, p.nombre as nombre_producto, p.descripcion as desc_producto, p.precio as precio, p.stock as stock, p.imagen as imagen, c.id as id_categoria, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria=c.id ORDER BY p.nombre");
-        $query->execute();
-        return $query->fetchAll(PDO::FETCH_OBJ);
-    }
+    // function GetProducts()
+    // {
+    //     $query = $this->db->prepare("SELECT p.id as id_producto, p.nombre as nombre_producto, p.descripcion as desc_producto, p.precio as precio, p.stock as stock, p.imagen as imagen, c.id as id_categoria, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria=c.id ORDER BY p.nombre");
+    //     $query->execute();
+    //     return $query->fetchAll(PDO::FETCH_OBJ);
+    // }
 
     function GetProduct($id_product)
     {
