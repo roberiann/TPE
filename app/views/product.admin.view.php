@@ -25,7 +25,7 @@ class ProductAdminView
         $this->smarty->assign('titulo', 'Edición de Producto');
         $this->smarty->assign('categories', $categories);
         $this->smarty->assign('product', $product);
-        $this->smarty->display('templates/productDetailEdit.tpl');
+        $this->smarty->display('templates/productAdminDetail.tpl');
     }
 
     function showError($msg) {

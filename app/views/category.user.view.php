@@ -22,7 +22,7 @@ class CategoryView
     {
         $this->smarty->assign('titulo', 'CATEGORIAS');
         $this->smarty->assign('categories', $categories);
-        $this->smarty->display('templates/categories.tpl');
+        $this->smarty->display('templates/categoriesUser.tpl');
     }
 
 }

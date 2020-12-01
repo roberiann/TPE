@@ -18,21 +18,21 @@ class ProductView
         $this->smarty->assign('products', $products);
         $this->smarty->assign('pageno', $pageno);
         $this->smarty->assign('total_pages', $total_pages);
-        $this->smarty->display('templates/products.tpl');
+        $this->smarty->display('templates/productsUser.tpl');
     }
 
     function ShowProductDetail($product)
     {
         $this->smarty->assign('titulo', 'Detalle de producto');
         $this->smarty->assign('product', $product);
-        $this->smarty->display('templates/productDetail.tpl');
+        $this->smarty->display('templates/productUserDetail.tpl');
     }
 
     function ShowProductsByCategory($products)
     {
         $this->smarty->assign('titulo', 'Detalle de producto');
         $this->smarty->assign('products', $products);
-        $this->smarty->display('templates/productsbycategory.tpl');
+        $this->smarty->display('templates/productsbycategoryUser.tpl');
     }
     
 }

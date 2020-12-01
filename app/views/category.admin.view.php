@@ -23,7 +23,7 @@ class CategoryAdminView
     {
         $this->smarty->assign('titulo', 'Edición de Categoría');
         $this->smarty->assign('category', $category);
-        $this->smarty->display('templates/categoryEdit.tpl');
+        $this->smarty->display('templates/categoryAdminEdit.tpl');
     }
 
     function showError($msg) {
