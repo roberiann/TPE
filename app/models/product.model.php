@@ -58,6 +58,15 @@ class ProductModel
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    function getImagePath($id_producto)
+    {
+        $query = $this->db->prepare("SELECT imagen FROM producto WHERE id=?");
+        $query->execute(array($id_producto));
+        return $query->fetch(PDO::FETCH_OBJ);
+
+    }
+
+
     function delete($id_producto)
     {
         $query = $this->db->prepare("DELETE FROM producto WHERE id=?");

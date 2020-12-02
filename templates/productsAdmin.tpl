@@ -46,7 +46,7 @@
                             {/foreach}
                     <td>
                         <div class="custom-file" id="customFile">
-                            <input type="file" class="file-input" id="imageToUpload" aria-describedby="fileHelp">
+                            <input type="file" class="file-input" id="imageToUpload" name="input_name" aria-describedby="fileHelp">
                         </div>
                     </td>
                     <td><button type="submit" class="btn btn-table" id="btn-agregar">Agregar</button></td>

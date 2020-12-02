@@ -33,6 +33,8 @@ class ProductAdminController
     function deleteProduct($params = null)
     {
         $id_product = $params[':ID'];
+        $image=$this->model->getImagePath($id_product);
+        unlink($image->imagen);
         $this->model->delete($id_product);
         header("Location: " . PRODUCT);
     }

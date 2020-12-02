@@ -145,6 +145,8 @@ td {
     font-style: italic;
     font-family: 'Roboto', sans-serif;
     color: #575756;
+    padding-top: 8px;
+    padding-bottom: 0;
 }
 
 .table-almacen {
@@ -160,6 +162,7 @@ th {
     background: linear-gradient(#55a59c, #f3f7f6);
     color: #575756;
     border: 0.125rem solid #a6dbd5;
+    padding: 15px;
 }
 
 th, td{
