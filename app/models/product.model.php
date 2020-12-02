@@ -14,18 +14,19 @@ class ProductModel
         $this->db = $this->dbHelper->connect();
     }
 
-    function countProducts()
+    function countProducts($product, $pricefrom, $priceto)
     {
-        $query = $this->db->prepare("SELECT COUNT(*) as no FROM producto");
-        $query->execute();
+        $sql = "SELECT COUNT(*) as no FROM producto p INNER JOIN categoria c ON p.id_categoria=c.id WHERE p.nombre LIKE ? AND p.precio BETWEEN ? AND ?"; 
+        $query = $this->db->prepare($sql);
+        $query->execute(array("%".$product."%", $pricefrom, $priceto));
         return $query->fetch(PDO::FETCH_OBJ);
     }
-      
-    function getProducts($limit, $offset)
+
+    function getProducts($product, $pricefrom , $priceto, $limit, $offset)
     {   
-        $sql = "SELECT p.id as id_producto, p.nombre as nombre_producto, p.descripcion as desc_producto, p.precio as precio, p.stock as stock, p.imagen as imagen, c.id as id_categoria, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria=c.id LIMIT " . $limit . " OFFSET " . $offset;
+        $sql = "SELECT p.id as id_producto, p.nombre as nombre_producto, p.descripcion as desc_producto, p.precio as precio, p.stock as stock, p.imagen as imagen, c.id as id_categoria, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria=c.id WHERE p.nombre LIKE ? AND p.precio BETWEEN ? AND ? LIMIT " . $limit . " OFFSET " . $offset; 
         $query = $this->db->prepare($sql);
-        $query->execute();
+        $query->execute(array("%".$product."%", $pricefrom, $priceto));
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
@@ -42,13 +43,6 @@ class ProductModel
         $query->execute(array($id_product));
         return $query->fetch(PDO::FETCH_OBJ);
     }
-
-    // function GetProducts()
-    // {
-    //     $query = $this->db->prepare("SELECT p.id as id_producto, p.nombre as nombre_producto, p.descripcion as desc_producto, p.precio as precio, p.stock as stock, p.imagen as imagen, c.id as id_categoria, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria=c.id ORDER BY p.nombre");
-    //     $query->execute();
-    //     return $query->fetchAll(PDO::FETCH_OBJ);
-    // }
 
     function GetProduct($id_product)
     {
@@ -79,8 +73,7 @@ class ProductModel
 
     function EditProduct($id_producto, $producto, $description, $precio, $stock, $categoria, $imagen = null)
     {
-        $query = $this->db->prepare("UPDATE `producto` SET `nombre` = ?, `descripcion` = ?, `precio` = ?, `stock` = ?, `imagen` = ?, `id_categoria` = ? WHERE `producto`.`id` = ?;
-");
+        $query = $this->db->prepare("UPDATE `producto` SET `nombre` = ?, `descripcion` = ?, `precio` = ?, `stock` = ?, `imagen` = ?, `id_categoria` = ? WHERE `producto`.`id` = ?;");
         $query->execute(array($producto, $description, $precio, $stock, $imagen,$categoria, $id_producto));
     }
 

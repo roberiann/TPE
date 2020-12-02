@@ -41,6 +41,7 @@ $r->addRoute("edit-category", "POST", "CategoryAdminController", "EditCategory")
 $r->addRoute("category/:ID", "GET", "ProductUserController", "ProductsByCategory");
 $r->addRoute("product/:ID", "GET", "ProductUserController", "ProductDetail");
 $r->addRoute("products", "GET", "ProductUserController", "products");
+// $r->addRoute("productsa", "GET", "ProductUserController", "productsa");
 
 
 $r->addRoute("products-admin", "GET", "ProductAdminController", "Products");
