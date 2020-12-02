@@ -18,17 +18,17 @@ class UserController
         $this->authHelper = new AuthHelper();
     }
 
-    function Login()
+    function login()
     {
-        $this->view->ShowLogin();
+        $this->view->showLogin();
     }
 
-    function Logout()
+    function logout()
     {
         $this->authHelper->logout();
     }
 
-    function VerifyUser()
+    function verifyUser()
     {
         $user = $_POST["email"];
         $pass = $_POST["password"];
@@ -47,41 +47,41 @@ class UserController
                         header("Location: " . BASE_URL . "home");
                     }
                 } else {
-                    $this->view->ShowLogin("Contraseña incorrecta");
+                    $this->view->showLogin("Contraseña incorrecta");
                 }
             } else {
-                $this->view->ShowLogin("El usuario no existe");
+                $this->view->showLogin("El usuario no existe");
             }
         } else {
-            $this->view->ShowLogin("Por favor complete usuario y password");
+            $this->view->showLogin("Por favor complete usuario y password");
         }
     }
 
-    function Register()
+    function register()
     {
-        $this->view->ShowRegisterForm();
+        $this->view->showRegisterForm();
     }
 
 
-    function RegisterUser()
+    function registerUser()
     {   $name = $_POST["name"];
         $user = $_POST["email"];
         $pass = $_POST["password"];
 
         if ($pass && $user && $name) {
-            $userFromDB = $this->model->GetUser($user);
+            $userFromDB = $this->model->getUser($user);
             if (!$userFromDB) {
                 $hash = password_hash($pass, PASSWORD_DEFAULT);
                 $this->model->InsertUser($name, $user, $hash);   
-                $newUser = $this->model->GetUser($user);
+                $newUser = $this->model->getUser($user);
                 $this->authHelper->login($newUser);
                 header("Location: " . BASE_URL . "home");
             
             } else {
-                $this->view->ShowRegisterForm("El usuario ya existe");
+                $this->view->showRegisterForm("El usuario ya existe");
             }               
         } else {
-            $this->view->ShowRegisterForm("Por favor complete los datos");
+            $this->view->showRegisterForm("Por favor complete los datos");
         }        
     }
    

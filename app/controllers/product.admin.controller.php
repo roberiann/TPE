@@ -23,17 +23,17 @@ class ProductAdminController
         $this->authHelper->checkAdminLogged();
     }
 
-    function Products()
+    function products()
     {
         $products = $this->model->getProductsAdm();
-        $categories = $this->modelCat->GetCategories();
-        $this->view->ShowProducts($products, $categories);
+        $categories = $this->modelCat->getCategories();
+        $this->view->showProducts($products, $categories);
     }
 
-    function DeleteProduct($params = null)
+    function deleteProduct($params = null)
     {
         $id_product = $params[':ID'];
-        $this->model->Delete($id_product);
+        $this->model->delete($id_product);
         header("Location: " . PRODUCT);
     }
 
@@ -68,15 +68,15 @@ class ProductAdminController
         header("Location: " . PRODUCT);
     }
 
-    function Product($params = null)
+    function product($params = null)
     {
         $id_product = $params[':ID'];
-        $product = $this->model->GetProduct($id_product);
-        $categories = $this->modelCat->GetCategories();
-        $this->view->ShowProductEdit($product, $categories);
+        $product = $this->model->getProduct($id_product);
+        $categories = $this->modelCat->getCategories();
+        $this->view->showProductEdit($product, $categories);
     }
 
-    function EditProduct()
+    function editProduct()
     {
         $product  = $_POST['input_producto'];             
         if (empty($product)) {
@@ -86,7 +86,7 @@ class ProductAdminController
         
         if ($_FILES['input_imagen']['type'] == "image/jpg" || $_FILES['input_imagen']['type'] == "image/jpeg" || $_FILES['input_imagen']['type'] == "image/png") {
             $realName = $this->uniqueSaveName($_FILES['input_imagen']['name'], $_FILES['input_imagen']['tmp_name']);
-            $this->model->EditProduct($_POST['input_id-producto'], $_POST['input_producto'], $_POST['input_descripcion'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria'], $realName);
+            $this->model->editProduct($_POST['input_id-producto'], $_POST['input_producto'], $_POST['input_descripcion'], $_POST['input_precio'], $_POST['input_stock'], $_POST['input_categoria'], $realName);
         }
         header("Location: " . PRODUCT);
     }

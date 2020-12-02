@@ -18,14 +18,14 @@ class CategoryUserController
 
     }
 
-    function Home()
+    function home()
     {   
-        $this->view->ShowHome();
+        $this->view->showHome();
     }
 
-    function Categories()
+    function categories()
     {
-        $categories = $this->model->GetCategories();
-        $this->view->ShowCategories($categories);
+        $categories = $this->model->getCategories();
+        $this->view->showCategories($categories);
     }
 }

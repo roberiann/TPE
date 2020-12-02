@@ -10,7 +10,7 @@
         <div class="col-md-4">
             <form action="edit-product" method="post" enctype="multipart/form-data">
                 <input type="hidden" id="id_producto" name="input_id-producto" value="{$product->id_producto}">
-                
+
                 <article id="data" id_producto="{$product->id_producto}" id_usuario="{$smarty.session.USERID}" admin="{$smarty.session.ADMIN}">
                 </article>
 
@@ -31,10 +31,6 @@
                     <input class="form-control" id="stock" name="input_stock" value="{$product->stock}" type="number">
                 </div>
                 <div class="form-group">
-                    <label for="image">Imagen</label>
-                    <input class="form-control" accept="image/png,  image/jpg, image/jpeg" id="imageToUpload" name="input_imagen" value="{$product->imagen}" type="file">
-                </div>
-                <div class="form-group">
                     <label for="category">Categoria</label>
                     <select name="input_categoria" class="form-control" value="{$product->id_categoria}">
                         {foreach from=$categories item=category}
@@ -45,6 +41,11 @@
                             {/if}
                         {/foreach}
                     </select>
+                </div>
+
+                <div class="input-div">
+                    <label for="imagen">Imagen</label>
+                    <input class="input-img" accept="image/png,  image/jpg, image/jpeg" id="imageToUpload" name="input_imagen" value="{$product->imagen}" type="file">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Guardar</button>

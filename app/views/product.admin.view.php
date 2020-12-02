@@ -12,7 +12,7 @@ class ProductAdminView
         $this->smarty = new Smarty();
     }
 
-    function ShowProducts($products, $categories)
+    function showProducts($products, $categories)
     {
         $this->smarty->assign('titulo', 'LISTADO DE PRODUCTOS');
         $this->smarty->assign('categories', $categories);
@@ -20,7 +20,7 @@ class ProductAdminView
         $this->smarty->display('templates/productsAdmin.tpl');
     }
 
-    function ShowProductEdit($product, $categories)
+    function showProductEdit($product, $categories)
     {
         $this->smarty->assign('titulo', 'Edición de Producto');
         $this->smarty->assign('categories', $categories);

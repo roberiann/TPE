@@ -18,40 +18,40 @@ define("USERS", '//' . $_SERVER["SERVER_NAME"] . ':' . $_SERVER["SERVER_PORT"] .
 $r = new Router();
 
 // rutas
-$r->addRoute("login", "GET", "UserController", "Login");
-$r->addRoute("logout", "GET", "UserController", "Logout");
-$r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
-$r->addRoute("register", "GET", "UserController", "Register");
-$r->addRoute("registerUser", "POST", "UserController", "RegisterUser");
+$r->addRoute("login", "GET", "UserController", "login");
+$r->addRoute("logout", "GET", "UserController", "logout");
+$r->addRoute("verifyUser", "POST", "UserController", "verifyUser");
+$r->addRoute("register", "GET", "UserController", "register");
+$r->addRoute("registerUser", "POST", "UserController", "registerUser");
 
-$r->addRoute("users", "GET", "UserAdminController", "GetUsers");
-$r->addRoute("edit-user/:ID", "GET", "UserAdminController", "EditUser");
-$r->addRoute("delete-user/:ID", "GET", "UserAdminController", "DeleteUser");
+$r->addRoute("users", "GET", "UserAdminController", "getUsers");
+$r->addRoute("edit-user/:ID", "GET", "UserAdminController", "editUser");
+$r->addRoute("delete-user/:ID", "GET", "UserAdminController", "deleteUser");
 
-$r->addRoute("home", "GET", "CategoryUserController", "Home");
-$r->addRoute("categories", "GET", "CategoryUserController", "Categories");
+$r->addRoute("home", "GET", "CategoryUserController", "home");
+$r->addRoute("categories", "GET", "CategoryUserController", "categories");
 
-$r->addRoute("categories-admin", "GET", "CategoryAdminController", "Categories");
-$r->addRoute("insert-category", "POST", "CategoryAdminController", "InsertCategory");
-$r->addRoute("delete-category/:ID", "GET", "CategoryAdminController", "DeleteCategory");
-$r->addRoute("category-edit/:ID", "GET", "CategoryAdminController", "Category");
-$r->addRoute("edit-category", "POST", "CategoryAdminController", "EditCategory");
+$r->addRoute("categories-admin", "GET", "CategoryAdminController", "categories");
+$r->addRoute("insert-category", "POST", "CategoryAdminController", "insertCategory");
+$r->addRoute("delete-category/:ID", "GET", "CategoryAdminController", "deleteCategory");
+$r->addRoute("category-edit/:ID", "GET", "CategoryAdminController", "category");
+$r->addRoute("edit-category", "POST", "CategoryAdminController", "editCategory");
 
 
-$r->addRoute("category/:ID", "GET", "ProductUserController", "ProductsByCategory");
-$r->addRoute("product/:ID", "GET", "ProductUserController", "ProductDetail");
+$r->addRoute("category/:ID", "GET", "ProductUserController", "productsByCategory");
+$r->addRoute("product/:ID", "GET", "ProductUserController", "productDetail");
 $r->addRoute("products", "GET", "ProductUserController", "products");
 // $r->addRoute("productsa", "GET", "ProductUserController", "productsa");
 
 
-$r->addRoute("products-admin", "GET", "ProductAdminController", "Products");
-$r->addRoute("delete-product/:ID", "GET", "ProductAdminController", "DeleteProduct");
+$r->addRoute("products-admin", "GET", "ProductAdminController", "products");
+$r->addRoute("delete-product/:ID", "GET", "ProductAdminController", "deleteProduct");
 $r->addRoute("insert-product", "POST", "ProductAdminController", "addProduct");
-$r->addRoute("edit-product/:ID", "GET", "ProductAdminController", "Product");        
-$r->addRoute("edit-product", "POST", "ProductAdminController", "EditProduct");
+$r->addRoute("edit-product/:ID", "GET", "ProductAdminController", "product");        
+$r->addRoute("edit-product", "POST", "ProductAdminController", "editProduct");
 
 //Ruta por defecto.
-$r->setDefaultRoute("CategoryUserController", "Home");
+$r->setDefaultRoute("CategoryUserController", "home");
 
 //run
 $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);

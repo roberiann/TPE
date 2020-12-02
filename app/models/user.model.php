@@ -14,28 +14,28 @@ class UserModel
         $this->db = $this->dbHelper->connect();
     }
 
-    function GetUser($user)
+    function getUser($user)
     {
         $query = $this->db->prepare("SELECT * FROM usuario WHERE email=?");
         $query->execute(array($user));
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    function InsertUser($name, $user, $hash)
+    function insertUser($name, $user, $hash)
     {
         $query = $this->db->prepare("INSERT INTO usuario (nombre, email, password) VALUES (?, ?, ?)");
         $query->execute(array($name, $user, $hash));
         return $this->db->lastInsertId();
     }
 
-    function GetUsers($id_user)
+    function getUsers($id_user)
     {
         $query = $this->db->prepare("SELECT u.id as id_usuario, u.nombre as nombre_usuario, u.email as email, u.admin as admin FROM usuario u WHERE ? <> u.id");
         $query->execute(array($id_user));
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    function GetUserById($id_usuario)
+    function getUserById($id_usuario)
     {
         $query = $this->db->prepare("SELECT `u`.`id` as `id_usuario`, `u`.`nombre` as `nombre_usuario`, `u`.`email` as `email`, `u`.`admin` as `admin` FROM usuario u WHERE `u`.`id`=?");
         $query->execute(array($id_usuario));
@@ -48,7 +48,7 @@ class UserModel
         $query->execute(array($admin, $id_user));
     }
 
-    function DeleteUser($id_user)
+    function deleteUser($id_user)
     {
         $query = $this->db->prepare("DELETE FROM usuario WHERE id=?");
         $query->execute(array($id_user));

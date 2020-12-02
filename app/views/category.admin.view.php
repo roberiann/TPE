@@ -12,14 +12,14 @@ class CategoryAdminView
         $this->smarty = new Smarty();
     }
 
-    function ShowCategories($categories)
+    function showCategories($categories)
     {
         $this->smarty->assign('titulo', 'Listado de Categorias');
         $this->smarty->assign('categories', $categories);
         $this->smarty->display('templates/categoriesAdmin.tpl');
     }
 
-    function ShowCategoryEdit($category)
+    function showCategoryEdit($category)
     {
         $this->smarty->assign('titulo', 'Edición de Categoría');
         $this->smarty->assign('category', $category);

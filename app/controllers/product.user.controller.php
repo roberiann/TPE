@@ -19,18 +19,18 @@ class ProductUserController
 
     }
 
-    function ProductsByCategory($params = null)
+    function productsByCategory($params = null)
     {
         $id_category = $params[':ID'];
-        $products = $this->model->GetProductsByCategory($id_category);
-        $this->view->ShowProductsByCategory($products);                 
+        $products = $this->model->getProductsByCategory($id_category);
+        $this->view->showProductsByCategory($products);                 
     }
 
-    function ProductDetail($params = null)
+    function productDetail($params = null)
     {
         $id_product = $params[':ID'];
-        $product = $this->model->GetProduct($id_product);
-        $this->view->ShowProductDetail($product);
+        $product = $this->model->getProduct($id_product);
+        $this->view->showProductDetail($product);
     }
 
     // function products($params = null)
@@ -47,7 +47,7 @@ class ProductUserController
     //     $no_of_pages = ceil($total_rows->no/$no_of_products);
 
     //     $products =  $this->model->getProducts($no_of_products, $offset);
-    //     $this->view->ShowProducts($products, $pageno, $no_of_pages);
+    //     $this->view->showProducts($products, $pageno, $no_of_pages);
 
     // }
 
@@ -80,7 +80,7 @@ class ProductUserController
         $no_of_pages = ceil($total_rows->no/$no_of_products);
 
         $products =  $this->model->getProducts($product, $pricefrom, $priceto, $no_of_products, $offset);
-        $this->view->ShowProducts($products, $product, $pricefrom, $priceto, $pageno, $no_of_pages);
+        $this->view->showProducts($products, $product, $pricefrom, $priceto, $pageno, $no_of_pages);
     }
     
 }

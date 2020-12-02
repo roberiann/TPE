@@ -20,23 +20,23 @@ class UserAdminController
         $this->authHelper->checkAdminLogged();
     }
 
-    function GetUsers(){
+    function getUsers(){
         $id_user = $this->authHelper->getUserId();
-        $users = $this->model->GetUsers($id_user);
-        $this->view->ShowUsers($users);
+        $users = $this->model->getUsers($id_user);
+        $this->view->showUsers($users);
     }
 
-    function EditUser($params = null){
+    function editUser($params = null){
         $id_user = $params[':ID'];
-        $user = $this->model->GetUserById($id_user);
+        $user = $this->model->getUserById($id_user);
         $this->model->setAdmin($id_user, !($user->admin));    
         header("Location: " . USERS);
     }
 
-    function DeleteUser($params = null)
+    function deleteUser($params = null)
     {
         $id_user = $params[':ID'];
-        $this->model->DeleteUser($id_user);
+        $this->model->deleteUser($id_user);
         header("Location: " . USERS);
     }
 }

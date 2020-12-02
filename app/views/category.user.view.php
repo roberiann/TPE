@@ -12,13 +12,13 @@ class CategoryView
         $this->smarty = new Smarty();
     }
 
-    function ShowHome()
+    function showHome()
     {
         $this->smarty->assign('titulo', 'ARTE SANO');
         $this->smarty->display('templates/home.tpl');
     }
 
-    function ShowCategories($categories)
+    function showCategories($categories)
     {
         $this->smarty->assign('titulo', 'CATEGORIAS');
         $this->smarty->assign('categories', $categories);

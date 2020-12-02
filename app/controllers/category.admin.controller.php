@@ -20,13 +20,13 @@ class CategoryAdminController
         $this->authHelper->checkAdminLogged();
     }
 
-    function Categories()
+    function categories()
     {
-        $categories = $this->model->GetCategories();
-        $this->view->ShowCategories($categories);
+        $categories = $this->model->getCategories();
+        $this->view->showCategories($categories);
     }
 
-    function InsertCategory()
+    function insertCategory()
     {
         $category = $_POST['input_categoria'];
 
@@ -34,14 +34,14 @@ class CategoryAdminController
             $this->view->showError('Por favor, complete el nombre de la categoría');
             die();
         }
-        $this->model->InsertCategory($_POST['input_categoria'], $_POST['input_descripcion']);
+        $this->model->insertCategory($_POST['input_categoria'], $_POST['input_descripcion']);
         header("Location: " . CATEGORY);
     }
 
-    function DeleteCategory($params = null)
+    function deleteCategory($params = null)
     {
         $id_category = $params[':ID'];
-        $success    = $this->model->DeleteCategory($id_category);
+        $success    = $this->model->deleteCategory($id_category);
         if ($success) {
             header("Location: " . CATEGORY);
         } else {
@@ -49,14 +49,14 @@ class CategoryAdminController
         }
     }
 
-    function Category($params = null)
+    function category($params = null)
     {
         $id_category = $params[':ID'];
-        $category = $this->model->GetCategory($id_category);
-        $this->view->ShowCategoryEdit($category);
+        $category = $this->model->getCategory($id_category);
+        $this->view->showCategoryEdit($category);
     }
 
-    function EditCategory()
+    function editCategory()
     {
         $category = $_POST['input_categoria'];
 
@@ -64,7 +64,7 @@ class CategoryAdminController
             $this->view->showError('Por favor, complete el nombre de la categoría');
             die();
         }
-        $this->model->EditCategory($_POST['input_id-categoria'], $_POST['input_categoria'], $_POST['input_descripcion']);
+        $this->model->editCategory($_POST['input_id-categoria'], $_POST['input_categoria'], $_POST['input_descripcion']);
         header("Location: " . CATEGORY);
     }
 }
