@@ -14,19 +14,35 @@ class ProductModel
         $this->db = $this->dbHelper->connect();
     }
 
-    function countProducts($product, $pricefrom, $priceto)
-    {
+    function countProducts($product, $pricefrom, $priceto, $category)
+    {    
         $sql = "SELECT COUNT(*) as no FROM producto p INNER JOIN categoria c ON p.id_categoria=c.id WHERE p.nombre LIKE ? AND p.precio BETWEEN ? AND ?"; 
+         
+        if ($category != "") {
+             $sql .= " AND c.id = ?";
+             $aux = array("%".$product."%", $pricefrom, $priceto, $category);
+        } else {
+             $aux = array("%".$product."%", $pricefrom, $priceto);
+        }
+
         $query = $this->db->prepare($sql);
-        $query->execute(array("%".$product."%", $pricefrom, $priceto));
+        $query->execute($aux);
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    function getProducts($product, $pricefrom , $priceto, $limit, $offset)
+    function getProducts($product, $pricefrom , $priceto, $category, $limit, $offset)
     {   
-        $sql = "SELECT p.id as id_producto, p.nombre as nombre_producto, p.descripcion as desc_producto, p.precio as precio, p.stock as stock, p.imagen as imagen, c.id as id_categoria, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria=c.id WHERE p.nombre LIKE ? AND p.precio BETWEEN ? AND ? LIMIT " . $limit . " OFFSET " . $offset; 
+        $sql = "SELECT p.id as id_producto, p.nombre as nombre_producto, p.descripcion as desc_producto, p.precio as precio, p.stock as stock, p.imagen as imagen, c.id as id_categoria, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria=c.id WHERE p.nombre LIKE ? AND p.precio BETWEEN ? AND ?";
+        $lim = " LIMIT " . $limit . " OFFSET " . $offset; 
+        if ($category != "") {
+             $sql .= " AND c.id = ?" . $lim;
+             $aux = array("%".$product."%", $pricefrom, $priceto, $category);
+        } else {
+             $sql .= $lim;    
+             $aux = array("%".$product."%", $pricefrom, $priceto);
+        }    
         $query = $this->db->prepare($sql);
-        $query->execute(array("%".$product."%", $pricefrom, $priceto));
+        $query->execute($aux);
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
@@ -65,7 +81,6 @@ class ProductModel
         return $query->fetch(PDO::FETCH_OBJ);
 
     }
-
 
     function delete($id_producto)
     {

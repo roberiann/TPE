@@ -53,7 +53,6 @@ class ProductAdminController
         $stock       = $_POST['input_stock'];
         $categoria   = $_POST['input_categoria'];
 
-        //Validar que un producto exista
         if (empty($producto)) {
             $this->view->showError('Por favor complete el nombre del producto.');
             die();
@@ -80,7 +79,9 @@ class ProductAdminController
 
     function editProduct()
     {
-        $product  = $_POST['input_producto'];             
+        $product  = $_POST['input_producto'];    
+        $image = $this->model->getImagePath($_POST['input_id-producto']);
+        unlink($image->imagen);         
         if (empty($product)) {
             $this->view->showError('Por favor complete el nombre del producto.');
             die();

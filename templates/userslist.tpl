@@ -23,9 +23,9 @@
                     <td> {$user->admin}</td>
                     <td><button class="btn-mod" id="btn-edit"><a href="edit-user/{$user->id_usuario}">
                     {if $user->admin eq 1}
-                        QuitarAdmin
+                        DelAdm
                     {else}
-                        DarAdmin
+                        AddAdm
                     {/if}                    
                     </a></button></td> 
                     <td><button class="btn-mod"><a href="delete-user/{$user->id_usuario}">X</a></button></td>               

@@ -72,7 +72,7 @@ class UserController
             $userFromDB = $this->model->getUser($user);
             if (!$userFromDB) {
                 $hash = password_hash($pass, PASSWORD_DEFAULT);
-                $this->model->InsertUser($name, $user, $hash);   
+                $this->model->insertUser($name, $user, $hash);   
                 $newUser = $this->model->getUser($user);
                 $this->authHelper->login($newUser);
                 header("Location: " . BASE_URL . "home");

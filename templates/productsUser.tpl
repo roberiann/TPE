@@ -11,6 +11,16 @@
             <div class="container py-10">
                 <div>
                     <ul class="list-group shadow">
+                        {if empty($products)}
+                            <li class="list-group-item">
+                                <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                                    <div class="media-body order-2 order-lg-1">
+                                        <h5 class="mt-0 font-weight-bold mb-2">No existen productos disponibles.</h5>
+                                        <h5 class="mt-0 font-weight-bold mb-2">Por favor realice una nueva consulta.</h5>
+                                    </div>
+                                </div>
+                            </li>
+                        {/if}
                         {foreach from=$products item=product}
                             <li class="list-group-item">
                                 <div class="media align-items-lg-center flex-column flex-lg-row p-3">
@@ -29,13 +39,17 @@
 
                     <nav aria-label="Page navigation">
                         <ul class="pagination justify-content-center ">
-                            <li class="page-item {if $pageno <= 1}disabled{/if}">
-                                <a class="page-link" href="{if $pageno <= 1}#{else}products?product={$product}&pricefrom={$pricefrom}&priceto={$priceto}&page={$pageno-1}{/if}">Anterior</a></li>
+                            {if !empty($products)}
+                                <li class="page-item {if $pageno <= 1}disabled{/if}">
+                                    <a class="page-link" href="{if $pageno <= 1}#{else}products?product={$product}&pricefrom={$pricefrom}&priceto={$priceto}&category={$category}&page={$pageno-1}{/if}">Anterior</a></li>
+                            {/if}
                             {for $i=1 to $no_of_pages}
-                                <li class="page-item"><a class="page-link" href="products?product={$product}&pricefrom={$pricefrom}&priceto={$priceto}&page={$i}">{$i}</a></li>
+                                <li class="page-item"><a class="page-link" href="products?product={$product}&pricefrom={$pricefrom}&priceto={$priceto}&category={$category}&page={$i}">{$i}</a></li>
                             {/for}
-                            <li class="page-item {if $pageno >= $no_of_pages}disabled{/if}">
-                                <a class="page-link" href="{if $pageno >= $no_of_pages}#{else}products?product={$product}&pricefrom={$pricefrom}&priceto={$priceto}&page={$pageno+1}{/if}">Siguiente</a></li>
+                            {if !empty($products)}
+                                <li class="page-item {if $pageno >= $no_of_pages}disabled{/if}">
+                                    <a class="page-link" href="{if $pageno >= $no_of_pages}#{else}products?product={$product}&pricefrom={$pricefrom}&priceto={$priceto}&category={$category}&page={$pageno+1}{/if}">Siguiente</a></li>
+                            {/if}
                         </ul>
                     </nav>
                 </div>

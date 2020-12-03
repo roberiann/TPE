@@ -12,15 +12,17 @@ class ProductView
         $this->smarty = new Smarty();
     }
 
-    function showProducts($products, $product, $pricefrom, $priceto, $pageno, $no_of_pages)
+    function showProducts($products, $product, $pricefrom, $priceto, $category, $pageno, $no_of_pages, $categories)
     {
         $this->smarty->assign('titulo', 'LISTADO DE PRODUCTOS');
         $this->smarty->assign('products', $products);
         $this->smarty->assign('product', $product);
         $this->smarty->assign('pricefrom', $pricefrom);
         $this->smarty->assign('priceto', $priceto);
+        $this->smarty->assign('category', $category);
         $this->smarty->assign('pageno', $pageno);
         $this->smarty->assign('no_of_pages', $no_of_pages);
+        $this->smarty->assign('categories', $categories);
         $this->smarty->display('templates/productsUser.tpl');
     }
 

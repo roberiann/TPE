@@ -44,6 +44,7 @@
                             {foreach from=$categories item=category}
                                 <option value="{$category->id}">{$category->nombre}</option>
                             {/foreach}
+                        </select>
                     <td>
                         <div class="custom-file" id="customFile">
                             <input type="file" class="file-input" id="imageToUpload" name="input_name" aria-describedby="fileHelp">
